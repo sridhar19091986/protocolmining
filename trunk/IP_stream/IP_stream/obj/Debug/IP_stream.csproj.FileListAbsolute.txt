@@ -1,0 +1,13 @@
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\IP_stream\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\IP_stream\obj\Debug\IP_stream.Form1.resources
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\IP_stream\obj\Debug\IP_stream.Properties.Resources.resources
+C:\Documents and Settings\Administrator\Local Settings\Application Data\Temporary Projects\IP_stream\obj\Debug\IP_stream.csproj.GenerateResource.Cache
+F:\项目开发LIB\IP_stream\IP_stream\bin\Debug\IP_stream.exe.config
+F:\项目开发LIB\IP_stream\IP_stream\bin\Debug\IP_stream.exe
+F:\项目开发LIB\IP_stream\IP_stream\bin\Debug\IP_stream.pdb
+F:\项目开发LIB\IP_stream\IP_stream\obj\Debug\ResolveAssemblyReference.cache
+F:\项目开发LIB\IP_stream\IP_stream\obj\Debug\IP_stream.Form1.resources
+F:\项目开发LIB\IP_stream\IP_stream\obj\Debug\IP_stream.Properties.Resources.resources
+F:\项目开发LIB\IP_stream\IP_stream\obj\Debug\IP_stream.csproj.GenerateResource.Cache
+F:\项目开发LIB\IP_stream\IP_stream\obj\Debug\IP_stream.exe
+F:\项目开发LIB\IP_stream\IP_stream\obj\Debug\IP_stream.pdb
