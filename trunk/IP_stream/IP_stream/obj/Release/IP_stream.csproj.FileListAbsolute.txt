@@ -13,3 +13,5 @@ F:\项目开发LIB\IP_stream\IP_stream\obj\Release\GenerateResource-ResGen.read.
 F:\项目开发LIB\IP_stream\IP_stream\obj\Release\GenerateResource.read.1.tlog
 F:\项目开发LIB\IP_stream\IP_stream\obj\Release\GenerateResource-ResGen.write.1.tlog
 F:\项目开发LIB\IP_stream\IP_stream\obj\Release\GenerateResource.write.1.tlog
+G:\protocolmining\IP_stream\IP_stream\obj\Release\IP_stream.exe
+G:\protocolmining\IP_stream\IP_stream\obj\Release\IP_stream.pdb
