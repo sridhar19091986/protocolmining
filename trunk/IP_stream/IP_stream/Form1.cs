@@ -15,6 +15,9 @@ using System.Threading;
 using System.Diagnostics;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using connStringConfig;
+using streamTypeDefine;
+using Altova.Types;
 
 namespace IP_stream
 {
@@ -102,14 +105,28 @@ namespace IP_stream
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs c)
         {
+            /*
             XElement dataConfig = XElement.Load(streamType.configXmlPath);
-            string a = checkedListBox1.GetItemText(checkedListBox1.SelectedItem);
-            string b = null;
             foreach (var q1 in dataConfig.Elements("connectionStrings"))
                 if (q1.Element("connectionString").Value == a)
                     b = a;
             if (b == null)
                 b = appConfig.GetConnectionStringsConfig("IP_stream.Properties.Settings.IP_StreamConnectionString");
+             * 
+             * */
+            string a = checkedListBox1.GetItemText(checkedListBox1.SelectedItem);
+            string b = null;
+            connStringConfig.connStringConfig2 doc = connStringConfig.connStringConfig2.LoadFromFile(streamType.configXmlPath);
+            connStringConfig.configurationType level1 = doc.configuration.First;
+            connStringConfig.configSectionsType level2sec = level1.configSections.First;
+            connStringConfig.connectionStringsType level2str = level1.connectionStrings.First;
+            for (int i = 0; i < level2sec.add.Count; i++)
+                if(level2sec.add.At(i).name.Value==a)
+                b=level2sec.add.At(i).connectionString.Value;
+            
+            for (int i = 0; i < level2str.add.Count; i++)
+                if (level2str.add.At(i).name.Value== a)
+                    b = level2str.add.At(i).connectionString.Value;
             richTextBox1.Text = b;
         }
 
@@ -120,7 +137,7 @@ namespace IP_stream
             XElement dataConfig = XElement.Load(streamType.configXmlPath);
             XElement mod = dataConfig.Elements("connectionStrings").ElementAt(0);
             mod.Element("connectionString").Value = streamType.RemoteConnString;
-            mod.Element("DateTime").Value = DateTime.Now.ToString();
+            mod.Element("DateTime").Value = System.DateTime.Now.ToString();
             dataConfig.Save(streamType.configXmlPath);
             refreshCheckListBox();
             toolStripStatusLabel2.Text = streamType.RemoteConnString;
@@ -129,14 +146,47 @@ namespace IP_stream
             streamType.InsertConnString = streamType.RemoteConnString;
             MessageBox.Show("OK");
         }
-
         private void refreshCheckListBox()
         {
             checkedListBox1.Items.Clear();
-            this.checkedListBox1.Items.AddRange(new object[] { "sqlexpress", "localhost", "192.168.1.12", "......Config" });
-            XElement dataConfig = XElement.Load(streamType.configXmlPath);
-            foreach (var q1 in dataConfig.Elements("connectionStrings"))
-                checkedListBox1.Items.Add(q1.Element("connectionString").Value);
+            connStringConfig.connStringConfig2 doc = connStringConfig.connStringConfig2.LoadFromFile(streamType.configXmlPath);
+            connStringConfig.configurationType level1 = doc.configuration.First;
+            connStringConfig.configSectionsType level2sec = level1.configSections.First;
+            connStringConfig.connectionStringsType level2str = level1.connectionStrings.First;
+            for (int i = 0; i < level2sec.add.Count; i++)
+                checkedListBox1.Items.Add(level2sec.add.At(i).name.Value);
+            for (int i = 0; i < level2str.add.Count; i++)
+                checkedListBox1.Items.Add(level2str.add.At(i).name.Value );
+        }
+        private void refreshCheckListBox2()
+        {
+            checkedListBox1.Items.Clear();
+           // this.checkedListBox1.Items.AddRange(new object[] { "sqlexpress", "localhost", "192.168.1.12", "......Config" });
+           // XElement dataConfig = XElement.Load(streamType.configXmlPath);
+           // foreach (var q1 in dataConfig.Elements("connectionStrings"))
+            //    checkedListBox1.Items.Add(q1.Element("connectionString").Value);
+            connStringConfig.connStringConfig2 doc = connStringConfig.connStringConfig2.LoadFromFile(streamType.configXmlPath);
+            connStringConfig.configurationType level1 = doc.configuration.First;
+            connStringConfig.configSectionsType level2sec = level1.configSections.First;
+            connStringConfig.connectionStringsType level2str = level1.connectionStrings.First;
+            for (int i = 0; i < level2sec.add.Count; i++)
+            {
+                var b=level2sec.add.At(i).connectionString.Value;
+                string[] s=b.Split(new char[]{';','=','"'});
+                string name=s[1]+"_"+s[3];
+                level2sec.add.At(i).name.Value = name;
+                checkedListBox1.Items.Add(name);
+            }
+            for (int i = 0; i < level2str.add.Count; i++)
+            {
+                var b = level2str.add.At(i).connectionString.Value;
+                string[] s = b.Split(new char[] { ';', '=', '"' });
+                string name = s[1] + "_" + s[3];
+                level2str.add.At(i).name.Value = name;
+                checkedListBox1.Items.Add(name);
+            }
+
+              doc.SaveToFile(streamType.configXmlPath, true);
         }
         private void refreshTreeView1()
         {
@@ -174,13 +224,25 @@ namespace IP_stream
         }
         private void Form1_Load(object sender, EventArgs c)
         {
-
+            /*
             #region   远程数据库，取xml文件中第一个连接
             XElement dataConfig = XElement.Load(streamType.configXmlPath);
             XElement mod = dataConfig.Elements("connectionStrings").ElementAt(0);
             streamType.RemoteConnString = mod.Element("connectionString").Value;
             toolStripStatusLabel2.Text = streamType.RemoteConnString;
             #endregion
+             * 
+             * */
+
+            #region   远程数据库，取xml文件中<configSections>中的连接
+            connStringConfig.connStringConfig2 doc = connStringConfig.connStringConfig2.LoadFromFile(streamType.configXmlPath);
+            connStringConfig.configurationType level1= doc.configuration.First;
+            connStringConfig.configSectionsType level2 = level1.configSections.First;
+            streamType.RemoteConnString = level2.add.First.connectionString.Value;
+            toolStripStatusLabel2.Text = streamType.RemoteConnString;
+            #endregion
+
+
 
             refreshCheckListBox();
             refreshTreeView1();
@@ -205,7 +267,7 @@ namespace IP_stream
             string rem = checkedListBox1.GetItemText(checkedListBox1.SelectedItem);
             XElement mod = dataConfig.Elements("connectionStrings").Where(e => e.Element("connectionString").Value == rem).First();
             mod.Element("connectionString").Value = richTextBox1.Text;
-            mod.Element("DateTime").Value = DateTime.Now.ToString();
+            mod.Element("DateTime").Value = System.DateTime.Now.ToString();
             dataConfig.Save(streamType.configXmlPath);
             refreshCheckListBox();
         }
@@ -215,7 +277,7 @@ namespace IP_stream
             XElement dataConfig = XElement.Load(streamType.configXmlPath);
             XElement addx = new XElement("connectionStrings",
             new XElement("connectionString", richTextBox1.Text),
-            new XElement("DateTime", DateTime.Now));
+            new XElement("DateTime", System.DateTime.Now));
             dataConfig.Add(addx);
             dataConfig.Save(streamType.configXmlPath);
             refreshCheckListBox();

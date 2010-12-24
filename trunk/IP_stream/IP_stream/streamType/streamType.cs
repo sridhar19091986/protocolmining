@@ -9,9 +9,9 @@ namespace IP_stream
 {
     class streamType
     {
-        public const string configXmlPath = @"F:\项目开发LIB\IP_stream\IP_stream\appConfig\connStringConfig.xml";
-        public const string streamTypeXmlPath = @"F:\项目开发LIB\IP_stream\IP_stream\appConfig\streamTypeDefine.xml";
-        public const string imeiTypeXmlPath = @"F:\项目开发LIB\IP_stream\IP_stream\appConfig\imeiFactoryType.xml";
+        public const string configXmlPath = @"G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig.xml";
+        public const string streamTypeXmlPath = @"G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine.xml";
+        public const string imeiTypeXmlPath = @"G:\protocolmining\IP_stream\IP_stream\appConfig\imeiFactoryType.xml";
 
         public XElement dataConfig = XElement.Load(streamTypeXmlPath);
         //本地库，小区类型表，IMEI类型表

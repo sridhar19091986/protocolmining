@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<StreamIdentification>
+<?xml version="1.0" encoding="utf-8"?>
+<StreamIdentification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine.xsd">
 	<!--端口识别-->
 	<!--ip地址根据uri识别的地址池反转-->
 	<TcpPortType>
@@ -20,20 +20,20 @@
 			<port>218.204.254.237</port>
 			<port>218.200.160.29</port>
 		</ports>
-		<ports  name="MMS">
+		<ports name="MMS">
 			<port>211.94.156.162</port>
 			<port>211.139.144.145</port>
 			<port>211.136.221.125</port>
 			<port>211.138.100.244</port>
-		</ports >
-		<ports  name="StockCategory">
+		</ports>
+		<ports name="StockCategory">
 			<port>61.145.124.185</port>
 			<port>222.73.34.5</port>
 			<port>222.73.34.8</port>
 			<port>222.73.34.172</port>
 			<port>211.136.107.88</port>
-	    </ports>
-</TcpPortType>
+		</ports>
+	</TcpPortType>
 	<!--URI识别-->
 	<HttpWspUriType>
 		<uris name="P2P">

@@ -1,0 +1,11 @@
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\bin\Debug\connStringConfigTest.exe
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\bin\Debug\connStringConfigTest.pdb
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\bin\Debug\Altova.dll
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\bin\Debug\AltovaXML.dll
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\bin\Debug\connStringConfig.dll
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\bin\Debug\connStringConfig.pdb
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\bin\Debug\AltovaXML.pdb
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\bin\Debug\Altova.pdb
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\obj\Debug\ResolveAssemblyReference.cache
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\obj\Debug\connStringConfigTest.exe
+G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\obj\Debug\connStringConfigTest.pdb

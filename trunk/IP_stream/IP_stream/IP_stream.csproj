@@ -31,13 +31,25 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>D:\My Documents\桌面\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Altova">
+      <HintPath>appConfig\lib\Altova.dll</HintPath>
+    </Reference>
+    <Reference Include="AltovaXML">
+      <HintPath>appConfig\lib\AltovaXML.dll</HintPath>
+    </Reference>
+    <Reference Include="connStringConfig">
+      <HintPath>appConfig\lib\connStringConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="streamTypeDefine">
+      <HintPath>appConfig\lib\streamTypeDefine.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">

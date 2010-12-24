@@ -1,47 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <connectionStrings>
-    <connectionString>Data Source=192.168.1.17;Initial Catalog=sz_17a_20100818_18;Persist Security Info=True;User ID=sa;Password=sa</connectionString>
-    <DateTime>2010-8-27 15:31:38</DateTime>
-  </connectionStrings>
-  <connectionStrings>
-    <connectionString>Data Source=localhost;Initial Catalog=ip_stream;Integrated Security=True</connectionString>
-    <DateTime>2010-8-1 22:52:08</DateTime>
-  </connectionStrings>
-  <connectionStrings>
-    <connectionString>Data Source=192.168.1.12;Initial Catalog=IP_stream_23a_20100524_new;Persist Security Info=True;User ID=sa;Password=sa</connectionString>
-    <DateTime>2010-8-3 11:03:46</DateTime>
-  </connectionStrings>
-  <connectionStrings>
-    <connectionString>Data Source=.\sqlexpress;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;User Instance=True</connectionString>
-    <DateTime>2010-8-3 21:26:22</DateTime>
-  </connectionStrings>
-  <connectionStrings>
-    <connectionString>Data Source=192.168.1.4;Initial Catalog=IP_stream_23A_20100524_new;Persist Security Info=True;User ID=sa;Password=sa</connectionString>
-    <DateTime>2010-08-03T11:26:55.828125+08:00</DateTime>
-  </connectionStrings>
-  <connectionStrings>
-    <connectionString>Data Source=localhost;Initial Catalog=ip_stream;Integrated Security=True</connectionString>
-    <DateTime>2010-08-03T20:44:38.828125+08:00</DateTime>
-  </connectionStrings>
-  <connectionStrings>
-    <connectionString>Data Source=.\SQLEXPRESS;Initial Catalog=ip_stream;Integrated Security=True</connectionString>
-    <DateTime>2010-08-18T22:28:54.828125+08:00</DateTime>
-  </connectionStrings>
-  <connectionStrings>
-    <connectionString>Data Source=192.168.1.3;Initial Catalog=IP_stream_37b_20100521_new4;Persist Security Info=True;User ID=sa;Password=sa</connectionString>
-    <DateTime>2010-08-20T09:37:29.40625+08:00</DateTime>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig.xsd">
+  <configSections>
+    <add name="localhost_test" connectionString="Data Source=localhost;Initial Catalog=test;User ID=sa;password=sa;" providerName="System.Data.SqlClient" />
+  </configSections>
+  <connectionStrings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <add name="localhost_test" connectionString="Data Source=localhost;Initial Catalog=test;User ID=sa;password=sa;" providerName="System.Data.SqlClient" />
+    <add name="TEST_sa" connectionString="Data Source=TEST;User ID=sa;Password=sa;" providerName="System.Data.OracleClient" />
+    <add name="192.168.1.17_sz_17a_20100818_18" connectionString="Data Source=192.168.1.17;Initial Catalog=sz_17a_20100818_18;Persist Security Info=True;User ID=sa;Password=sa" providerName="System.Data.SqlClient" />
+    <add name="localhost_ip_stream" connectionString="Data Source=localhost;Initial Catalog=ip_stream;Integrated Security=True" providerName="System.Data.SqlClient" />
+    <add name="192.168.1.12_IP_stream_23a_20100524_new" connectionString="Data Source=192.168.1.12;Initial Catalog=IP_stream_23a_20100524_new;Persist Security Info=True;User ID=sa;Password=sa" providerName="System.Data.SqlClient" />
+    <add name=".\sqlexpress_|DataDirectory|\Database.mdf" connectionString="Data Source=.\sqlexpress;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;User Instance=True" providerName="System.Data.SqlClient" />
+    <add name=".\SQLEXPRESS_ip_stream" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ip_stream;Integrated Security=True" providerName="System.Data.SqlClient" />
+    <add name="192.168.1.17_sz_23A_20100524_11" connectionString="Data Source=192.168.1.17;Initial Catalog=sz_23A_20100524_11;Persist Security Info=True;User ID=sa;Password=sa" providerName="System.Data.SqlClient" />
   </connectionStrings>
   <connectionStrings>
     <connectionString>Data Source=192.168.1.17;Initial Catalog=sz_17a_20100818_18;Persist Security Info=True;User ID=sa;Password=sa</connectionString>
-    <DateTime>2010-08-20T13:55:46.78125+08:00</DateTime>
+    <DateTime>2010-12-24T16:55:50.203125+08:00</DateTime>
   </connectionStrings>
   <connectionStrings>
     <connectionString>Data Source=192.168.1.17;Initial Catalog=sz_23A_20100524_11;Persist Security Info=True;User ID=sa;Password=sa</connectionString>
-    <DateTime>2010-08-20T13:56:32.546875+08:00</DateTime>
-  </connectionStrings>
-  <connectionStrings>
-    <connectionString>Data Source=.\SQLEXPRESS;Initial Catalog=23A;Integrated Security=True</connectionString>
-    <DateTime>2010-08-25T21:34:37.03125+08:00</DateTime>
+    <DateTime>2010-12-24T16:56:00.390625+08:00</DateTime>
   </connectionStrings>
 </configuration>
