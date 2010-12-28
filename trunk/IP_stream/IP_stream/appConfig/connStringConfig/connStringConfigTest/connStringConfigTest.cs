@@ -29,13 +29,13 @@ namespace connStringConfig
 			//
 			// Example code to create and save a structure:
 			//   connStringConfig.connStringConfig2 doc = connStringConfig.connStringConfig2.CreateDocument();			
-			//   connStringConfig.connectionStringsType root = doc.connectionStrings.Append();
+			//   connStringConfig.configurationType root = doc.configuration.Append();
 			//   ...
 			//   doc.SaveToFile("connStringConfig1.xml", true);
 			//
 			// Example code to load and save a structure:
 			//   connStringConfig.connStringConfig2 doc = connStringConfig.connStringConfig2.LoadFromFile("connStringConfig1.xml");
-			//   connStringConfig.connectionStringsType root = doc.connectionStrings.First;
+			//   connStringConfig.configurationType root = doc.configuration.First;
 			//   ...
 			//   doc.SaveToFile("connStringConfig1.xml", true);
 

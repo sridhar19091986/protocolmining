@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB27038C-4467-8245-82EA-01B980169C6B}</ProjectGuid>
+    <ProjectGuid>{98947870-2DB2-F44A-9B05-48C1762012AF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>connStringConfigTest</RootNamespace>
     <AssemblyName>connStringConfigTest</AssemblyName>
@@ -32,7 +32,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\lib\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\connStringConfig\connStringConfig.csproj">
-      <Project>{F9EA3520-A9B2-8844-9426-45DEAEB46843}</Project>
+      <Project>{AF7043A9-E1A0-E143-B99A-71CBE743BE8C}</Project>
       <Name>connStringConfig</Name>
     </ProjectReference>
     <ProjectReference Include="..\AltovaXML\AltovaXML.csproj">

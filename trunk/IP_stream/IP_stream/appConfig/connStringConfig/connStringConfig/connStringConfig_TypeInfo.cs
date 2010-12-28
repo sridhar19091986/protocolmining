@@ -17,99 +17,113 @@ namespace connStringConfig
 		// typeinfo indices
 		public static readonly int _altova_tif = 0 ;
 		public static readonly int _altova_ti_altova_connStringConfig2 = _altova_tif ;
-		public static readonly int _altova_ti_altova_addType = 1 ;
-		public static readonly int _altova_ti_altova_providerNameType = 2 ;
-		public static readonly int _altova_ti_altova_nameType = 3 ;
-		public static readonly int _altova_ti_altova_configSectionsType = 4 ;
-		public static readonly int _altova_ti_altova_configurationType = 5 ;
-		public static readonly int _altova_ti_altova_connectionStringsType = 6 ;
-		public static readonly int _altova_til = 7 ;
+		public static readonly int _altova_ti_altova_DatabaseConnPoolType = 1 ;
+		public static readonly int _altova_ti_altova_addType = 2 ;
+		public static readonly int _altova_ti_altova_InsertDatabaseConnType = 3 ;
+		public static readonly int _altova_ti_altova_LocalDatabaseConnType = 4 ;
+		public static readonly int _altova_ti_altova_RemoteDatabaseConnType = 5 ;
+		public static readonly int _altova_ti_altova_configurationType = 6 ;
+		public static readonly int _altova_ti_altova_providerNameType = 7 ;
+		public static readonly int _altova_ti_altova_nameType = 8 ;
+		public static readonly int _altova_til = 9 ;
 
 		public static readonly int _altova_tif_xs = _altova_til;
 		public static readonly int _altova_ti_xs_altova_ENTITIES = _altova_tif_xs ;
-		public static readonly int _altova_ti_xs_altova_ENTITY = 8 ;
-		public static readonly int _altova_ti_xs_altova_ID = 9 ;
-		public static readonly int _altova_ti_xs_altova_IDREF = 10 ;
-		public static readonly int _altova_ti_xs_altova_IDREFS = 11 ;
-		public static readonly int _altova_ti_xs_altova_NCName = 12 ;
-		public static readonly int _altova_ti_xs_altova_NMTOKEN = 13 ;
-		public static readonly int _altova_ti_xs_altova_NMTOKENS = 14 ;
-		public static readonly int _altova_ti_xs_altova_NOTATION = 15 ;
-		public static readonly int _altova_ti_xs_altova_Name = 16 ;
-		public static readonly int _altova_ti_xs_altova_QName = 17 ;
-		public static readonly int _altova_ti_xs_altova_anySimpleType = 18 ;
-		public static readonly int _altova_ti_xs_altova_anyType = 19 ;
-		public static readonly int _altova_ti_xs_altova_anyURI = 20 ;
-		public static readonly int _altova_ti_xs_altova_base64Binary = 21 ;
-		public static readonly int _altova_ti_xs_altova_boolean = 22 ;
-		public static readonly int _altova_ti_xs_altova_byte2 = 23 ;
-		public static readonly int _altova_ti_xs_altova_date = 24 ;
-		public static readonly int _altova_ti_xs_altova_dateTime = 25 ;
-		public static readonly int _altova_ti_xs_altova_decimal2 = 26 ;
-		public static readonly int _altova_ti_xs_altova_double2 = 27 ;
-		public static readonly int _altova_ti_xs_altova_duration = 28 ;
-		public static readonly int _altova_ti_xs_altova_float2 = 29 ;
-		public static readonly int _altova_ti_xs_altova_gDay = 30 ;
-		public static readonly int _altova_ti_xs_altova_gMonth = 31 ;
-		public static readonly int _altova_ti_xs_altova_gMonthDay = 32 ;
-		public static readonly int _altova_ti_xs_altova_gYear = 33 ;
-		public static readonly int _altova_ti_xs_altova_gYearMonth = 34 ;
-		public static readonly int _altova_ti_xs_altova_hexBinary = 35 ;
-		public static readonly int _altova_ti_xs_altova_int2 = 36 ;
-		public static readonly int _altova_ti_xs_altova_integer = 37 ;
-		public static readonly int _altova_ti_xs_altova_language = 38 ;
-		public static readonly int _altova_ti_xs_altova_long2 = 39 ;
-		public static readonly int _altova_ti_xs_altova_negativeInteger = 40 ;
-		public static readonly int _altova_ti_xs_altova_nonNegativeInteger = 41 ;
-		public static readonly int _altova_ti_xs_altova_nonPositiveInteger = 42 ;
-		public static readonly int _altova_ti_xs_altova_normalizedString = 43 ;
-		public static readonly int _altova_ti_xs_altova_positiveInteger = 44 ;
-		public static readonly int _altova_ti_xs_altova_short2 = 45 ;
-		public static readonly int _altova_ti_xs_altova_string2 = 46 ;
-		public static readonly int _altova_ti_xs_altova_time = 47 ;
-		public static readonly int _altova_ti_xs_altova_token = 48 ;
-		public static readonly int _altova_ti_xs_altova_unsignedByte = 49 ;
-		public static readonly int _altova_ti_xs_altova_unsignedInt = 50 ;
-		public static readonly int _altova_ti_xs_altova_unsignedLong = 51 ;
-		public static readonly int _altova_ti_xs_altova_unsignedShort = 52 ;
-		public static readonly int _altova_til_xs = 53 ;
+		public static readonly int _altova_ti_xs_altova_ENTITY = 10 ;
+		public static readonly int _altova_ti_xs_altova_ID = 11 ;
+		public static readonly int _altova_ti_xs_altova_IDREF = 12 ;
+		public static readonly int _altova_ti_xs_altova_IDREFS = 13 ;
+		public static readonly int _altova_ti_xs_altova_NCName = 14 ;
+		public static readonly int _altova_ti_xs_altova_NMTOKEN = 15 ;
+		public static readonly int _altova_ti_xs_altova_NMTOKENS = 16 ;
+		public static readonly int _altova_ti_xs_altova_NOTATION = 17 ;
+		public static readonly int _altova_ti_xs_altova_Name = 18 ;
+		public static readonly int _altova_ti_xs_altova_QName = 19 ;
+		public static readonly int _altova_ti_xs_altova_anySimpleType = 20 ;
+		public static readonly int _altova_ti_xs_altova_anyType = 21 ;
+		public static readonly int _altova_ti_xs_altova_anyURI = 22 ;
+		public static readonly int _altova_ti_xs_altova_base64Binary = 23 ;
+		public static readonly int _altova_ti_xs_altova_boolean = 24 ;
+		public static readonly int _altova_ti_xs_altova_byte2 = 25 ;
+		public static readonly int _altova_ti_xs_altova_date = 26 ;
+		public static readonly int _altova_ti_xs_altova_dateTime = 27 ;
+		public static readonly int _altova_ti_xs_altova_decimal2 = 28 ;
+		public static readonly int _altova_ti_xs_altova_double2 = 29 ;
+		public static readonly int _altova_ti_xs_altova_duration = 30 ;
+		public static readonly int _altova_ti_xs_altova_float2 = 31 ;
+		public static readonly int _altova_ti_xs_altova_gDay = 32 ;
+		public static readonly int _altova_ti_xs_altova_gMonth = 33 ;
+		public static readonly int _altova_ti_xs_altova_gMonthDay = 34 ;
+		public static readonly int _altova_ti_xs_altova_gYear = 35 ;
+		public static readonly int _altova_ti_xs_altova_gYearMonth = 36 ;
+		public static readonly int _altova_ti_xs_altova_hexBinary = 37 ;
+		public static readonly int _altova_ti_xs_altova_int2 = 38 ;
+		public static readonly int _altova_ti_xs_altova_integer = 39 ;
+		public static readonly int _altova_ti_xs_altova_language = 40 ;
+		public static readonly int _altova_ti_xs_altova_long2 = 41 ;
+		public static readonly int _altova_ti_xs_altova_negativeInteger = 42 ;
+		public static readonly int _altova_ti_xs_altova_nonNegativeInteger = 43 ;
+		public static readonly int _altova_ti_xs_altova_nonPositiveInteger = 44 ;
+		public static readonly int _altova_ti_xs_altova_normalizedString = 45 ;
+		public static readonly int _altova_ti_xs_altova_positiveInteger = 46 ;
+		public static readonly int _altova_ti_xs_altova_short2 = 47 ;
+		public static readonly int _altova_ti_xs_altova_string2 = 48 ;
+		public static readonly int _altova_ti_xs_altova_time = 49 ;
+		public static readonly int _altova_ti_xs_altova_token = 50 ;
+		public static readonly int _altova_ti_xs_altova_unsignedByte = 51 ;
+		public static readonly int _altova_ti_xs_altova_unsignedInt = 52 ;
+		public static readonly int _altova_ti_xs_altova_unsignedLong = 53 ;
+		public static readonly int _altova_ti_xs_altova_unsignedShort = 54 ;
+		public static readonly int _altova_til_xs = 55 ;
 
 
 
 		// memberinfo indices
 		public static readonly int _altova_mif_altova_connStringConfig2 = 0 ;
-		public static readonly int _altova_mi_altova_connStringConfig2_altova_add = _altova_mif_altova_connStringConfig2 ;
-		public static readonly int _altova_mi_altova_connStringConfig2_altova_configSections = 1 ;
-		public static readonly int _altova_mi_altova_connStringConfig2_altova_configuration = 2 ;
-		public static readonly int _altova_mi_altova_connStringConfig2_altova_connectionStrings = 3 ;
-		public static readonly int _altova_mil_altova_connStringConfig2 = 4 ;
+		public static readonly int _altova_mi_altova_connStringConfig2_altova_DatabaseConnPool = _altova_mif_altova_connStringConfig2 ;
+		public static readonly int _altova_mi_altova_connStringConfig2_altova_InsertDatabaseConn = 1 ;
+		public static readonly int _altova_mi_altova_connStringConfig2_altova_LocalDatabaseConn = 2 ;
+		public static readonly int _altova_mi_altova_connStringConfig2_altova_RemoteDatabaseConn = 3 ;
+		public static readonly int _altova_mi_altova_connStringConfig2_altova_add = 4 ;
+		public static readonly int _altova_mi_altova_connStringConfig2_altova_configuration = 5 ;
+		public static readonly int _altova_mil_altova_connStringConfig2 = 6 ;
 
-		public static readonly int _altova_mif_altova_addType = _altova_mil_altova_connStringConfig2 ;
+		public static readonly int _altova_mif_altova_DatabaseConnPoolType = _altova_mil_altova_connStringConfig2 ;
+		public static readonly int _altova_mi_altova_DatabaseConnPoolType_altova_add = _altova_mif_altova_DatabaseConnPoolType ;
+		public static readonly int _altova_mil_altova_DatabaseConnPoolType = 7 ;
+
+		public static readonly int _altova_mif_altova_addType = _altova_mil_altova_DatabaseConnPoolType ;
 		public static readonly int _altova_mi_altova_addType_altova_providerName = _altova_mif_altova_addType ;
-		public static readonly int _altova_mi_altova_addType_altova_name = 5 ;
-		public static readonly int _altova_mi_altova_addType_altova_connectionString = 6 ;
-		public static readonly int _altova_mil_altova_addType = 7 ;
+		public static readonly int _altova_mi_altova_addType_altova_name = 8 ;
+		public static readonly int _altova_mi_altova_addType_altova_connectionString = 9 ;
+		public static readonly int _altova_mil_altova_addType = 10 ;
 
-		public static readonly int _altova_mif_altova_providerNameType = _altova_mil_altova_addType ;
+		public static readonly int _altova_mif_altova_InsertDatabaseConnType = _altova_mil_altova_addType ;
+		public static readonly int _altova_mi_altova_InsertDatabaseConnType_altova_add = _altova_mif_altova_InsertDatabaseConnType ;
+		public static readonly int _altova_mil_altova_InsertDatabaseConnType = 11 ;
+
+		public static readonly int _altova_mif_altova_LocalDatabaseConnType = _altova_mil_altova_InsertDatabaseConnType ;
+		public static readonly int _altova_mi_altova_LocalDatabaseConnType_altova_add = _altova_mif_altova_LocalDatabaseConnType ;
+		public static readonly int _altova_mil_altova_LocalDatabaseConnType = 12 ;
+
+		public static readonly int _altova_mif_altova_RemoteDatabaseConnType = _altova_mil_altova_LocalDatabaseConnType ;
+		public static readonly int _altova_mi_altova_RemoteDatabaseConnType_altova_add = _altova_mif_altova_RemoteDatabaseConnType ;
+		public static readonly int _altova_mil_altova_RemoteDatabaseConnType = 13 ;
+
+		public static readonly int _altova_mif_altova_configurationType = _altova_mil_altova_RemoteDatabaseConnType ;
+		public static readonly int _altova_mi_altova_configurationType_altova_LocalDatabaseConn = _altova_mif_altova_configurationType ;
+		public static readonly int _altova_mi_altova_configurationType_altova_RemoteDatabaseConn = 14 ;
+		public static readonly int _altova_mi_altova_configurationType_altova_InsertDatabaseConn = 15 ;
+		public static readonly int _altova_mi_altova_configurationType_altova_DatabaseConnPool = 16 ;
+		public static readonly int _altova_mil_altova_configurationType = 17 ;
+
+		public static readonly int _altova_mif_altova_providerNameType = _altova_mil_altova_configurationType ;
 		public static readonly int _altova_mil_altova_providerNameType = _altova_mif_altova_providerNameType ;
 
 		public static readonly int _altova_mif_altova_nameType = _altova_mil_altova_providerNameType ;
 		public static readonly int _altova_mil_altova_nameType = _altova_mif_altova_nameType ;
 
-		public static readonly int _altova_mif_altova_configSectionsType = _altova_mil_altova_nameType ;
-		public static readonly int _altova_mi_altova_configSectionsType_altova_add = _altova_mif_altova_configSectionsType ;
-		public static readonly int _altova_mil_altova_configSectionsType = 8 ;
-
-		public static readonly int _altova_mif_altova_configurationType = _altova_mil_altova_configSectionsType ;
-		public static readonly int _altova_mi_altova_configurationType_altova_configSections = _altova_mif_altova_configurationType ;
-		public static readonly int _altova_mi_altova_configurationType_altova_connectionStrings = 9 ;
-		public static readonly int _altova_mil_altova_configurationType = 10 ;
-
-		public static readonly int _altova_mif_altova_connectionStringsType = _altova_mil_altova_configurationType ;
-		public static readonly int _altova_mi_altova_connectionStringsType_altova_add = _altova_mif_altova_connectionStringsType ;
-		public static readonly int _altova_mil_altova_connectionStringsType = 11 ;
-
-		public static readonly int _altova_mif_xs_altova_ENTITIES = _altova_mil_altova_connectionStringsType ;
+		public static readonly int _altova_mif_xs_altova_ENTITIES = _altova_mil_altova_nameType ;
 		public static readonly int _altova_mil_xs_altova_ENTITIES = _altova_mif_xs_altova_ENTITIES ;
 
 		public static readonly int _altova_mif_xs_altova_ENTITY = _altova_mil_xs_altova_ENTITIES ;
@@ -147,7 +161,7 @@ namespace connStringConfig
 
 		public static readonly int _altova_mif_xs_altova_anyType = _altova_mil_xs_altova_anySimpleType ;
 		public static readonly int _altova_mi_xs_altova_anyType_altova_unnamed = _altova_mif_xs_altova_anyType ;
-		public static readonly int _altova_mil_xs_altova_anyType = 12 ;
+		public static readonly int _altova_mil_xs_altova_anyType = 18 ;
 
 		public static readonly int _altova_mif_xs_altova_anyURI = _altova_mil_xs_altova_anyType ;
 		public static readonly int _altova_mil_xs_altova_anyURI = _altova_mif_xs_altova_anyURI ;
@@ -270,7 +284,12 @@ namespace connStringConfig
 		public static TypeInfo[] types = 
 		{
 			new TypeInfo( binder, _altova_ni, "connStringConfig", 0, _altova_mif_altova_connStringConfig2, _altova_mil_altova_connStringConfig2,  null, 				WhitespaceType.Unknown ),
+			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_anyType, _altova_mif_altova_DatabaseConnPoolType, _altova_mil_altova_DatabaseConnPoolType,  null, 				WhitespaceType.Unknown ),
 			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_anyType, _altova_mif_altova_addType, _altova_mil_altova_addType,  null, 				WhitespaceType.Unknown ),
+			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_anyType, _altova_mif_altova_InsertDatabaseConnType, _altova_mil_altova_InsertDatabaseConnType,  null, 				WhitespaceType.Unknown ),
+			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_anyType, _altova_mif_altova_LocalDatabaseConnType, _altova_mil_altova_LocalDatabaseConnType,  null, 				WhitespaceType.Unknown ),
+			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_anyType, _altova_mif_altova_RemoteDatabaseConnType, _altova_mil_altova_RemoteDatabaseConnType,  null, 				WhitespaceType.Unknown ),
+			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_anyType, _altova_mif_altova_configurationType, _altova_mil_altova_configurationType,  null, 				WhitespaceType.Unknown ),
 			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_string2, _altova_mif_altova_providerNameType, _altova_mil_altova_providerNameType,  
 				new FacetInfo[]
 				{
@@ -281,13 +300,18 @@ namespace connStringConfig
 			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_string2, _altova_mif_altova_nameType, _altova_mil_altova_nameType,  
 				new FacetInfo[]
 				{
-					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "MSSQL", 0 ), 
-					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "Oracle", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", ".\\SQLEXPRESS_ip_stream", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", ".\\sqlexpress_|DataDirectory|\\Database.mdf", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "192.168.1.12_IP_stream_23a_20100524_new", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "192.168.1.17_sz_17a_20100818_18", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "192.168.1.17_sz_23A_20100524_11", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "192.168.1.2_sz_23A_20100524_11", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "TEST_sa", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "localhost_ip_stream", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "localhost_test", 0 ), 
+					new FacetInfo (Altova.Xml.XsValidation.facetCheck_string_enumeration, "enumeration", "new Name", 0 ), 
 				},
 				WhitespaceType.Unknown, Altova.Xml.Xs.AnySimpleTypeFormatter ),
-			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_anyType, _altova_mif_altova_configSectionsType, _altova_mil_altova_configSectionsType,  null, 				WhitespaceType.Unknown ),
-			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_anyType, _altova_mif_altova_configurationType, _altova_mil_altova_configurationType,  null, 				WhitespaceType.Unknown ),
-			new TypeInfo( binder, _altova_ni, "", _altova_ti_xs_altova_anyType, _altova_mif_altova_connectionStringsType, _altova_mil_altova_connectionStringsType,  null, 				WhitespaceType.Unknown ),
 
 			new TypeInfo( binder, _altova_ni_xs, "ENTITIES", _altova_ti_xs_altova_anySimpleType, _altova_mif_xs_altova_ENTITIES, _altova_mil_xs_altova_ENTITIES,  
 				new FacetInfo[]
@@ -557,21 +581,29 @@ namespace connStringConfig
 		// array of all members
 		public static MemberInfo[] members = 
 		{
+			new MemberInfo (binder, "", "DatabaseConnPool", _altova_ti_altova_connStringConfig2, _altova_ti_altova_DatabaseConnPoolType, MemberFlags.None, 0, 1),
+			new MemberInfo (binder, "", "InsertDatabaseConn", _altova_ti_altova_connStringConfig2, _altova_ti_altova_InsertDatabaseConnType, MemberFlags.None, 0, 1),
+			new MemberInfo (binder, "", "LocalDatabaseConn", _altova_ti_altova_connStringConfig2, _altova_ti_altova_LocalDatabaseConnType, MemberFlags.None, 0, 1),
+			new MemberInfo (binder, "", "RemoteDatabaseConn", _altova_ti_altova_connStringConfig2, _altova_ti_altova_RemoteDatabaseConnType, MemberFlags.None, 0, 1),
 			new MemberInfo (binder, "", "add", _altova_ti_altova_connStringConfig2, _altova_ti_altova_addType, MemberFlags.None, 0, 1),
-			new MemberInfo (binder, "", "configSections", _altova_ti_altova_connStringConfig2, _altova_ti_altova_configSectionsType, MemberFlags.None, 0, 1),
 			new MemberInfo (binder, "", "configuration", _altova_ti_altova_connStringConfig2, _altova_ti_altova_configurationType, MemberFlags.None, 0, 1),
-			new MemberInfo (binder, "", "connectionStrings", _altova_ti_altova_connStringConfig2, _altova_ti_altova_connectionStringsType, MemberFlags.None, 0, 1),
 
-			new MemberInfo (binder, "", "providerName", _altova_ti_altova_addType, _altova_ti_altova_providerNameType, MemberFlags.None|MemberFlags.IsAttribute, 1, 1),
+			new MemberInfo (binder, "", "add", _altova_ti_altova_DatabaseConnPoolType, _altova_ti_altova_addType, MemberFlags.None, 1, -1),
+
+			new MemberInfo (binder, "", "providerName", _altova_ti_altova_addType, _altova_ti_altova_providerNameType, MemberFlags.None|MemberFlags.IsAttribute, 0, 1),
 			new MemberInfo (binder, "", "name", _altova_ti_altova_addType, _altova_ti_altova_nameType, MemberFlags.None|MemberFlags.IsAttribute, 1, 1),
 			new MemberInfo (binder, "", "connectionString", _altova_ti_altova_addType, _altova_ti_xs_altova_string2, MemberFlags.None|MemberFlags.IsAttribute, 1, 1),
 
-			new MemberInfo (binder, "", "add", _altova_ti_altova_configSectionsType, _altova_ti_altova_addType, MemberFlags.None, 1, 1),
+			new MemberInfo (binder, "", "add", _altova_ti_altova_InsertDatabaseConnType, _altova_ti_altova_addType, MemberFlags.None, 1, -1),
 
-			new MemberInfo (binder, "", "configSections", _altova_ti_altova_configurationType, _altova_ti_altova_configSectionsType, MemberFlags.None, 1, 1),
-			new MemberInfo (binder, "", "connectionStrings", _altova_ti_altova_configurationType, _altova_ti_altova_connectionStringsType, MemberFlags.None, 1, 1),
+			new MemberInfo (binder, "", "add", _altova_ti_altova_LocalDatabaseConnType, _altova_ti_altova_addType, MemberFlags.None, 1, -1),
 
-			new MemberInfo (binder, "", "add", _altova_ti_altova_connectionStringsType, _altova_ti_altova_addType, MemberFlags.None, 1, -1),
+			new MemberInfo (binder, "", "add", _altova_ti_altova_RemoteDatabaseConnType, _altova_ti_altova_addType, MemberFlags.None, 1, -1),
+
+			new MemberInfo (binder, "", "LocalDatabaseConn", _altova_ti_altova_configurationType, _altova_ti_altova_LocalDatabaseConnType, MemberFlags.None, 1, 1),
+			new MemberInfo (binder, "", "RemoteDatabaseConn", _altova_ti_altova_configurationType, _altova_ti_altova_RemoteDatabaseConnType, MemberFlags.None, 1, 1),
+			new MemberInfo (binder, "", "InsertDatabaseConn", _altova_ti_altova_configurationType, _altova_ti_altova_InsertDatabaseConnType, MemberFlags.None, 1, 1),
+			new MemberInfo (binder, "", "DatabaseConnPool", _altova_ti_altova_configurationType, _altova_ti_altova_DatabaseConnPoolType, MemberFlags.None, 1, 1),
 
 			new MemberInfo (binder, "", "", _altova_ti_xs_altova_anyType, _altova_ti_xs_altova_anySimpleType, MemberFlags.None|MemberFlags.IsAttribute, 0, -1),
 

@@ -29,49 +29,52 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("AlterPrimaryKey");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("InitImeiCiTypeTable");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("InitMlocationTable");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("InitTable", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("InsertCiType");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("InsertImeiType");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("UpdateImeiType");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("InsertResultTable");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("ResultTable", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("AlterPrimaryKey");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("InitImeiCiTypeTable");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("InitMlocationTable");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("InitTable", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode20,
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("InsertCiType");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("InsertImeiType");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("UpdateImeiType");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("InsertResultTable");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("ResultTable", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode24,
+            treeNode25,
+            treeNode26});
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Command = new System.Windows.Forms.TabPage();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.Analysis = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.treeView2 = new System.Windows.Forms.TreeView();
+            this.treeViewAnalysis = new System.Windows.Forms.TreeView();
             this.ConnConfig = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.modifyConnStringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addConnStringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteConnStringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.updateConfig = new System.Windows.Forms.Button();
+            this.treeViewConn = new System.Windows.Forms.TreeView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.contextMenuStripConn = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addConnectionNodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteConnectionNodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyConnectionNodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripAnalysis = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -81,7 +84,8 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.ConnConfig.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStripConn.SuspendLayout();
+            this.contextMenuStripAnalysis.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -123,8 +127,7 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 386);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(703, 22);
@@ -134,14 +137,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(17, 17);
-            this.toolStripStatusLabel1.Text = "==";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(17, 17);
-            this.toolStripStatusLabel2.Text = "==";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(185, 17);
+            this.toolStripStatusLabel1.Text = "CopyRight by wei.hp.2010.12.28";
             // 
             // splitContainer1
             // 
@@ -188,27 +185,27 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "AlterPrimaryKey";
-            treeNode1.Text = "AlterPrimaryKey";
-            treeNode2.Name = "InitImeiCiTypeTable";
-            treeNode2.Text = "InitImeiCiTypeTable";
-            treeNode3.Name = "InitMlocationTable";
-            treeNode3.Text = "InitMlocationTable";
-            treeNode4.Name = "InitTable";
-            treeNode4.Text = "InitTable";
-            treeNode5.Name = "InsertCiType";
-            treeNode5.Text = "InsertCiType";
-            treeNode6.Name = "InsertImeiType";
-            treeNode6.Text = "InsertImeiType";
-            treeNode7.Name = "UpdateImeiType";
-            treeNode7.Text = "UpdateImeiType";
-            treeNode8.Name = "InsertResultTable";
-            treeNode8.Text = "InsertResultTable";
-            treeNode9.Name = "ResultTable";
-            treeNode9.Text = "ResultTable";
+            treeNode19.Name = "AlterPrimaryKey";
+            treeNode19.Text = "AlterPrimaryKey";
+            treeNode20.Name = "InitImeiCiTypeTable";
+            treeNode20.Text = "InitImeiCiTypeTable";
+            treeNode21.Name = "InitMlocationTable";
+            treeNode21.Text = "InitMlocationTable";
+            treeNode22.Name = "InitTable";
+            treeNode22.Text = "InitTable";
+            treeNode23.Name = "InsertCiType";
+            treeNode23.Text = "InsertCiType";
+            treeNode24.Name = "InsertImeiType";
+            treeNode24.Text = "InsertImeiType";
+            treeNode25.Name = "UpdateImeiType";
+            treeNode25.Text = "UpdateImeiType";
+            treeNode26.Name = "InsertResultTable";
+            treeNode26.Text = "InsertResultTable";
+            treeNode27.Name = "ResultTable";
+            treeNode27.Text = "ResultTable";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode9});
+            treeNode22,
+            treeNode27});
             this.treeView1.PathSeparator = "";
             this.treeView1.Size = new System.Drawing.Size(223, 331);
             this.treeView1.TabIndex = 9;
@@ -229,7 +226,7 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.treeView2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.treeViewAnalysis, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -239,13 +236,14 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(223, 331);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // treeView2
+            // treeViewAnalysis
             // 
-            this.treeView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView2.Location = new System.Drawing.Point(3, 19);
-            this.treeView2.Name = "treeView2";
-            this.treeView2.Size = new System.Drawing.Size(217, 309);
-            this.treeView2.TabIndex = 1;
+            this.treeViewAnalysis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewAnalysis.Location = new System.Drawing.Point(3, 19);
+            this.treeViewAnalysis.Name = "treeViewAnalysis";
+            this.treeViewAnalysis.Size = new System.Drawing.Size(217, 309);
+            this.treeViewAnalysis.TabIndex = 1;
+            this.treeViewAnalysis.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeViewAnalysis_MouseDown);
             // 
             // ConnConfig
             // 
@@ -261,84 +259,98 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.checkedListBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.richTextBox1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.updateConfig, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.treeViewConn, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(229, 337);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.ContextMenuStrip = this.contextMenuStrip1;
-            this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "sqlexpress",
-            "localhost",
-            "192.168.1.12",
-            "......Config"});
-            this.checkedListBox1.Location = new System.Drawing.Point(3, 3);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(223, 137);
-            this.checkedListBox1.TabIndex = 1;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modifyConnStringToolStripMenuItem,
-            this.addConnStringToolStripMenuItem,
-            this.deleteConnStringToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 70);
-            // 
-            // modifyConnStringToolStripMenuItem
-            // 
-            this.modifyConnStringToolStripMenuItem.Name = "modifyConnStringToolStripMenuItem";
-            this.modifyConnStringToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.modifyConnStringToolStripMenuItem.Text = "Modify ConnString";
-            this.modifyConnStringToolStripMenuItem.Click += new System.EventHandler(this.modifyConnStringToolStripMenuItem_Click);
-            // 
-            // addConnStringToolStripMenuItem
-            // 
-            this.addConnStringToolStripMenuItem.Name = "addConnStringToolStripMenuItem";
-            this.addConnStringToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.addConnStringToolStripMenuItem.Text = "Add ConnString";
-            this.addConnStringToolStripMenuItem.Click += new System.EventHandler(this.addConnStringToolStripMenuItem_Click);
-            // 
-            // deleteConnStringToolStripMenuItem
-            // 
-            this.deleteConnStringToolStripMenuItem.Name = "deleteConnStringToolStripMenuItem";
-            this.deleteConnStringToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.deleteConnStringToolStripMenuItem.Text = "Delete ConnString";
-            this.deleteConnStringToolStripMenuItem.Click += new System.EventHandler(this.deleteConnStringToolStripMenuItem_Click);
-            // 
             // richTextBox1
             // 
-            this.richTextBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 196);
+            this.richTextBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox1.ForeColor = System.Drawing.Color.Red;
+            this.richTextBox1.Location = new System.Drawing.Point(3, 271);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(223, 138);
+            this.richTextBox1.Size = new System.Drawing.Size(223, 63);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // updateConfig
+            // treeViewConn
             // 
-            this.updateConfig.Location = new System.Drawing.Point(3, 146);
-            this.updateConfig.Name = "updateConfig";
-            this.updateConfig.Size = new System.Drawing.Size(75, 23);
-            this.updateConfig.TabIndex = 2;
-            this.updateConfig.Text = "updateConfig";
-            this.updateConfig.UseVisualStyleBackColor = true;
-            this.updateConfig.Click += new System.EventHandler(this.button_updateConfig_Click);
+            this.treeViewConn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewConn.Location = new System.Drawing.Point(3, 3);
+            this.treeViewConn.Name = "treeViewConn";
+            this.treeViewConn.Size = new System.Drawing.Size(223, 229);
+            this.treeViewConn.TabIndex = 3;
+            this.treeViewConn.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewConn_AfterSelect);
+            this.treeViewConn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView3_MouseDown);
+            // 
+            // contextMenuStripConn
+            // 
+            this.contextMenuStripConn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addConnectionNodeToolStripMenuItem,
+            this.deleteConnectionNodeToolStripMenuItem,
+            this.modifyConnectionNodeToolStripMenuItem});
+            this.contextMenuStripConn.Name = "contextMenuStrip2";
+            this.contextMenuStripConn.Size = new System.Drawing.Size(191, 70);
+            // 
+            // addConnectionNodeToolStripMenuItem
+            // 
+            this.addConnectionNodeToolStripMenuItem.Name = "addConnectionNodeToolStripMenuItem";
+            this.addConnectionNodeToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.addConnectionNodeToolStripMenuItem.Text = "AddConnectionNode";
+            this.addConnectionNodeToolStripMenuItem.Click += new System.EventHandler(this.addConnectionNodeToolStripMenuItem_Click);
+            // 
+            // deleteConnectionNodeToolStripMenuItem
+            // 
+            this.deleteConnectionNodeToolStripMenuItem.Name = "deleteConnectionNodeToolStripMenuItem";
+            this.deleteConnectionNodeToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.deleteConnectionNodeToolStripMenuItem.Text = "DeleteConnectionNode";
+            this.deleteConnectionNodeToolStripMenuItem.Click += new System.EventHandler(this.deleteConnectionNodeToolStripMenuItem_Click);
+            // 
+            // modifyConnectionNodeToolStripMenuItem
+            // 
+            this.modifyConnectionNodeToolStripMenuItem.Name = "modifyConnectionNodeToolStripMenuItem";
+            this.modifyConnectionNodeToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.modifyConnectionNodeToolStripMenuItem.Text = "ModifyConnectionNode";
+            this.modifyConnectionNodeToolStripMenuItem.Click += new System.EventHandler(this.modifyConnectionNodeToolStripMenuItem_Click);
+            // 
+            // contextMenuStripAnalysis
+            // 
+            this.contextMenuStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.removeToolStripMenuItem,
+            this.modifyToolStripMenuItem});
+            this.contextMenuStripAnalysis.Name = "contextMenuStripAnalysis";
+            this.contextMenuStripAnalysis.Size = new System.Drawing.Size(107, 70);
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            // 
+            // modifyToolStripMenuItem
+            // 
+            this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modifyToolStripMenuItem.Text = "Modify";
+            this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -360,6 +372,7 @@
             this.statusStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.Command.ResumeLayout(false);
@@ -367,7 +380,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ConnConfig.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStripConn.ResumeLayout(false);
+            this.contextMenuStripAnalysis.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,18 +403,20 @@
         private System.Windows.Forms.TabPage ConnConfig;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button updateConfig;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TreeView treeView2;
+        private System.Windows.Forms.TreeView treeViewAnalysis;
         private System.Windows.Forms.ToolStripMenuItem hiddenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem modifyConnStringToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addConnStringToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteConnStringToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripConn;
+        private System.Windows.Forms.TreeView treeViewConn;
+        private System.Windows.Forms.ToolStripMenuItem addConnectionNodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteConnectionNodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifyConnectionNodeToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripAnalysis;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
     }
 }
 

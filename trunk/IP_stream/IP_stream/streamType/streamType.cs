@@ -15,7 +15,8 @@ namespace IP_stream
 
         public XElement dataConfig = XElement.Load(streamTypeXmlPath);
         //本地库，小区类型表，IMEI类型表
-        public const string LocalConnString = @"Data Source=.\SQLEXPRESS;Initial Catalog=ip_stream;Integrated Security=True";
+        public static string LocalConnString;
+        //= @"Data Source=.\SQLEXPRESS;Initial Catalog=ip_stream;Integrated Security=True";
         //远程库，Gb数据或者Gn数据
         public static string RemoteConnString;
         //生成的库的位置，3张表，，，，，TLLI-IMEI-IMSI表，CI-BVCI表  这2张可以插入本地，也可以插入远程库，M-TRAFFIC业务类型表

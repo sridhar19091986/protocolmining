@@ -9,3 +9,5 @@ G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfi
 G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\obj\Debug\ResolveAssemblyReference.cache
 G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\obj\Debug\connStringConfigTest.exe
 G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\connStringConfigTest\obj\Debug\connStringConfigTest.pdb
+G:\protocolmining\IP_stream\IP_stream\appConfig\lib\connStringConfigTest.exe
+G:\protocolmining\IP_stream\IP_stream\appConfig\lib\connStringConfigTest.pdb

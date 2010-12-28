@@ -166,15 +166,188 @@ namespace connStringConfig
 		private void instantiateMembers()
 		{
 
+			DatabaseConnPool = new MemberElement_DatabaseConnPool (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_connStringConfig2_altova_DatabaseConnPool]);
+			InsertDatabaseConn = new MemberElement_InsertDatabaseConn (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_connStringConfig2_altova_InsertDatabaseConn]);
+			LocalDatabaseConn = new MemberElement_LocalDatabaseConn (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_connStringConfig2_altova_LocalDatabaseConn]);
+			RemoteDatabaseConn = new MemberElement_RemoteDatabaseConn (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_connStringConfig2_altova_RemoteDatabaseConn]);
 			add = new MemberElement_add (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_connStringConfig2_altova_add]);
-			configSections = new MemberElement_configSections (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_connStringConfig2_altova_configSections]);
 			configuration = new MemberElement_configuration (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_connStringConfig2_altova_configuration]);
-			connectionStrings = new MemberElement_connectionStrings (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_connStringConfig2_altova_connectionStrings]);
 		}
 
 		internal class Enumerator : EnumeratorBase { 
 			public Enumerator(System.Collections.IEnumerator inner) : base(inner) {}
 			public override object Current { get { return new connStringConfig2((System.Xml.XmlNode)InnerCurrent); } }
+		}
+
+		// Attributes
+
+
+		// Elements
+	
+		public MemberElement_DatabaseConnPool DatabaseConnPool;
+		public class MemberElement_DatabaseConnPool : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_DatabaseConnPool (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public DatabaseConnPoolType this [int i] { get { return At(i);} } 
+			public DatabaseConnPoolType At(int index) {return new DatabaseConnPoolType(owner.GetElementAt(info, index));}
+			public DatabaseConnPoolType First { get  {return new DatabaseConnPoolType(owner.GetElementFirst(info));} }
+			public DatabaseConnPoolType Last { get {return new DatabaseConnPoolType(owner.GetElementLast(info));} }
+			public DatabaseConnPoolType Append(){return new DatabaseConnPoolType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new DatabaseConnPoolType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}	
+		public MemberElement_InsertDatabaseConn InsertDatabaseConn;
+		public class MemberElement_InsertDatabaseConn : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_InsertDatabaseConn (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public InsertDatabaseConnType this [int i] { get { return At(i);} } 
+			public InsertDatabaseConnType At(int index) {return new InsertDatabaseConnType(owner.GetElementAt(info, index));}
+			public InsertDatabaseConnType First { get  {return new InsertDatabaseConnType(owner.GetElementFirst(info));} }
+			public InsertDatabaseConnType Last { get {return new InsertDatabaseConnType(owner.GetElementLast(info));} }
+			public InsertDatabaseConnType Append(){return new InsertDatabaseConnType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new InsertDatabaseConnType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}	
+		public MemberElement_LocalDatabaseConn LocalDatabaseConn;
+		public class MemberElement_LocalDatabaseConn : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_LocalDatabaseConn (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public LocalDatabaseConnType this [int i] { get { return At(i);} } 
+			public LocalDatabaseConnType At(int index) {return new LocalDatabaseConnType(owner.GetElementAt(info, index));}
+			public LocalDatabaseConnType First { get  {return new LocalDatabaseConnType(owner.GetElementFirst(info));} }
+			public LocalDatabaseConnType Last { get {return new LocalDatabaseConnType(owner.GetElementLast(info));} }
+			public LocalDatabaseConnType Append(){return new LocalDatabaseConnType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new LocalDatabaseConnType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}	
+		public MemberElement_RemoteDatabaseConn RemoteDatabaseConn;
+		public class MemberElement_RemoteDatabaseConn : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_RemoteDatabaseConn (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public RemoteDatabaseConnType this [int i] { get { return At(i);} } 
+			public RemoteDatabaseConnType At(int index) {return new RemoteDatabaseConnType(owner.GetElementAt(info, index));}
+			public RemoteDatabaseConnType First { get  {return new RemoteDatabaseConnType(owner.GetElementFirst(info));} }
+			public RemoteDatabaseConnType Last { get {return new RemoteDatabaseConnType(owner.GetElementLast(info));} }
+			public RemoteDatabaseConnType Append(){return new RemoteDatabaseConnType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new RemoteDatabaseConnType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}	
+		public MemberElement_add add;
+		public class MemberElement_add : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_add (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public addType this [int i] { get { return At(i);} } 
+			public addType At(int index) {return new addType(owner.GetElementAt(info, index));}
+			public addType First { get  {return new addType(owner.GetElementFirst(info));} }
+			public addType Last { get {return new addType(owner.GetElementLast(info));} }
+			public addType Append(){return new addType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new addType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}	
+		public MemberElement_configuration configuration;
+		public class MemberElement_configuration : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_configuration (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public configurationType this [int i] { get { return At(i);} } 
+			public configurationType At(int index) {return new configurationType(owner.GetElementAt(info, index));}
+			public configurationType First { get  {return new configurationType(owner.GetElementFirst(info));} }
+			public configurationType Last { get {return new configurationType(owner.GetElementLast(info));} }
+			public configurationType Append(){return new configurationType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new configurationType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}	
+		public void SetXsiType() 
+		{ 
+			Altova.Xml.XmlTreeOperations.SetAttribute(Node, "xsi:type", "http://www.w3.org/2001/XMLSchema-instance", 
+				new System.Xml.XmlQualifiedName("connStringConfig", "")); 				
+		}
+		
+	} // class connStringConfig2
+	public class DatabaseConnPoolType : Altova.Xml.TypeBase
+	{
+		public static Altova.Xml.Meta.ComplexType StaticInfo { get { return new Altova.Xml.Meta.ComplexType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_DatabaseConnPoolType]); }}
+
+	
+		public DatabaseConnPoolType(System.Xml.XmlNode init) : base(init)
+ 		{
+			instantiateMembers();
+		} 
+		
+		private void instantiateMembers()
+		{
+
+			add = new MemberElement_add (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_DatabaseConnPoolType_altova_add]);
+		}
+
+		internal class Enumerator : EnumeratorBase { 
+			public Enumerator(System.Collections.IEnumerator inner) : base(inner) {}
+			public override object Current { get { return new DatabaseConnPoolType((System.Xml.XmlNode)InnerCurrent); } }
 		}
 
 		// Attributes
@@ -204,83 +377,8 @@ namespace connStringConfig
 			}
 
 			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
-		}	
-		public MemberElement_configSections configSections;
-		public class MemberElement_configSections : System.Collections.IEnumerable
-		{
-			private Altova.Xml.TypeBase owner;
-			private Altova.TypeInfo.MemberInfo info;
-			public MemberElement_configSections (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
-			public configSectionsType this [int i] { get { return At(i);} } 
-			public configSectionsType At(int index) {return new configSectionsType(owner.GetElementAt(info, index));}
-			public configSectionsType First { get  {return new configSectionsType(owner.GetElementFirst(info));} }
-			public configSectionsType Last { get {return new configSectionsType(owner.GetElementLast(info));} }
-			public configSectionsType Append(){return new configSectionsType(owner.CreateElement(info));}
-			public bool Exists { get {return Count > 0;} }
-			public int Count { get {return owner.CountElement(info);} }
-			public void Remove() {owner.RemoveElement(info);}
-			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
-
-			public System.Collections.IEnumerator GetEnumerator()
-			{
-				return new configSectionsType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
-			}
-
-			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
-		}	
-		public MemberElement_configuration configuration;
-		public class MemberElement_configuration : System.Collections.IEnumerable
-		{
-			private Altova.Xml.TypeBase owner;
-			private Altova.TypeInfo.MemberInfo info;
-			public MemberElement_configuration (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
-			public configurationType this [int i] { get { return At(i);} } 
-			public configurationType At(int index) {return new configurationType(owner.GetElementAt(info, index));}
-			public configurationType First { get  {return new configurationType(owner.GetElementFirst(info));} }
-			public configurationType Last { get {return new configurationType(owner.GetElementLast(info));} }
-			public configurationType Append(){return new configurationType(owner.CreateElement(info));}
-			public bool Exists { get {return Count > 0;} }
-			public int Count { get {return owner.CountElement(info);} }
-			public void Remove() {owner.RemoveElement(info);}
-			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
-
-			public System.Collections.IEnumerator GetEnumerator()
-			{
-				return new configurationType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
-			}
-
-			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
-		}	
-		public MemberElement_connectionStrings connectionStrings;
-		public class MemberElement_connectionStrings : System.Collections.IEnumerable
-		{
-			private Altova.Xml.TypeBase owner;
-			private Altova.TypeInfo.MemberInfo info;
-			public MemberElement_connectionStrings (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
-			public connectionStringsType this [int i] { get { return At(i);} } 
-			public connectionStringsType At(int index) {return new connectionStringsType(owner.GetElementAt(info, index));}
-			public connectionStringsType First { get  {return new connectionStringsType(owner.GetElementFirst(info));} }
-			public connectionStringsType Last { get {return new connectionStringsType(owner.GetElementLast(info));} }
-			public connectionStringsType Append(){return new connectionStringsType(owner.CreateElement(info));}
-			public bool Exists { get {return Count > 0;} }
-			public int Count { get {return owner.CountElement(info);} }
-			public void Remove() {owner.RemoveElement(info);}
-			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
-
-			public System.Collections.IEnumerator GetEnumerator()
-			{
-				return new connectionStringsType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
-			}
-
-			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
-		}	
-		public void SetXsiType() 
-		{ 
-			Altova.Xml.XmlTreeOperations.SetAttribute(Node, "xsi:type", "http://www.w3.org/2001/XMLSchema-instance", 
-				new System.Xml.XmlQualifiedName("connStringConfig", "")); 				
-		}
-		
-	} // class connStringConfig2
+		}		
+	} // class DatabaseConnPoolType
 	public class addType : Altova.Xml.TypeBase
 	{
 		public static Altova.Xml.Meta.ComplexType StaticInfo { get { return new Altova.Xml.Meta.ComplexType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_addType]); }}
@@ -361,6 +459,278 @@ namespace connStringConfig
 		// Elements
 		
 	} // class addType
+	public class InsertDatabaseConnType : Altova.Xml.TypeBase
+	{
+		public static Altova.Xml.Meta.ComplexType StaticInfo { get { return new Altova.Xml.Meta.ComplexType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_InsertDatabaseConnType]); }}
+
+	
+		public InsertDatabaseConnType(System.Xml.XmlNode init) : base(init)
+ 		{
+			instantiateMembers();
+		} 
+		
+		private void instantiateMembers()
+		{
+
+			add = new MemberElement_add (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_InsertDatabaseConnType_altova_add]);
+		}
+
+		internal class Enumerator : EnumeratorBase { 
+			public Enumerator(System.Collections.IEnumerator inner) : base(inner) {}
+			public override object Current { get { return new InsertDatabaseConnType((System.Xml.XmlNode)InnerCurrent); } }
+		}
+
+		// Attributes
+
+
+		// Elements
+	
+		public MemberElement_add add;
+		public class MemberElement_add : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_add (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public addType this [int i] { get { return At(i);} } 
+			public addType At(int index) {return new addType(owner.GetElementAt(info, index));}
+			public addType First { get  {return new addType(owner.GetElementFirst(info));} }
+			public addType Last { get {return new addType(owner.GetElementLast(info));} }
+			public addType Append(){return new addType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new addType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}		
+	} // class InsertDatabaseConnType
+	public class LocalDatabaseConnType : Altova.Xml.TypeBase
+	{
+		public static Altova.Xml.Meta.ComplexType StaticInfo { get { return new Altova.Xml.Meta.ComplexType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_LocalDatabaseConnType]); }}
+
+	
+		public LocalDatabaseConnType(System.Xml.XmlNode init) : base(init)
+ 		{
+			instantiateMembers();
+		} 
+		
+		private void instantiateMembers()
+		{
+
+			add = new MemberElement_add (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_LocalDatabaseConnType_altova_add]);
+		}
+
+		internal class Enumerator : EnumeratorBase { 
+			public Enumerator(System.Collections.IEnumerator inner) : base(inner) {}
+			public override object Current { get { return new LocalDatabaseConnType((System.Xml.XmlNode)InnerCurrent); } }
+		}
+
+		// Attributes
+
+
+		// Elements
+	
+		public MemberElement_add add;
+		public class MemberElement_add : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_add (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public addType this [int i] { get { return At(i);} } 
+			public addType At(int index) {return new addType(owner.GetElementAt(info, index));}
+			public addType First { get  {return new addType(owner.GetElementFirst(info));} }
+			public addType Last { get {return new addType(owner.GetElementLast(info));} }
+			public addType Append(){return new addType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new addType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}		
+	} // class LocalDatabaseConnType
+	public class RemoteDatabaseConnType : Altova.Xml.TypeBase
+	{
+		public static Altova.Xml.Meta.ComplexType StaticInfo { get { return new Altova.Xml.Meta.ComplexType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_RemoteDatabaseConnType]); }}
+
+	
+		public RemoteDatabaseConnType(System.Xml.XmlNode init) : base(init)
+ 		{
+			instantiateMembers();
+		} 
+		
+		private void instantiateMembers()
+		{
+
+			add = new MemberElement_add (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_RemoteDatabaseConnType_altova_add]);
+		}
+
+		internal class Enumerator : EnumeratorBase { 
+			public Enumerator(System.Collections.IEnumerator inner) : base(inner) {}
+			public override object Current { get { return new RemoteDatabaseConnType((System.Xml.XmlNode)InnerCurrent); } }
+		}
+
+		// Attributes
+
+
+		// Elements
+	
+		public MemberElement_add add;
+		public class MemberElement_add : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_add (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public addType this [int i] { get { return At(i);} } 
+			public addType At(int index) {return new addType(owner.GetElementAt(info, index));}
+			public addType First { get  {return new addType(owner.GetElementFirst(info));} }
+			public addType Last { get {return new addType(owner.GetElementLast(info));} }
+			public addType Append(){return new addType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new addType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}		
+	} // class RemoteDatabaseConnType
+	public class configurationType : Altova.Xml.TypeBase
+	{
+		public static Altova.Xml.Meta.ComplexType StaticInfo { get { return new Altova.Xml.Meta.ComplexType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_configurationType]); }}
+
+	
+		public configurationType(System.Xml.XmlNode init) : base(init)
+ 		{
+			instantiateMembers();
+		} 
+		
+		private void instantiateMembers()
+		{
+
+			LocalDatabaseConn = new MemberElement_LocalDatabaseConn (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_configurationType_altova_LocalDatabaseConn]);
+			RemoteDatabaseConn = new MemberElement_RemoteDatabaseConn (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_configurationType_altova_RemoteDatabaseConn]);
+			InsertDatabaseConn = new MemberElement_InsertDatabaseConn (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_configurationType_altova_InsertDatabaseConn]);
+			DatabaseConnPool = new MemberElement_DatabaseConnPool (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_configurationType_altova_DatabaseConnPool]);
+		}
+
+		internal class Enumerator : EnumeratorBase { 
+			public Enumerator(System.Collections.IEnumerator inner) : base(inner) {}
+			public override object Current { get { return new configurationType((System.Xml.XmlNode)InnerCurrent); } }
+		}
+
+		// Attributes
+
+
+		// Elements
+	
+		public MemberElement_LocalDatabaseConn LocalDatabaseConn;
+		public class MemberElement_LocalDatabaseConn : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_LocalDatabaseConn (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public LocalDatabaseConnType this [int i] { get { return At(i);} } 
+			public LocalDatabaseConnType At(int index) {return new LocalDatabaseConnType(owner.GetElementAt(info, index));}
+			public LocalDatabaseConnType First { get  {return new LocalDatabaseConnType(owner.GetElementFirst(info));} }
+			public LocalDatabaseConnType Last { get {return new LocalDatabaseConnType(owner.GetElementLast(info));} }
+			public LocalDatabaseConnType Append(){return new LocalDatabaseConnType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new LocalDatabaseConnType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}	
+		public MemberElement_RemoteDatabaseConn RemoteDatabaseConn;
+		public class MemberElement_RemoteDatabaseConn : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_RemoteDatabaseConn (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public RemoteDatabaseConnType this [int i] { get { return At(i);} } 
+			public RemoteDatabaseConnType At(int index) {return new RemoteDatabaseConnType(owner.GetElementAt(info, index));}
+			public RemoteDatabaseConnType First { get  {return new RemoteDatabaseConnType(owner.GetElementFirst(info));} }
+			public RemoteDatabaseConnType Last { get {return new RemoteDatabaseConnType(owner.GetElementLast(info));} }
+			public RemoteDatabaseConnType Append(){return new RemoteDatabaseConnType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new RemoteDatabaseConnType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}	
+		public MemberElement_InsertDatabaseConn InsertDatabaseConn;
+		public class MemberElement_InsertDatabaseConn : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_InsertDatabaseConn (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public InsertDatabaseConnType this [int i] { get { return At(i);} } 
+			public InsertDatabaseConnType At(int index) {return new InsertDatabaseConnType(owner.GetElementAt(info, index));}
+			public InsertDatabaseConnType First { get  {return new InsertDatabaseConnType(owner.GetElementFirst(info));} }
+			public InsertDatabaseConnType Last { get {return new InsertDatabaseConnType(owner.GetElementLast(info));} }
+			public InsertDatabaseConnType Append(){return new InsertDatabaseConnType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new InsertDatabaseConnType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}	
+		public MemberElement_DatabaseConnPool DatabaseConnPool;
+		public class MemberElement_DatabaseConnPool : System.Collections.IEnumerable
+		{
+			private Altova.Xml.TypeBase owner;
+			private Altova.TypeInfo.MemberInfo info;
+			public MemberElement_DatabaseConnPool (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
+			public DatabaseConnPoolType this [int i] { get { return At(i);} } 
+			public DatabaseConnPoolType At(int index) {return new DatabaseConnPoolType(owner.GetElementAt(info, index));}
+			public DatabaseConnPoolType First { get  {return new DatabaseConnPoolType(owner.GetElementFirst(info));} }
+			public DatabaseConnPoolType Last { get {return new DatabaseConnPoolType(owner.GetElementLast(info));} }
+			public DatabaseConnPoolType Append(){return new DatabaseConnPoolType(owner.CreateElement(info));}
+			public bool Exists { get {return Count > 0;} }
+			public int Count { get {return owner.CountElement(info);} }
+			public void Remove() {owner.RemoveElement(info);}
+			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
+
+			public System.Collections.IEnumerator GetEnumerator()
+			{
+				return new DatabaseConnPoolType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
+			}
+
+			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
+		}		
+	} // class configurationType
 	public class providerNameType : Altova.Xml.TypeBase
 	{
 		public static Altova.Xml.Meta.SimpleType StaticInfo { get { return new Altova.Xml.Meta.SimpleType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_providerNameType]); }}
@@ -405,180 +775,6 @@ namespace connStringConfig
 		// Elements
 		
 	} // class nameType
-	public class configSectionsType : Altova.Xml.TypeBase
-	{
-		public static Altova.Xml.Meta.ComplexType StaticInfo { get { return new Altova.Xml.Meta.ComplexType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_configSectionsType]); }}
-
-	
-		public configSectionsType(System.Xml.XmlNode init) : base(init)
- 		{
-			instantiateMembers();
-		} 
-		
-		private void instantiateMembers()
-		{
-
-			add = new MemberElement_add (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_configSectionsType_altova_add]);
-		}
-
-		internal class Enumerator : EnumeratorBase { 
-			public Enumerator(System.Collections.IEnumerator inner) : base(inner) {}
-			public override object Current { get { return new configSectionsType((System.Xml.XmlNode)InnerCurrent); } }
-		}
-
-		// Attributes
-
-
-		// Elements
-	
-		public MemberElement_add add;
-		public class MemberElement_add : System.Collections.IEnumerable
-		{
-			private Altova.Xml.TypeBase owner;
-			private Altova.TypeInfo.MemberInfo info;
-			public MemberElement_add (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
-			public addType this [int i] { get { return At(i);} } 
-			public addType At(int index) {return new addType(owner.GetElementAt(info, index));}
-			public addType First { get  {return new addType(owner.GetElementFirst(info));} }
-			public addType Last { get {return new addType(owner.GetElementLast(info));} }
-			public addType Append(){return new addType(owner.CreateElement(info));}
-			public bool Exists { get {return Count > 0;} }
-			public int Count { get {return owner.CountElement(info);} }
-			public void Remove() {owner.RemoveElement(info);}
-			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
-
-			public System.Collections.IEnumerator GetEnumerator()
-			{
-				return new addType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
-			}
-
-			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
-		}		
-	} // class configSectionsType
-	public class configurationType : Altova.Xml.TypeBase
-	{
-		public static Altova.Xml.Meta.ComplexType StaticInfo { get { return new Altova.Xml.Meta.ComplexType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_configurationType]); }}
-
-	
-		public configurationType(System.Xml.XmlNode init) : base(init)
- 		{
-			instantiateMembers();
-		} 
-		
-		private void instantiateMembers()
-		{
-
-			configSections = new MemberElement_configSections (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_configurationType_altova_configSections]);
-			connectionStrings = new MemberElement_connectionStrings (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_configurationType_altova_connectionStrings]);
-		}
-
-		internal class Enumerator : EnumeratorBase { 
-			public Enumerator(System.Collections.IEnumerator inner) : base(inner) {}
-			public override object Current { get { return new configurationType((System.Xml.XmlNode)InnerCurrent); } }
-		}
-
-		// Attributes
-
-
-		// Elements
-	
-		public MemberElement_configSections configSections;
-		public class MemberElement_configSections : System.Collections.IEnumerable
-		{
-			private Altova.Xml.TypeBase owner;
-			private Altova.TypeInfo.MemberInfo info;
-			public MemberElement_configSections (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
-			public configSectionsType this [int i] { get { return At(i);} } 
-			public configSectionsType At(int index) {return new configSectionsType(owner.GetElementAt(info, index));}
-			public configSectionsType First { get  {return new configSectionsType(owner.GetElementFirst(info));} }
-			public configSectionsType Last { get {return new configSectionsType(owner.GetElementLast(info));} }
-			public configSectionsType Append(){return new configSectionsType(owner.CreateElement(info));}
-			public bool Exists { get {return Count > 0;} }
-			public int Count { get {return owner.CountElement(info);} }
-			public void Remove() {owner.RemoveElement(info);}
-			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
-
-			public System.Collections.IEnumerator GetEnumerator()
-			{
-				return new configSectionsType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
-			}
-
-			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
-		}	
-		public MemberElement_connectionStrings connectionStrings;
-		public class MemberElement_connectionStrings : System.Collections.IEnumerable
-		{
-			private Altova.Xml.TypeBase owner;
-			private Altova.TypeInfo.MemberInfo info;
-			public MemberElement_connectionStrings (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
-			public connectionStringsType this [int i] { get { return At(i);} } 
-			public connectionStringsType At(int index) {return new connectionStringsType(owner.GetElementAt(info, index));}
-			public connectionStringsType First { get  {return new connectionStringsType(owner.GetElementFirst(info));} }
-			public connectionStringsType Last { get {return new connectionStringsType(owner.GetElementLast(info));} }
-			public connectionStringsType Append(){return new connectionStringsType(owner.CreateElement(info));}
-			public bool Exists { get {return Count > 0;} }
-			public int Count { get {return owner.CountElement(info);} }
-			public void Remove() {owner.RemoveElement(info);}
-			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
-
-			public System.Collections.IEnumerator GetEnumerator()
-			{
-				return new connectionStringsType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
-			}
-
-			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
-		}		
-	} // class configurationType
-	public class connectionStringsType : Altova.Xml.TypeBase
-	{
-		public static Altova.Xml.Meta.ComplexType StaticInfo { get { return new Altova.Xml.Meta.ComplexType(connStringConfig_TypeInfo.binder.Types[connStringConfig_TypeInfo._altova_ti_altova_connectionStringsType]); }}
-
-	
-		public connectionStringsType(System.Xml.XmlNode init) : base(init)
- 		{
-			instantiateMembers();
-		} 
-		
-		private void instantiateMembers()
-		{
-
-			add = new MemberElement_add (this, connStringConfig_TypeInfo.binder.Members[connStringConfig_TypeInfo._altova_mi_altova_connectionStringsType_altova_add]);
-		}
-
-		internal class Enumerator : EnumeratorBase { 
-			public Enumerator(System.Collections.IEnumerator inner) : base(inner) {}
-			public override object Current { get { return new connectionStringsType((System.Xml.XmlNode)InnerCurrent); } }
-		}
-
-		// Attributes
-
-
-		// Elements
-	
-		public MemberElement_add add;
-		public class MemberElement_add : System.Collections.IEnumerable
-		{
-			private Altova.Xml.TypeBase owner;
-			private Altova.TypeInfo.MemberInfo info;
-			public MemberElement_add (Altova.Xml.TypeBase owner, Altova.TypeInfo.MemberInfo info) { this.owner = owner; this.info = info;}
-			public addType this [int i] { get { return At(i);} } 
-			public addType At(int index) {return new addType(owner.GetElementAt(info, index));}
-			public addType First { get  {return new addType(owner.GetElementFirst(info));} }
-			public addType Last { get {return new addType(owner.GetElementLast(info));} }
-			public addType Append(){return new addType(owner.CreateElement(info));}
-			public bool Exists { get {return Count > 0;} }
-			public int Count { get {return owner.CountElement(info);} }
-			public void Remove() {owner.RemoveElement(info);}
-			public void RemoveAt(int index) { owner.RemoveElementAt(info, index); }
-
-			public System.Collections.IEnumerator GetEnumerator()
-			{
-				return new addType.Enumerator(Altova.Xml.XmlTreeOperations.GetElements(owner.Node, info).GetEnumerator());
-			}
-
-			public Altova.Xml.Meta.Element Info { get { return new Altova.Xml.Meta.Element(info); } }
-		}		
-	} // class connectionStringsType
 
 namespace xs
 {	

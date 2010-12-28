@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F9EA3520-A9B2-8844-9426-45DEAEB46843}</ProjectGuid>
+    <ProjectGuid>{AF7043A9-E1A0-E143-B99A-71CBE743BE8C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>connStringConfig</RootNamespace>
     <AssemblyName>connStringConfig</AssemblyName>
