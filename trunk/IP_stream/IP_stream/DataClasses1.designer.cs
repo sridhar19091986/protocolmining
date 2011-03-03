@@ -42,13 +42,10 @@ namespace IP_stream
     partial void InsertmLocatingType(mLocatingType instance);
     partial void UpdatemLocatingType(mLocatingType instance);
     partial void DeletemLocatingType(mLocatingType instance);
-    partial void InsertciCoverType(ciCoverType instance);
-    partial void UpdateciCoverType(ciCoverType instance);
-    partial void DeleteciCoverType(ciCoverType instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::IP_stream.Properties.Settings.Default.IP_StreamConnectionString, mappingSource)
+				base(global::IP_stream.Properties.Settings.Default.IP_StreamConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1782,12 +1779,10 @@ namespace IP_stream
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ciCoverType")]
-	public partial class ciCoverType : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class ciCoverType
 	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private decimal _ciCoverType_id;
+		private int _ciCoverType_id;
 		
 		private string _lacCI;
 		
@@ -1797,29 +1792,12 @@ namespace IP_stream
 		
 		private string _ciCoverClass;
 		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnciCoverType_idChanging(decimal value);
-    partial void OnciCoverType_idChanged();
-    partial void OnlacCIChanging(string value);
-    partial void OnlacCIChanged();
-    partial void OnciNameChanging(string value);
-    partial void OnciNameChanged();
-    partial void OnciCoverModelChanging(string value);
-    partial void OnciCoverModelChanged();
-    partial void OnciCoverClassChanging(string value);
-    partial void OnciCoverClassChanged();
-    #endregion
-		
 		public ciCoverType()
 		{
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverType_id", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public decimal ciCoverType_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverType_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int ciCoverType_id
 		{
 			get
 			{
@@ -1829,16 +1807,12 @@ namespace IP_stream
 			{
 				if ((this._ciCoverType_id != value))
 				{
-					this.OnciCoverType_idChanging(value);
-					this.SendPropertyChanging();
 					this._ciCoverType_id = value;
-					this.SendPropertyChanged("ciCoverType_id");
-					this.OnciCoverType_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lacCI", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lacCI", DbType="VarChar(65)")]
 		public string lacCI
 		{
 			get
@@ -1849,16 +1823,12 @@ namespace IP_stream
 			{
 				if ((this._lacCI != value))
 				{
-					this.OnlacCIChanging(value);
-					this.SendPropertyChanging();
 					this._lacCI = value;
-					this.SendPropertyChanged("lacCI");
-					this.OnlacCIChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciName", DbType="NVarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciName", DbType="VarChar(32)")]
 		public string ciName
 		{
 			get
@@ -1869,16 +1839,12 @@ namespace IP_stream
 			{
 				if ((this._ciName != value))
 				{
-					this.OnciNameChanging(value);
-					this.SendPropertyChanging();
 					this._ciName = value;
-					this.SendPropertyChanged("ciName");
-					this.OnciNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverModel", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverModel", DbType="VarChar(32)")]
 		public string ciCoverModel
 		{
 			get
@@ -1889,16 +1855,12 @@ namespace IP_stream
 			{
 				if ((this._ciCoverModel != value))
 				{
-					this.OnciCoverModelChanging(value);
-					this.SendPropertyChanging();
 					this._ciCoverModel = value;
-					this.SendPropertyChanged("ciCoverModel");
-					this.OnciCoverModelChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverClass", DbType="NVarChar(5)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverClass", DbType="VarChar(32)")]
 		public string ciCoverClass
 		{
 			get
@@ -1909,32 +1871,8 @@ namespace IP_stream
 			{
 				if ((this._ciCoverClass != value))
 				{
-					this.OnciCoverClassChanging(value);
-					this.SendPropertyChanging();
 					this._ciCoverClass = value;
-					this.SendPropertyChanged("ciCoverClass");
-					this.OnciCoverClassChanged();
 				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

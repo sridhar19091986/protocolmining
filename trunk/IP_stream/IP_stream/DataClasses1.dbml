@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IP_Stream" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=IP_Stream;Integrated Security=True" SettingsObjectName="IP_stream.Properties.Settings" SettingsPropertyName="IP_StreamConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=IP_Stream;Integrated Security=True" SettingsObjectName="IP_stream.Properties.Settings" SettingsPropertyName="IP_StreamConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.IP_stream" Member="IP_stream">
     <Type Name="IP_stream">
       <Column Name="FileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -93,11 +93,11 @@
   </Table>
   <Table Name="dbo.ciCoverType" Member="ciCoverType">
     <Type Name="ciCoverType">
-      <Column Name="ciCoverType_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="lacCI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ciName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ciCoverModel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ciCoverClass" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="ciCoverType_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lacCI" Type="System.String" DbType="VarChar(65)" CanBeNull="true" />
+      <Column Name="ciName" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="ciCoverModel" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="ciCoverClass" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

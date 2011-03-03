@@ -32,5 +32,15 @@ namespace IP_stream.Properties {
                 return ((string)(this["IP_StreamConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress;Initial Catalog=IP_Stream;Integrated Security=True")]
+        public string IP_StreamConnectionString1 {
+            get {
+                return ((string)(this["IP_StreamConnectionString1"]));
+            }
+        }
     }
 }
