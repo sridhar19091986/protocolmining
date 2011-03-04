@@ -1,3 +1,5 @@
+Attribute VB_Name = "CombineWorkbooks"
+
 Sub CombineWorkbooks()
     
     Dim FilesToOpen
