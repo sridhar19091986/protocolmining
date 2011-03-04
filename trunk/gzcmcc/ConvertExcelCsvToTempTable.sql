@@ -19,8 +19,8 @@ CREATE TABLE ciPdchBulk
 ( 
  lac  VARCHAR(32) null,
  ci  VARCHAR(32) null,
- stat_time  VARCHAR(32) null,
  ci_name VARCHAR(32) null,
+ stat_time  VARCHAR(32) null,
  available_pdch VARCHAR(32) null,
  use_pdch VARCHAR(32) null,
  assignment_pdch_rate VARCHAR(32) null,
