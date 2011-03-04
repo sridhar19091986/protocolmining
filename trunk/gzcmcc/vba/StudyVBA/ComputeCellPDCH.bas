@@ -1,6 +1,6 @@
-Attribute VB_Name = "Ä£¿é1"
+Attribute VB_Name = "ComputeCellPDCH"
 
-Sub Macro1()
+Sub ComputeCellPDCH()
 '
 
 '

@@ -1,8 +1,8 @@
-Attribute VB_Name = "Ä£¿é2"
+Attribute VB_Name = "ComputeKValue"
 
-Sub Macro3()
+Sub ComputeKValue()
 '
-' Macro3 Macro
+' ComputeKValue
 '
 
 '
