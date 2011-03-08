@@ -1,5 +1,0 @@
-G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\Altova\bin\Debug\Altova.dll
-G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\Altova\bin\Debug\Altova.pdb
-G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\Altova\obj\Debug\ResolveAssemblyReference.cache
-G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\Altova\obj\Debug\Altova.dll
-G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig\Altova\obj\Debug\Altova.pdb
