@@ -1,0 +1,7 @@
+G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine\AltovaXML\bin\Debug\AltovaXML.dll
+G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine\AltovaXML\bin\Debug\AltovaXML.pdb
+G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine\AltovaXML\bin\Debug\Altova.dll
+G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine\AltovaXML\bin\Debug\Altova.pdb
+G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine\AltovaXML\obj\Debug\ResolveAssemblyReference.cache
+G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine\AltovaXML\obj\Debug\AltovaXML.dll
+G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine\AltovaXML\obj\Debug\AltovaXML.pdb

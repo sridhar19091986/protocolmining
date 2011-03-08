@@ -1,0 +1,35 @@
+F:\项目开发LIB\IP_stream\IP_stream\bin\Release\IP_stream.exe.config
+F:\项目开发LIB\IP_stream\IP_stream\bin\Release\IP_stream.exe
+F:\项目开发LIB\IP_stream\IP_stream\bin\Release\IP_stream.pdb
+F:\项目开发LIB\IP_stream\IP_stream\obj\Release\ResolveAssemblyReference.cache
+F:\项目开发LIB\IP_stream\IP_stream\obj\Release\IP_stream.Form1.resources
+F:\项目开发LIB\IP_stream\IP_stream\obj\Release\IP_stream.Properties.Resources.resources
+F:\项目开发LIB\IP_stream\IP_stream\obj\Release\IP_stream.exe
+F:\项目开发LIB\IP_stream\IP_stream\obj\Release\IP_stream.pdb
+D:\My Documents\桌面\IP_stream.exe.config
+D:\My Documents\桌面\IP_stream.exe
+D:\My Documents\桌面\IP_stream.pdb
+F:\项目开发LIB\IP_stream\IP_stream\obj\Release\GenerateResource-ResGen.read.1.tlog
+F:\项目开发LIB\IP_stream\IP_stream\obj\Release\GenerateResource.read.1.tlog
+F:\项目开发LIB\IP_stream\IP_stream\obj\Release\GenerateResource-ResGen.write.1.tlog
+F:\项目开发LIB\IP_stream\IP_stream\obj\Release\GenerateResource.write.1.tlog
+G:\protocolmining\IP_stream\IP_stream\obj\Release\IP_stream.exe
+G:\protocolmining\IP_stream\IP_stream\obj\Release\IP_stream.pdb
+G:\protocolmining\IP_stream\IP_stream\obj\Release\ResolveAssemblyReference.cache
+G:\protocolmining\IP_stream\IP_stream\obj\Release\IP_stream.Form1.resources
+G:\protocolmining\IP_stream\IP_stream\obj\Release\IP_stream.Properties.Resources.resources
+G:\protocolmining\IP_stream\IP_stream\obj\Release\GenerateResource-ResGen.read.1.tlog
+G:\protocolmining\IP_stream\IP_stream\obj\Release\GenerateResource.read.1.tlog
+G:\protocolmining\IP_stream\IP_stream\obj\Release\GenerateResource-ResGen.write.1.tlog
+G:\protocolmining\IP_stream\IP_stream\obj\Release\GenerateResource.write.1.tlog
+G:\protocolmining\IP_stream\IP_stream\bin\IP_stream.exe.config
+G:\protocolmining\IP_stream\IP_stream\bin\IP_stream.exe
+G:\protocolmining\IP_stream\IP_stream\bin\IP_stream.pdb
+G:\protocolmining\IP_stream\IP_stream\bin\Altova.dll
+G:\protocolmining\IP_stream\IP_stream\bin\AltovaXML.dll
+G:\protocolmining\IP_stream\IP_stream\bin\connStringConfig.dll
+G:\protocolmining\IP_stream\IP_stream\bin\streamTypeDefine.dll
+G:\protocolmining\IP_stream\IP_stream\bin\Altova.pdb
+G:\protocolmining\IP_stream\IP_stream\bin\AltovaXML.pdb
+G:\protocolmining\IP_stream\IP_stream\bin\connStringConfig.pdb
+G:\protocolmining\IP_stream\IP_stream\bin\streamTypeDefine.pdb
