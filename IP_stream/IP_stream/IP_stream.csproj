@@ -47,6 +47,12 @@
     <Reference Include="connStringConfig">
       <HintPath>appConfig\lib\connStringConfig.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>.\Microsoft.Office.Interop.Excel.DLL</HintPath>
+    </Reference>
     <Reference Include="streamTypeDefine">
       <HintPath>appConfig\lib\streamTypeDefine.dll</HintPath>
     </Reference>
@@ -76,6 +82,9 @@
   <ItemGroup>
     <Compile Include="appConfig\appConfig.cs" />
     <Compile Include="ciType\ciType.cs" />
+    <Compile Include="DataClasses1.cs">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="imeiType\imeiType.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
@@ -93,6 +102,8 @@
     <Compile Include="streamType\portType.cs" />
     <Compile Include="appConfig\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ExportExcel.cs" />
+    <Compile Include="UI\OutPutTable.cs" />
     <None Include="app.config" />
     <None Include="appConfig\app.config">
       <SubType>Designer</SubType>

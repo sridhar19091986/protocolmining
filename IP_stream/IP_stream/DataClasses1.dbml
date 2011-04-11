@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IP_Stream" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=IP_Stream;Integrated Security=True" SettingsObjectName="IP_stream.Properties.Settings" SettingsPropertyName="IP_StreamConnectionString1" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="23A" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=23A;Integrated Security=True" SettingsObjectName="IP_stream.Properties.Settings" SettingsPropertyName="_23AConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.IP_stream" Member="IP_stream">
     <Type Name="IP_stream">
       <Column Name="FileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -98,6 +98,31 @@
       <Column Name="ciName" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
       <Column Name="ciCoverModel" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
       <Column Name="ciCoverClass" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gb_Paging_PS" Member="Gb_Paging_PS">
+    <Type Name="Gb_Paging_PS">
+      <Column Name="FileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PacketNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BeginFrameNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PacketTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[PacketTime(ms)]" Member="PacketTime_ms_" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DumpFor" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Paging_Type_PS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Paging_Type_PS_time" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PTMSI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LAC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MCC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MNC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Gb_Link" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IMSI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RAC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PS_Paging_Repeat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PS_Paging_Repeat_delayFirst" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Any_Uplink_PDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Any_Uplink_PDU_delayFirst" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TLLI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

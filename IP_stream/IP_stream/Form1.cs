@@ -38,6 +38,9 @@ namespace IP_stream
             if (dlgResult == DialogResult.Yes)
                 switch (e.Node.Name)
                 {
+                    case "ImportCiData":
+                        ImportCiData();
+                        break;
                     case "AlterPrimaryKey":
                         toolStripStatusLabel1.Text = h.AlterPrimaryKey();
                         break;
@@ -70,10 +73,133 @@ namespace IP_stream
                         Parallel.For(0, 4, i => { ml.SendOrders(ml, i); });
                         break;
 
+                    case "OutPutPDCH":
+                        OutPutTable t = new OutPutTable();
+                        dataGridView1.DataSource = t.CiPDCH;
+                        MessageBox.Show("OK");
+                        break;
+
                     default:
                         QueryTable(e.Node.Text);
                         break;
                 }
+        }
+        private void ImportCiData()
+        {
+            OpenFileDialog dlgOpenfile = new OpenFileDialog();
+            string strFileFullName = null;
+            dlgOpenfile.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
+            dlgOpenfile.Title = "Open";
+            dlgOpenfile.ShowDialog();
+            dlgOpenfile.RestoreDirectory = true;
+            if (!string.IsNullOrEmpty(dlgOpenfile.FileName))
+                strFileFullName = dlgOpenfile.FileName;
+            ciPdchBulk(strFileFullName);
+
+
+            string stattime = InputBox("OSS和Gb的时间匹配", "请选定Gb采集时间", "16/02/2011 09:00:00");
+
+            ciCoverType(stattime);
+
+        }
+        private string InputBox(string Caption, string Hint, string Default)
+        {
+            //by 闫磊 Email:Landgis@126.com,yanleigis@21cn.com 2007.10.10
+            Form InputForm = new Form();
+            InputForm.MinimizeBox = false;
+            InputForm.MaximizeBox = false;
+            InputForm.StartPosition = FormStartPosition.CenterScreen;
+            InputForm.Width = 220;
+            InputForm.Height = 150;
+            //InputForm.Font.Name = "宋体";
+            //InputForm.Font.Size = 10;
+
+            InputForm.Text = Caption;
+            Label lbl = new Label();
+            lbl.Text = Hint;
+            lbl.Left = 10;
+            lbl.Top = 20;
+            lbl.Parent = InputForm;
+            lbl.AutoSize = true;
+            TextBox tb = new TextBox();
+            tb.Left = 30;
+            tb.Top = 45;
+            tb.Width = 160;
+            tb.Parent = InputForm;
+            tb.Text = Default;
+            tb.SelectAll();
+            Button btnok = new Button();
+            btnok.Left = 30;
+            btnok.Top = 80;
+            btnok.Parent = InputForm;
+            btnok.Text = "确定";
+            InputForm.AcceptButton = btnok;//回车响应
+
+            btnok.DialogResult = DialogResult.OK;
+            Button btncancal = new Button();
+            btncancal.Left = 120;
+            btncancal.Top = 80;
+            btncancal.Parent = InputForm;
+            btncancal.Text = "取消";
+            btncancal.DialogResult = DialogResult.Cancel;
+            try
+            {
+                if (InputForm.ShowDialog() == DialogResult.OK)
+                {
+                    return tb.Text;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            finally
+            {
+                InputForm.Dispose();
+            }
+
+        }
+
+        private void ciPdchBulk(string csvfile)
+        {
+
+            string dropsql = @"  IF  EXISTS (SELECT * FROM sys.objects 
+                                WHERE object_id = OBJECT_ID(N'[dbo].[ciPdchBulk]') AND type in (N'U'))
+                                DROP TABLE [dbo].[ciPdchBulk]";
+            string createsql = @" 
+                                CREATE TABLE ciPdchBulk
+                                ( 
+                                    lac  VARCHAR(32) null,
+                                    ci  VARCHAR(32) null,
+                                    stat_time  VARCHAR(32) null,
+                                    ci_name VARCHAR(32) null,
+                                    available_pdch VARCHAR(32) null,
+                                    use_pdch VARCHAR(32) null,
+                                    assignment_pdch_rate VARCHAR(32) null,
+                                )";
+
+            string insertsql = @" BULK INSERT ciPdchBulk
+                                    FROM '"+csvfile+"'  WITH ( FIRSTROW = 2,FIELDTERMINATOR = ',', ROWTERMINATOR = '\n'  )";
+            DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
+            mess.ExecuteCommand(dropsql);
+            mess.ExecuteCommand(createsql);
+            mess.ExecuteCommand(insertsql);
+            MessageBox.Show("OK");
+        }
+        private void ciCoverType(string stattime)
+        {
+            string createsql = @" IF  EXISTS (SELECT * FROM sys.objects 
+                                WHERE object_id = OBJECT_ID(N'[dbo].[ciCoverType]') AND type in (N'U'))
+                                DROP TABLE [dbo].[ciCoverType]";
+            string insertsql = @" SELECT IDENTITY(int, 1,1) AS ciCoverType_id,* into ciCoverType
+                                from (select lac+'-'+ci as lacCI,ci_name as ciName,
+                                available_pdch as ciCoverModel,use_pdch as ciCoverClass
+                                from dbo.ciPdchBulk
+                                where stat_time='" + stattime + "') as a";
+            DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
+            mess.ExecuteCommand(createsql);
+            mess.ExecuteCommand(insertsql);
+            MessageBox.Show("OK");
         }
 
         private void QueryTable(string tbName)
@@ -90,7 +216,7 @@ namespace IP_stream
                 else
                 {
                     DialogResult dlgResult = MessageBox.Show("Do you want to continue Access Remote Database ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dlgResult == DialogResult.Yes)
+                    if (dlgResult == DialogResult.Yes && tbName != "OutPutPDCH")
                         using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
                         {
                             dataGridView1.DataSource = mess.GetTableByName(tbName);
@@ -557,7 +683,10 @@ namespace IP_stream
         }
         #endregion
 
-
-
+        private void exportExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string filename = InputBox("保存成Excel文件?", "请输入Sheet名称", "AAA");
+            ExportExcel.ExportForDataGridview(dataGridView1, filename, true);
+        }
     }
 }
