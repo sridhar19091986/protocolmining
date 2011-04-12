@@ -200,6 +200,7 @@ namespace IP_stream
             mess.ExecuteCommand(createsql);
             mess.ExecuteCommand(insertsql);
             MessageBox.Show("OK");
+            QueryTable("ciCoverType");
         }
 
         private void QueryTable(string tbName)
