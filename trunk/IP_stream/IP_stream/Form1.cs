@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using connStringConfig;
 using streamTypeDefine;
 using Altova.Types;
+using IP_stream.AsynchThread;
 
 namespace IP_stream
 {
@@ -33,7 +34,7 @@ namespace IP_stream
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Level == 0) return;
-            handleTable h = new handleTable();
+
             DialogResult dlgResult = MessageBox.Show("Do you want to continue Access Remote Database ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlgResult == DialogResult.Yes)
                 switch (e.Node.Name)
@@ -41,38 +42,10 @@ namespace IP_stream
                     case "ImportCiData":
                         ImportCiData();
                         break;
-                    case "AlterPrimaryKey":
-                        toolStripStatusLabel1.Text = h.AlterPrimaryKey();
+                    case "BulkExcute":
+                        BulkExcute();
+                        MessageBox.Show("OK");
                         break;
-                    case "InitImeiCiTypeTable":
-                        toolStripStatusLabel1.Text = h.InitImeiCiTypeTable();
-                        break;
-                    case "InitMlocationTable":
-                        toolStripStatusLabel1.Text = h.InitMlocationTable();
-                        break;
-
-                    case "InsertImeiType":
-                        imeiTypeClass _imeiTypeClass = new imeiTypeClass(true);
-                        //Parallel.For(0, 2, i => { MessageBox.Show(i.ToString()); });
-                        Parallel.For(0, 2, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
-                        Thread.Sleep(1); GC.Collect(); Application.DoEvents();
-                        Parallel.For(2, 4, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
-                        break;
-                    case "InsertCiType":
-                        ciType _ciType = new ciType(true);
-                        Task t1 = new Task(() => { _ciType.InsertCiType(_ciType, 0); }); t1.Start();
-                        break;
-                    case "UpdateImeiType":
-                        imeiTypeClass _imeiTypeClass_false = new imeiTypeClass(false);
-                        Task t2 = new Task(() => { _imeiTypeClass_false.UpdateImeiType(); }); t2.Start();
-                        break;
-                    case "InsertResultTable":
-                        mLocatingConvert ml = new mLocatingConvert();
-                        Parallel.For(0, 2, i => { ml.SendOrders(ml, i); });
-                        Thread.Sleep(1); GC.Collect(); Application.DoEvents();
-                        Parallel.For(0, 4, i => { ml.SendOrders(ml, i); });
-                        break;
-
                     case "OutPutPDCH":
                         OutPutTable t = new OutPutTable();
                         dataGridView1.DataSource = t.CiPDCH;
@@ -84,6 +57,67 @@ namespace IP_stream
                         break;
                 }
         }
+        private void BulkExcute()
+        {
+            DualTests dt = new DualTests();
+            dt.Show();dt.Focus();
+            handleTable h = new handleTable();
+            //case "AlterPrimaryKey":
+            toolStripStatusLabel1.Text = h.AlterPrimaryKey();
+            //case"InitImeiCiTypeTable":
+            toolStripStatusLabel1.Text = h.InitImeiCiTypeTable();
+            //case"InitMlocationTable":
+            toolStripStatusLabel1.Text = h.InitMlocationTable();
+            //case"InsertImeiType":
+            imeiTypeClass _imeiTypeClass = new imeiTypeClass(true);
+            //Parallel.For(0, 2, i => { MessageBox.Show(i.ToString()); });
+            Parallel.For(0, 2, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
+            Thread.Sleep(1); GC.Collect(); Application.DoEvents();
+            Parallel.For(2, 4, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
+            QueryTable("msIMEI");
+            //case"InsertCiType":
+            ciType _ciType = new ciType(true);
+            Task t1 = new Task(() => { _ciType.InsertCiType(_ciType, 0); }); t1.Start();
+            QueryTable("ciBVCI");
+            //case"UpdateImeiType":
+            imeiTypeClass _imeiTypeClass_false = new imeiTypeClass(false);
+            Task t2 = new Task(() => { _imeiTypeClass_false.UpdateImeiType(); }); t2.Start();
+            QueryTable("msIMEI");
+            //case"InsertResultTable":
+            mLocatingConvert ml = new mLocatingConvert();
+            Parallel.For(0, 2, i => { ml.SendOrders(ml, i); });
+            Thread.Sleep(1); GC.Collect(); Application.DoEvents();
+            Parallel.For(0, 4, i => { ml.SendOrders(ml, i); });
+            dt.Close();
+        }
+        private void QueryTable(string tbName)
+        {
+            //只有IP_stream不在本地
+            try
+            {
+                if (tbName == "ciCoverType" || tbName == "imeiType")
+                    using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+                    {
+                        dataGridView1.DataSource = mess.GetTableByName(tbName);
+                        toolStripStatusLabel1.Text = mess.Connection.ConnectionString;
+                    }
+                else
+                {
+                    //DialogResult dlgResult = MessageBox.Show("Do you want to continue Access Remote Database ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    //if (dlgResult == DialogResult.Yes && tbName != "OutPutPDCH")
+                        using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+                        {
+                            dataGridView1.DataSource = mess.GetTableByName(tbName);
+                            toolStripStatusLabel1.Text = mess.Connection.ConnectionString;
+                        }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
         private void ImportCiData()
         {
             OpenFileDialog dlgOpenfile = new OpenFileDialog();
@@ -102,64 +136,7 @@ namespace IP_stream
             ciCoverType(stattime);
 
         }
-        private string InputBox(string Caption, string Hint, string Default)
-        {
-            //by 闫磊 Email:Landgis@126.com,yanleigis@21cn.com 2007.10.10
-            Form InputForm = new Form();
-            InputForm.MinimizeBox = false;
-            InputForm.MaximizeBox = false;
-            InputForm.StartPosition = FormStartPosition.CenterScreen;
-            InputForm.Width = 220;
-            InputForm.Height = 150;
-            //InputForm.Font.Name = "宋体";
-            //InputForm.Font.Size = 10;
-
-            InputForm.Text = Caption;
-            Label lbl = new Label();
-            lbl.Text = Hint;
-            lbl.Left = 10;
-            lbl.Top = 20;
-            lbl.Parent = InputForm;
-            lbl.AutoSize = true;
-            TextBox tb = new TextBox();
-            tb.Left = 30;
-            tb.Top = 45;
-            tb.Width = 160;
-            tb.Parent = InputForm;
-            tb.Text = Default;
-            tb.SelectAll();
-            Button btnok = new Button();
-            btnok.Left = 30;
-            btnok.Top = 80;
-            btnok.Parent = InputForm;
-            btnok.Text = "确定";
-            InputForm.AcceptButton = btnok;//回车响应
-
-            btnok.DialogResult = DialogResult.OK;
-            Button btncancal = new Button();
-            btncancal.Left = 120;
-            btncancal.Top = 80;
-            btncancal.Parent = InputForm;
-            btncancal.Text = "取消";
-            btncancal.DialogResult = DialogResult.Cancel;
-            try
-            {
-                if (InputForm.ShowDialog() == DialogResult.OK)
-                {
-                    return tb.Text;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            finally
-            {
-                InputForm.Dispose();
-            }
-
-        }
-
+   
         private void ciPdchBulk(string csvfile)
         {
 
@@ -203,33 +180,7 @@ namespace IP_stream
             QueryTable("ciCoverType");
         }
 
-        private void QueryTable(string tbName)
-        {
-            //只有IP_stream不在本地
-            try
-            {
-                if (tbName == "ciCoverType" || tbName == "imeiType")
-                    using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
-                    {
-                        dataGridView1.DataSource = mess.GetTableByName(tbName);
-                        toolStripStatusLabel1.Text = mess.Connection.ConnectionString;
-                    }
-                else
-                {
-                    DialogResult dlgResult = MessageBox.Show("Do you want to continue Access Remote Database ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dlgResult == DialogResult.Yes && tbName != "OutPutPDCH")
-                        using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
-                        {
-                            dataGridView1.DataSource = mess.GetTableByName(tbName);
-                            toolStripStatusLabel1.Text = mess.Connection.ConnectionString;
-                        }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
+
 
         private void DisplayResultTable()
         {
@@ -322,7 +273,7 @@ namespace IP_stream
             refreshTreeViewGetTables();
             refreshTreeViewstreamType();
 
-            //streamType.InsertConnString = streamType.RemoteConnString;
+            //streamType.RemoteConnString = streamType.RemoteConnString;
         }
 
         private void hiddenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -609,7 +560,7 @@ namespace IP_stream
 
             streamType.LocalConnString = localX.add.At(0).connectionString.Value;
             streamType.RemoteConnString = remoteX.add.At(0).connectionString.Value;
-            streamType.InsertConnString = insertX.add.At(0).connectionString.Value;
+            streamType.RemoteConnString = insertX.add.At(0).connectionString.Value;
         }
 
         private void SaveTreeViewConn()
@@ -689,5 +640,63 @@ namespace IP_stream
             string filename = InputBox("保存成Excel文件?", "请输入Sheet名称", "AAA");
             ExportExcel.ExportForDataGridview(dataGridView1, filename, true);
         }
+        private string InputBox(string Caption, string Hint, string Default)
+        {
+            //by 闫磊 Email:Landgis@126.com,yanleigis@21cn.com 2007.10.10
+            Form InputForm = new Form();
+            InputForm.MinimizeBox = false;
+            InputForm.MaximizeBox = false;
+            InputForm.StartPosition = FormStartPosition.CenterScreen;
+            InputForm.Width = 220;
+            InputForm.Height = 150;
+            //InputForm.Font.Name = "宋体";
+            //InputForm.Font.Size = 10;
+
+            InputForm.Text = Caption;
+            Label lbl = new Label();
+            lbl.Text = Hint;
+            lbl.Left = 10;
+            lbl.Top = 20;
+            lbl.Parent = InputForm;
+            lbl.AutoSize = true;
+            TextBox tb = new TextBox();
+            tb.Left = 30;
+            tb.Top = 45;
+            tb.Width = 160;
+            tb.Parent = InputForm;
+            tb.Text = Default;
+            tb.SelectAll();
+            Button btnok = new Button();
+            btnok.Left = 30;
+            btnok.Top = 80;
+            btnok.Parent = InputForm;
+            btnok.Text = "确定";
+            InputForm.AcceptButton = btnok;//回车响应
+
+            btnok.DialogResult = DialogResult.OK;
+            Button btncancal = new Button();
+            btncancal.Left = 120;
+            btncancal.Top = 80;
+            btncancal.Parent = InputForm;
+            btncancal.Text = "取消";
+            btncancal.DialogResult = DialogResult.Cancel;
+            try
+            {
+                if (InputForm.ShowDialog() == DialogResult.OK)
+                {
+                    return tb.Text;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            finally
+            {
+                InputForm.Dispose();
+            }
+
+        }
+
     }
 }

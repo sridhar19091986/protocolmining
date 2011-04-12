@@ -29,3 +29,4 @@ G:\protocolmining\IP_stream\IP_stream\obj\Debug\IP_stream.Form1.resources
 G:\protocolmining\IP_stream\IP_stream\obj\Debug\IP_stream.Properties.Resources.resources
 G:\protocolmining\IP_stream\IP_stream\obj\Debug\GenerateResource.read.1.tlog
 G:\protocolmining\IP_stream\IP_stream\obj\Debug\GenerateResource.write.1.tlog
+G:\protocolmining\IP_stream\IP_stream\obj\Debug\IP_stream.AsynchThread.DualTests.resources
