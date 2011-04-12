@@ -29,31 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("ImportCiData");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("AlterPrimaryKey");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("InitImeiCiTypeTable");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("InitMlocationTable");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("InitTable", new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("InsertCiType");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("InsertImeiType");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("UpdateImeiType");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("InsertResultTable");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("ResultTable", new System.Windows.Forms.TreeNode[] {
-            treeNode18,
-            treeNode19,
-            treeNode20,
-            treeNode21});
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("OutPutPDCH");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("OutPutTable", new System.Windows.Forms.TreeNode[] {
-            treeNode23});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("ImportCiData");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("InitTable", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("BulkExcute");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("ResultTable", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("OutPutPDCH");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("OutPutTable", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -76,7 +65,6 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -130,6 +118,13 @@
             this.showToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.showToolStripMenuItem.Text = "Show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // exportExcelToolStripMenuItem
+            // 
+            this.exportExcelToolStripMenuItem.Name = "exportExcelToolStripMenuItem";
+            this.exportExcelToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.exportExcelToolStripMenuItem.Text = "ExportExcel";
+            this.exportExcelToolStripMenuItem.Click += new System.EventHandler(this.exportExcelToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -192,34 +187,22 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode13.Name = "ImportCiData";
-            treeNode13.Text = "ImportCiData";
-            treeNode14.Name = "AlterPrimaryKey";
-            treeNode14.Text = "AlterPrimaryKey";
-            treeNode15.Name = "InitImeiCiTypeTable";
-            treeNode15.Text = "InitImeiCiTypeTable";
-            treeNode16.Name = "InitMlocationTable";
-            treeNode16.Text = "InitMlocationTable";
-            treeNode17.Name = "InitTable";
-            treeNode17.Text = "InitTable";
-            treeNode18.Name = "InsertCiType";
-            treeNode18.Text = "InsertCiType";
-            treeNode19.Name = "InsertImeiType";
-            treeNode19.Text = "InsertImeiType";
-            treeNode20.Name = "UpdateImeiType";
-            treeNode20.Text = "UpdateImeiType";
-            treeNode21.Name = "InsertResultTable";
-            treeNode21.Text = "InsertResultTable";
-            treeNode22.Name = "ResultTable";
-            treeNode22.Text = "ResultTable";
-            treeNode23.Name = "OutPutPDCH";
-            treeNode23.Text = "OutPutPDCH";
-            treeNode24.Name = "OutPutTable";
-            treeNode24.Text = "OutPutTable";
+            treeNode1.Name = "ImportCiData";
+            treeNode1.Text = "ImportCiData";
+            treeNode2.Name = "InitTable";
+            treeNode2.Text = "InitTable";
+            treeNode3.Name = "BulkExcute";
+            treeNode3.Text = "BulkExcute";
+            treeNode4.Name = "ResultTable";
+            treeNode4.Text = "ResultTable";
+            treeNode5.Name = "OutPutPDCH";
+            treeNode5.Text = "OutPutPDCH";
+            treeNode6.Name = "OutPutTable";
+            treeNode6.Text = "OutPutTable";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode22,
-            treeNode24});
+            treeNode2,
+            treeNode4,
+            treeNode6});
             this.treeView1.PathSeparator = "";
             this.treeView1.Size = new System.Drawing.Size(223, 331);
             this.treeView1.TabIndex = 9;
@@ -365,13 +348,6 @@
             this.modifyToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
-            // 
-            // exportExcelToolStripMenuItem
-            // 
-            this.exportExcelToolStripMenuItem.Name = "exportExcelToolStripMenuItem";
-            this.exportExcelToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
-            this.exportExcelToolStripMenuItem.Text = "ExportExcel";
-            this.exportExcelToolStripMenuItem.Click += new System.EventHandler(this.exportExcelToolStripMenuItem_Click);
             // 
             // Form1
             // 

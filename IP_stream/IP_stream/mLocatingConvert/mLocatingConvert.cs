@@ -137,7 +137,7 @@ namespace IP_stream
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (SqlConnection con = new SqlConnection(streamType.InsertConnString))
+            using (SqlConnection con = new SqlConnection(streamType.RemoteConnString))
             {
                 con.Open();
                 using (SqlTransaction tran = con.BeginTransaction())
@@ -157,9 +157,9 @@ namespace IP_stream
             GC.Collect();
             sw.Stop();
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
-            //using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.InsertConnString))
+            //using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
             //    filenum = mess.mLocatingType.Count();
-            MessageBox.Show(filenum.ToString() + "---" + sw.Elapsed.TotalSeconds.ToString() + "---");
+            //MessageBox.Show(filenum.ToString() + "---" + sw.Elapsed.TotalSeconds.ToString() + "---");
         }
     }
 }

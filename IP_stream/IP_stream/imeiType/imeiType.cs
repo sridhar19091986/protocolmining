@@ -116,7 +116,7 @@ namespace IP_stream
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (SqlConnection con = new SqlConnection(streamType.InsertConnString))
+            using (SqlConnection con = new SqlConnection(streamType.RemoteConnString))
             {
                 con.Open();
                 using (SqlTransaction tran = con.BeginTransaction())
@@ -135,7 +135,7 @@ namespace IP_stream
             }
             GC.Collect();
             sw.Stop();
-            MessageBox.Show(filenum.ToString() + "---" + sw.Elapsed.TotalSeconds.ToString() + "---");
+            //MessageBox.Show(filenum.ToString() + "---" + sw.Elapsed.TotalSeconds.ToString() + "---");
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
         }
         public void UpdateImeiType()
@@ -145,8 +145,8 @@ namespace IP_stream
             int maxUser = 0;
             using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
                 maxUser = mess.msIMEI.Count();
-            MessageBox.Show(maxUser.ToString());
-            using (SqlConnection con = new SqlConnection(streamType.InsertConnString))
+            //MessageBox.Show(maxUser.ToString());
+            using (SqlConnection con = new SqlConnection(streamType.RemoteConnString))
             {
                 con.Open();
                 using (SqlTransaction tran = con.BeginTransaction())
@@ -168,7 +168,7 @@ namespace IP_stream
                 mess.ExecuteCommand("delete from msIMEI where msIMEI_id<=" + maxUser);
             GC.Collect();
             sw.Stop();
-            MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
+            //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
         }
     }
 }

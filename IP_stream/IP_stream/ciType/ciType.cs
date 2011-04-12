@@ -66,7 +66,7 @@ namespace IP_stream
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (SqlConnection con = new SqlConnection(streamType.InsertConnString))
+            using (SqlConnection con = new SqlConnection(streamType.RemoteConnString))
             {
                 con.Open();
                 using (SqlTransaction tran = con.BeginTransaction())
@@ -85,7 +85,7 @@ namespace IP_stream
             }
             GC.Collect();
             sw.Stop();
-            MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
+            //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
         }
 
     }
