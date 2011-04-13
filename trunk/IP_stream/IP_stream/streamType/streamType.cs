@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Data.Linq;
 using System.Xml.Linq;
+using System.Windows.Forms;
 
 namespace IP_stream
 {
     class streamType
     {
-        public const string configXmlPath = "connStringConfig.xml";
-        public const string streamTypeXmlPath = "streamTypeDefine.xml";
-        public const string imeiTypeXmlPath = "imeiFactoryType.xml";
+        public static string configXmlPath = Application.StartupPath+@"\connStringConfig.xml";
+        public static string streamTypeXmlPath = Application.StartupPath + @"\streamTypeDefine.xml";
+        public static string imeiTypeXmlPath = Application.StartupPath + @"\imeiFactoryType.xml";
 
         public XElement dataConfig = XElement.Load(streamTypeXmlPath);
         //本地库，小区类型表，IMEI类型表
