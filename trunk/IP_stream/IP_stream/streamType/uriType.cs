@@ -35,7 +35,7 @@ namespace IP_stream
             #region
             //远程取上下行的URI关联
             #endregion
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
             {
                 var m = mess.IP_stream.Where(e => e.http_uri != null || e.wsp_uri != null).Where(e => e.tcp_d != null);
                 foreach (var ms in m)

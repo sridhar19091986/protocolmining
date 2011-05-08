@@ -13,7 +13,7 @@ namespace IP_stream
         #region
         //远程取小区关系
         #endregion
-        private DataClasses1DataContext remotedb = new DataClasses1DataContext(streamType.RemoteConnString);
+        private DataClasses1DataContext remotedb = new DataClasses1DataContext(streamType.LocalConnString);
         private Dictionary<string, ciBVCI> _CiTypeCollection;
         public Dictionary<string, ciBVCI> CiTypeCollection
         {
@@ -21,7 +21,7 @@ namespace IP_stream
             {
                 if (_CiTypeCollection == null)
                 {
-                    remotedb = new DataClasses1DataContext(streamType.RemoteConnString);
+                    remotedb = new DataClasses1DataContext(streamType.LocalConnString);
                     _CiTypeCollection = remotedb.ciBVCI.ToDictionary(e => e.bvci);
                 }
                 return _CiTypeCollection;
@@ -31,12 +31,12 @@ namespace IP_stream
                 _CiTypeCollection = value;
             }
         }
-        private ILookup<string, ciCoverType> cicovertype;
+        private ILookup<string, ciCoverType> ciAllocPDCH;
         public ciType(bool init)
         {
             if (init == true)
                 using (DataClasses1DataContext localdb = new DataClasses1DataContext(streamType.LocalConnString))
-                    cicovertype = localdb.ciCoverType.Where(e => e.lacCI.IndexOf("-") != -1).ToLookup(e => e.lacCI);
+                    ciAllocPDCH = localdb.ciCoverType.Where(e => e.lacCI.IndexOf("-") != -1).ToLookup(e => e.lacCI);
         }
         public IEnumerable<ciBVCI> GetCiTypeCollection(int filenum)
         {
@@ -52,10 +52,10 @@ namespace IP_stream
                 a.lacCi = ci.Key;
                 if (a.lacCi != null)
                 {
-                    if (cicovertype.Contains(a.lacCi))
+                    if (ciAllocPDCH.Contains(a.lacCi))
                     {
-                        a.ciCoverType = cicovertype[a.lacCi].Select(e => e.ciCoverModel).FirstOrDefault();
-                        a.ciCoverClass = cicovertype[a.lacCi].Select(e => e.ciCoverClass).FirstOrDefault();
+                        a.ciAllocPDCH = ciAllocPDCH[a.lacCi].Select(e => e.ciAllocPDCH).FirstOrDefault();
+                        a.ciUsePDCH = ciAllocPDCH[a.lacCi].Select(e => e.ciUsePDCH).FirstOrDefault();
                     }
                 }
                 yield return a;
@@ -66,7 +66,7 @@ namespace IP_stream
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (SqlConnection con = new SqlConnection(streamType.RemoteConnString))
+            using (SqlConnection con = new SqlConnection(streamType.LocalConnString))
             {
                 con.Open();
                 using (SqlTransaction tran = con.BeginTransaction())

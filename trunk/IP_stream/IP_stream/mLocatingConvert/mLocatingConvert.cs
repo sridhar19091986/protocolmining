@@ -14,7 +14,7 @@ namespace IP_stream
         //远程取总数
         #endregion
 
-        private DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString);
+        private DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
 
         private ciType _ciType;
         private imeiTypeClass _imeiTypeClass;
@@ -42,7 +42,7 @@ namespace IP_stream
 
         public IEnumerable<mLocatingType> mLocatingTypeLength(int filenum)
         {
-            mess = new DataClasses1DataContext(streamType.RemoteConnString);
+            mess = new DataClasses1DataContext(streamType.LocalConnString);
             foreach (var p in mess.IP_stream.Where(e => e.FileNum == filenum))
             {
                 mLocatingType down = new mLocatingType();
@@ -70,8 +70,8 @@ namespace IP_stream
                 //var ci = _ciType.CiTypeCollection[down.fileNum + "-" + down.bvci];
                 var ci = _ciType.CiTypeCollection[down.bvci];
                 down.lacCI = ci.lacCi;
-                down.ciConverType = ci.ciCoverType;
-                down.ciConverClass = ci.ciCoverClass;
+                down.ciCoverAllocPDCH = ci.ciAllocPDCH;
+                down.ciCoverUsePDCH = ci.ciUsePDCH;
 
 
                 if (_imeiTypeClass.MsImeiCollection.ContainsKey(down.fileNum + "-" + down.tlli))
@@ -137,7 +137,7 @@ namespace IP_stream
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (SqlConnection con = new SqlConnection(streamType.RemoteConnString))
+            using (SqlConnection con = new SqlConnection(streamType.LocalConnString))
             {
                 con.Open();
                 using (SqlTransaction tran = con.BeginTransaction())
@@ -157,7 +157,7 @@ namespace IP_stream
             GC.Collect();
             sw.Stop();
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
-            //using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            //using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
             //    filenum = mess.mLocatingType.Count();
             //MessageBox.Show(filenum.ToString() + "---" + sw.Elapsed.TotalSeconds.ToString() + "---");
         }
