@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="G:\protocolmining\IP_stream\IP_stream\appConfig\connStringConfig.xsd">
 	<LocalDatabaseConn>
-		<add connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ip_stream;Integrated Security=True" name=".\SQLEXPRESS_ip_stream" />
+		<add connectionString="Data Source=localhost;Initial Catalog=mytest;Integrated Security=True" name="localhost_mytest" />
 		<add connectionString="new Name" name="new Name" />
 		<add connectionString="new Name" name="new Name" />
 	</LocalDatabaseConn>
