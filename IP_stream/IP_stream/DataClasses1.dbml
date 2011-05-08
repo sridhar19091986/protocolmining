@@ -45,8 +45,8 @@
       <Column Name="fileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="lacCi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="bvci" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ciCoverType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ciCoverClass" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="ciAllocPDCH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ciUsePDCH" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.imeiType" Member="imeiType">
@@ -75,8 +75,8 @@
       <Column Name="frame" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="bvci" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="lacCI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ciConverType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ciConverClass" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="ciCoverAllocPDCH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ciCoverUsePDCH" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="tlli" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imsi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imei" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -96,8 +96,8 @@
       <Column Name="ciCoverType_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="lacCI" Type="System.String" DbType="VarChar(65)" CanBeNull="true" />
       <Column Name="ciName" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
-      <Column Name="ciCoverModel" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
-      <Column Name="ciCoverClass" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="ciAllocPDCH" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="ciUsePDCH" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Gb_Paging_PS" Member="Gb_Paging_PS">

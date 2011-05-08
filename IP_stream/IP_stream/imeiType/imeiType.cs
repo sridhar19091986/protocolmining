@@ -15,7 +15,7 @@ namespace IP_stream
         #region
         //远程取imsi,imei关系
         #endregion
-        private DataClasses1DataContext remotedb = new DataClasses1DataContext(streamType.RemoteConnString);
+        private DataClasses1DataContext remotedb = new DataClasses1DataContext(streamType.LocalConnString);
         private Dictionary<string, msIMEI> _MsImeiCollection;
         public Dictionary<string, msIMEI> MsImeiCollection
         {
@@ -23,7 +23,7 @@ namespace IP_stream
             {
                 if (_MsImeiCollection == null)
                 {
-                    remotedb = new DataClasses1DataContext(streamType.RemoteConnString);
+                    remotedb = new DataClasses1DataContext(streamType.LocalConnString);
                     _MsImeiCollection = remotedb.msIMEI.ToDictionary(e => e.fileNum + "-" + e.tlli);
                 }
                 return _MsImeiCollection;
@@ -68,7 +68,7 @@ namespace IP_stream
 
         private IEnumerable<msIMEI> GetMsImeiCollection(int filenum)
         {
-            remotedb = new DataClasses1DataContext(streamType.RemoteConnString);
+            remotedb = new DataClasses1DataContext(streamType.LocalConnString);
             var stream = from p in remotedb.IP_stream
                          where p.FileNum == filenum
                          select new { p.FileNum, p.tlli, p.imsi, p.imei };
@@ -116,7 +116,7 @@ namespace IP_stream
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (SqlConnection con = new SqlConnection(streamType.RemoteConnString))
+            using (SqlConnection con = new SqlConnection(streamType.LocalConnString))
             {
                 con.Open();
                 using (SqlTransaction tran = con.BeginTransaction())
@@ -143,10 +143,10 @@ namespace IP_stream
             Stopwatch sw = new Stopwatch();
             sw.Start();
             int maxUser = 0;
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
                 maxUser = mess.msIMEI.Count();
             //MessageBox.Show(maxUser.ToString());
-            using (SqlConnection con = new SqlConnection(streamType.RemoteConnString))
+            using (SqlConnection con = new SqlConnection(streamType.LocalConnString))
             {
                 con.Open();
                 using (SqlTransaction tran = con.BeginTransaction())
@@ -164,7 +164,7 @@ namespace IP_stream
                 }
                 con.Close();
             }
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
                 mess.ExecuteCommand("delete from msIMEI where msIMEI_id<=" + maxUser);
             GC.Collect();
             sw.Stop();

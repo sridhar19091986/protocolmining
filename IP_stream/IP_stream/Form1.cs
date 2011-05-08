@@ -41,6 +41,7 @@ namespace IP_stream
                 {
                     case "ImportCiData":
                         ImportCiData();
+                        ImportimeiTypeFile();
                         break;
                     case "BulkExcute":
                         BulkExcute();
@@ -60,7 +61,7 @@ namespace IP_stream
         private void BulkExcute()
         {
             DualTests dt = new DualTests();
-            dt.Show();dt.Focus();
+            dt.Show(); dt.Focus();
             handleTable h = new handleTable();
             //case "AlterPrimaryKey":
             toolStripStatusLabel1.Text = h.AlterPrimaryKey();
@@ -105,11 +106,11 @@ namespace IP_stream
                 {
                     //DialogResult dlgResult = MessageBox.Show("Do you want to continue Access Remote Database ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     //if (dlgResult == DialogResult.Yes && tbName != "OutPutPDCH")
-                        using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
-                        {
-                            dataGridView1.DataSource = mess.GetTableByName(tbName);
-                            toolStripStatusLabel1.Text = mess.Connection.ConnectionString;
-                        }
+                    using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+                    {
+                        dataGridView1.DataSource = mess.GetTableByName(tbName);
+                        toolStripStatusLabel1.Text = mess.Connection.ConnectionString;
+                    }
                 }
             }
             catch (Exception e)
@@ -117,7 +118,35 @@ namespace IP_stream
                 MessageBox.Show(e.ToString());
             }
         }
+        private void ImportimeiTypeFile()
+        {
+            string dropsql = @"
+                            IF  EXISTS (SELECT * FROM sys.objects 
+                            WHERE object_id = OBJECT_ID(N'[dbo].[imeiType]') AND type in (N'U'))
+                            DROP TABLE [dbo].[imeiType]
+                            ";
 
+            string createsql = @"
+                                CREATE TABLE [dbo].[imeiType](
+	                                [imeiType_id] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	                                [imei] [nvarchar](50) NULL,
+	                                [imeiFactory] [nvarchar](50) NULL,
+	                                [imeiModel] [nvarchar](500) NULL,
+	                                [imeiClass] [nvarchar](500) NULL
+                                ) ON [PRIMARY]
+                                ";
+
+            string insertsql = @" BULK INSERT imeiType
+                                    FROM '" + streamType.imeiTypeFile
+                                 + "'  WITH ( FIRSTROW = 2,FIELDTERMINATOR = ',', ROWTERMINATOR = '\n'  )";
+
+            DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
+            mess.ExecuteCommand(dropsql);
+            mess.ExecuteCommand(createsql);
+            mess.ExecuteCommand(insertsql);
+            MessageBox.Show("OK");
+
+        }
         private void ImportCiData()
         {
             OpenFileDialog dlgOpenfile = new OpenFileDialog();
@@ -133,10 +162,10 @@ namespace IP_stream
 
             string stattime = InputBox("OSS和Gb的时间匹配", "请选定Gb采集时间", "16/02/2011 09:00:00");
 
-            ciCoverType(stattime);
+            ImportCiCoverType(stattime);
 
         }
-   
+
         private void ciPdchBulk(string csvfile)
         {
 
@@ -156,21 +185,21 @@ namespace IP_stream
                                 )";
 
             string insertsql = @" BULK INSERT ciPdchBulk
-                                    FROM '"+csvfile+"'  WITH ( FIRSTROW = 2,FIELDTERMINATOR = ',', ROWTERMINATOR = '\n'  )";
+                                    FROM '" + csvfile + "'  WITH ( FIRSTROW = 2,FIELDTERMINATOR = ',', ROWTERMINATOR = '\n'  )";
             DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
             mess.ExecuteCommand(dropsql);
             mess.ExecuteCommand(createsql);
             mess.ExecuteCommand(insertsql);
             MessageBox.Show("OK");
         }
-        private void ciCoverType(string stattime)
+        private void ImportCiCoverType(string stattime)
         {
             string createsql = @" IF  EXISTS (SELECT * FROM sys.objects 
                                 WHERE object_id = OBJECT_ID(N'[dbo].[ciCoverType]') AND type in (N'U'))
                                 DROP TABLE [dbo].[ciCoverType]";
             string insertsql = @" SELECT IDENTITY(int, 1,1) AS ciCoverType_id,* into ciCoverType
                                 from (select lac+'-'+ci as lacCI,ci_name as ciName,
-                                available_pdch as ciCoverModel,use_pdch as ciCoverClass
+                                available_pdch as ciAllocPDCH,use_pdch as ciUsePDCH
                                 from dbo.ciPdchBulk
                                 where stat_time='" + stattime + "') as a";
             DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
@@ -219,6 +248,14 @@ namespace IP_stream
                 foreach (var t in mess.Mapping.GetTables())
                     tn.Nodes.Add(t.TableName.Substring(4));
                 treeView1.Nodes.Add(tn);
+
+                foreach (TreeNode t in tn.Nodes)
+                {
+                    if (t.Text == "imeiType" || t.Text == "ciCoverType")
+                        t.ForeColor = Color.Red;
+                    if (t.Text == "mLocatingType")
+                        t.BackColor = Color.Blue;
+                }
             }
             treeView1.ExpandAll();
         }
@@ -251,8 +288,8 @@ namespace IP_stream
             #region   远程数据库，取xml文件中第一个连接
             XElement dataConfig = XElement.Load(streamType.configXmlPath);
             XElement mod = dataConfig.Elements("connectionStrings").ElementAt(0);
-            streamType.RemoteConnString = mod.Element("connectionString").Value;
-            toolStripStatusLabel2.Text = streamType.RemoteConnString;
+            streamType.LocalConnString = mod.Element("connectionString").Value;
+            toolStripStatusLabel2.Text = streamType.LocalConnString;
             #endregion
           
 
@@ -260,8 +297,8 @@ namespace IP_stream
             connStringConfig.connStringConfig2 doc = connStringConfig.connStringConfig2.LoadFromFile(streamType.configXmlPath);
             connStringConfig.configurationType level1 = doc.configuration.First;
             connStringConfig.configSectionsType level2 = level1.configSections.First;
-            streamType.RemoteConnString = level2.add.First.connectionString.Value;
-            toolStripStatusLabel2.Text = streamType.RemoteConnString;
+            streamType.LocalConnString = level2.add.First.connectionString.Value;
+            toolStripStatusLabel2.Text = streamType.LocalConnString;
             #endregion
              * 
              *    * 
@@ -273,7 +310,7 @@ namespace IP_stream
             refreshTreeViewGetTables();
             refreshTreeViewstreamType();
 
-            //streamType.RemoteConnString = streamType.RemoteConnString;
+            //streamType.LocalConnString = streamType.LocalConnString;
         }
 
         private void hiddenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -559,8 +596,8 @@ namespace IP_stream
             treeViewConn.ExpandAll();
 
             streamType.LocalConnString = localX.add.At(0).connectionString.Value;
-            streamType.RemoteConnString = remoteX.add.At(0).connectionString.Value;
-            streamType.RemoteConnString = insertX.add.At(0).connectionString.Value;
+            //streamType.LocalConnString = remoteX.add.At(0).connectionString.Value;
+            //streamType.LocalConnString = insertX.add.At(0).connectionString.Value;
         }
 
         private void SaveTreeViewConn()

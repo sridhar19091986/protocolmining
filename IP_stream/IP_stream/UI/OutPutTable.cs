@@ -31,11 +31,11 @@ namespace IP_stream
         public IList<OutPutCiPDCH> CiPDCH = new List<OutPutCiPDCH>();
         public OutPutTable()
         { 
-            OutPutCiCoverType();
+            OutPutciCoverType();
         }
-        private void OutPutCiCoverType()
+        private void OutPutciCoverType()
         {
-            DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString);
+            DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
             mess.CommandTimeout = 0;//sql连接超时的问题
             var readGb = mess.IP_stream;
             TimeSpan timer = readGb.Max(e => e.PacketTime).Value - readGb.Min(e => e.PacketTime).Value;
@@ -50,10 +50,10 @@ namespace IP_stream
                         mKey = tt.Key,
                         CiIpByte = tt.Sum(e => e.mLen) * 1.0 / mTime,
 
-                        //a.ciCoverType => e.ciCoverModel
-                        //a.ciCoverClass => e.ciCoverClass
-                        CiPDCH =tt.Select(e => e.ciConverClass).FirstOrDefault()==null?0
-                        :Convert.ToDouble( tt.Select(e => e.ciConverClass).FirstOrDefault()), //此处修改 2011.4.12
+                        //a.ciAllocPDCH => e.ciAllocPDCH
+                        //a.ciUsePDCH => e.ciUsePDCH
+                        CiPDCH =tt.Select(e => e.ciCoverUsePDCH).FirstOrDefault()==null?0
+                        :Convert.ToDouble( tt.Select(e => e.ciCoverUsePDCH).FirstOrDefault()), //此处修改 2011.4.12
 
                         StreamingMedia = tt.Where(e => e.trafficType == "StreamingMedia").Sum(e => e.mLen) * 1.0 / mTime,
                         StockCategory = tt.Where(e => e.trafficType == "StockCategory").Sum(e => e.mLen) * 1.0 / mTime,

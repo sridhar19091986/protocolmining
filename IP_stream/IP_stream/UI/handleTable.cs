@@ -18,7 +18,7 @@ namespace IP_stream
         }
         public string AlterPrimaryKey()
         {
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
             {
                 try
                 {
@@ -52,7 +52,7 @@ namespace IP_stream
             if (result == DialogResult.Yes)//Messagebox返回的值
             {
                 CreateImeiCiTypeTable();
-                using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+                using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
                 {
                     mess.ExecuteCommand("delete from ciBVCI");
                     mess.ExecuteCommand("delete from msIMEI");
@@ -60,12 +60,12 @@ namespace IP_stream
                 GC.Collect();
                 //MessageBox.Show("OK");
             }
-            return streamType.RemoteConnString;
+            return streamType.LocalConnString;
         }
 
         public string InitMlocationTable()
         {
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))//此处关键，数据插入到何处
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))//此处关键，数据插入到何处
             {
                 //mess.CommandTimeout = 6000;//sql连接超时的问题
                 DialogResult result; //Messagebox所属于的类
@@ -91,13 +91,13 @@ namespace IP_stream
             }
             GC.Collect();
             //MessageBox.Show("OK");
-            return streamType.RemoteConnString;
+            return streamType.LocalConnString;
         }
 
         private void CreateImeiCiTypeTable()
         {
 
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
             {
                 var typeName = "System.Data.Linq.SqlClient.SqlBuilder";
                 var type = typeof(DataContext).Assembly.GetType(typeName);

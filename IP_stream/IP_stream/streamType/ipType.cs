@@ -19,7 +19,7 @@ namespace IP_stream
         }
         private void portTypeReverseIpType()
         {
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
             {
                 //端口取下行包  ip_s
                 var port_s = from p in mess.IP_stream select new { p.tcp_s, p.ip_s };
@@ -42,7 +42,7 @@ namespace IP_stream
         }
         private void protocolTypeReverseIpType()
         {
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
             {
                 protocolType _protocolType = new protocolType();
                 //协议取下行包  ip_s
@@ -67,7 +67,7 @@ namespace IP_stream
         }
         private void uriTypeReverseIpType()
         {
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
             {
                 uriType _uriType = new uriType();
                 //http取上行包  ip_d
@@ -90,7 +90,7 @@ namespace IP_stream
         }
         private void responseTypeReverseIpType()
         {
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.RemoteConnString))
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
             {
                 responseType _responseType = new responseType();
                 //response取下行包  ip_s
