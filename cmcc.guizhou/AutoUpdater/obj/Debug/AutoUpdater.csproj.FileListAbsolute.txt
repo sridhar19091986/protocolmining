@@ -1,0 +1,5 @@
+G:\protocolmining\cmcc.guizhou\AutoUpdater\bin\Debug\AutoUpdater.exe
+G:\protocolmining\cmcc.guizhou\AutoUpdater\bin\Debug\AutoUpdater.pdb
+G:\protocolmining\cmcc.guizhou\AutoUpdater\obj\Debug\ResolveAssemblyReference.cache
+G:\protocolmining\cmcc.guizhou\AutoUpdater\obj\Debug\AutoUpdater.exe
+G:\protocolmining\cmcc.guizhou\AutoUpdater\obj\Debug\AutoUpdater.pdb
