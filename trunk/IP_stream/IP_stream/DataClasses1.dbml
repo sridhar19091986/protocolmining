@@ -33,7 +33,7 @@
       <Column Name="ip_length" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="imei" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="mmse" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="bitrorrent" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="bittorrent" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="oicqVersion" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="edonkey" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="imsi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
@@ -46,7 +46,7 @@
       <Column Name="lacCi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="bvci" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ciAllocPDCH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ciUsePDCH" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="ciUsePDCH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.imeiType" Member="imeiType">
@@ -65,7 +65,7 @@
       <Column Name="tlli" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imsi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imei" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="imeitype" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="imeitype" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="imeiclass" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
@@ -76,7 +76,7 @@
       <Column Name="bvci" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="lacCI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ciCoverAllocPDCH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ciCoverUsePDCH" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="ciCoverUsePDCH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="tlli" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imsi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imei" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />

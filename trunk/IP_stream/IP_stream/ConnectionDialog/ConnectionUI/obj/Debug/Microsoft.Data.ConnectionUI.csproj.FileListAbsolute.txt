@@ -1,0 +1,5 @@
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\ConnectionUI\bin\Debug\Microsoft.Data.ConnectionUI.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\ConnectionUI\bin\Debug\Microsoft.Data.ConnectionUI.pdb
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\ConnectionUI\obj\Debug\ResolveAssemblyReference.cache
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\ConnectionUI\obj\Debug\Microsoft.Data.ConnectionUI.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\ConnectionUI\obj\Debug\Microsoft.Data.ConnectionUI.pdb

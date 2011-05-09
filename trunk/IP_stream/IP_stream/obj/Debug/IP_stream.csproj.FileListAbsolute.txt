@@ -30,3 +30,15 @@ G:\protocolmining\IP_stream\IP_stream\obj\Debug\IP_stream.Properties.Resources.r
 G:\protocolmining\IP_stream\IP_stream\obj\Debug\GenerateResource.read.1.tlog
 G:\protocolmining\IP_stream\IP_stream\obj\Debug\GenerateResource.write.1.tlog
 G:\protocolmining\IP_stream\IP_stream\obj\Debug\IP_stream.AsynchThread.DualTests.resources
+G:\protocolmining\IP_stream\IP_stream\bin\Debug\Microsoft.Data.ConnectionUI.Dialog.dll
+G:\protocolmining\IP_stream\IP_stream\bin\Debug\Microsoft.Data.ConnectionUI.SqlCeDataProvider.dll
+G:\protocolmining\IP_stream\IP_stream\bin\Debug\Microsoft.Data.ConnectionUI.dll
+G:\protocolmining\IP_stream\IP_stream\bin\Debug\Microsoft.SqlServerCe.Client.dll
+G:\protocolmining\IP_stream\IP_stream\bin\Debug\Microsoft.Data.ConnectionUI.Dialog.pdb
+G:\protocolmining\IP_stream\IP_stream\bin\Debug\Microsoft.Data.ConnectionUI.SqlCeDataProvider.pdb
+G:\protocolmining\IP_stream\IP_stream\bin\Debug\Microsoft.Data.ConnectionUI.pdb
+G:\protocolmining\IP_stream\IP_stream\bin\Debug\IP_stream.exe.manifest
+G:\protocolmining\IP_stream\IP_stream\bin\Debug\IP_stream.application
+G:\protocolmining\IP_stream\IP_stream\obj\Debug\IP_stream.TrustInfo.xml
+G:\protocolmining\IP_stream\IP_stream\obj\Debug\IP_stream.exe.manifest
+G:\protocolmining\IP_stream\IP_stream\obj\Debug\IP_stream.application

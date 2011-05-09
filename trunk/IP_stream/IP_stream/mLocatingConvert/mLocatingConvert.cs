@@ -90,7 +90,7 @@ namespace IP_stream
                 if (p.mmse != null) protocol = "MMSE";
                 if (p.rtsp_type != null) protocol = "rtsp";
                 if (p.smtp_type != null) protocol = "smtp";
-                if (p.bitrorrent != null) protocol = "BitTorrent";
+                if (p.bittorrent != null) protocol = "BitTorrent";
                 if (p.edonkey != null) protocol = "eDonkey";
                 if (p.oicqVersion != null) protocol = "oicq";
                 down.protocolType = protocol;

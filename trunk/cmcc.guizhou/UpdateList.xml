@@ -2,7 +2,7 @@
 <AutoUpdater>
   <description>Application autoUpdate</description>
   <Updater>
-    <Url>http://code.google.com/p/protocolmining/source/browse/#svn%2Ftrunk%2Fcmcc.guizhou/</Url>
+    <Url>http://code.google.com/p/protocolmining/source/browse/#svn/trunk/cmcc.guizhou/</Url>
   </Updater>
   <Application applicationId="mastercomId">
     <EntryPoint>RAMS.exe</EntryPoint>

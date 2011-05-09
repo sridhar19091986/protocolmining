@@ -1,0 +1,33 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Microsoft.Data.ConnectionUI.Sample.VB
+</name>
+</assembly>
+<members>
+<member name="M:Microsoft.Data.ConnectionUI.Sample.VB.Microsoft.Data.ConnectionUI.VB.DataConnectionConfiguration.#ctor(System.String)">
+	<summary> 
+ Constructor 
+ </summary>
+	<param name="path">Configuration file path.</param>
+</member><member name="T:Microsoft.Data.ConnectionUI.Sample.VB.Microsoft.Data.ConnectionUI.VB.DataConnectionConfiguration">
+	<summary> 
+ Provide a default implementation for the storage of DataConnection Dialog UI configuration. 
+ </summary>
+</member><member name="P:Microsoft.Data.ConnectionUI.Sample.VB.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Microsoft.Data.ConnectionUI.Sample.VB.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Microsoft.Data.ConnectionUI.Sample.VB.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

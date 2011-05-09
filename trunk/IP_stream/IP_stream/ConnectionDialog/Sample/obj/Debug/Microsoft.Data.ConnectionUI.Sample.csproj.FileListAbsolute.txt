@@ -1,0 +1,12 @@
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\bin\Debug\Microsoft.Data.ConnectionUI.Sample.exe
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\bin\Debug\Microsoft.Data.ConnectionUI.Sample.pdb
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\bin\Debug\Microsoft.Data.ConnectionUI.Dialog.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\bin\Debug\Microsoft.Data.ConnectionUI.SqlCeDataProvider.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\bin\Debug\Microsoft.Data.ConnectionUI.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\bin\Debug\Microsoft.SqlServerCe.Client.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\bin\Debug\Microsoft.Data.ConnectionUI.Dialog.pdb
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\bin\Debug\Microsoft.Data.ConnectionUI.SqlCeDataProvider.pdb
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\bin\Debug\Microsoft.Data.ConnectionUI.pdb
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\obj\Debug\ResolveAssemblyReference.cache
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\obj\Debug\Microsoft.Data.ConnectionUI.Sample.exe
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\Sample\obj\Debug\Microsoft.Data.ConnectionUI.Sample.pdb

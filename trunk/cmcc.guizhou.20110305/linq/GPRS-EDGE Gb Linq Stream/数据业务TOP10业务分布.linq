@@ -1,9 +1,9 @@
 <Query Kind="Statements">
   <Connection>
-    <ID>337b631f-296e-4a3b-aa36-09f23a9a9a38</ID>
-    <Server>.\SQLEXPRESS</Server>
+    <ID>4bf09d82-2274-4382-a6e9-bea773c75ba2</ID>
+    <Server>localhost</Server>
     <Persist>true</Persist>
-    <Database>23A</Database>
+    <Database>mytest</Database>
     <ShowServer>true</ShowServer>
   </Connection>
   <IncludePredicateBuilder>true</IncludePredicateBuilder>

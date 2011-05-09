@@ -197,7 +197,7 @@ namespace IP_stream
 		
 		private string _mmse;
 		
-		private string _bitrorrent;
+		private string _bittorrent;
 		
 		private string _oicqVersion;
 		
@@ -705,18 +705,18 @@ namespace IP_stream
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bitrorrent", DbType="NVarChar(200)")]
-		public string bitrorrent
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bittorrent", DbType="NVarChar(200)")]
+		public string bittorrent
 		{
 			get
 			{
-				return this._bitrorrent;
+				return this._bittorrent;
 			}
 			set
 			{
-				if ((this._bitrorrent != value))
+				if ((this._bittorrent != value))
 				{
-					this._bitrorrent = value;
+					this._bittorrent = value;
 				}
 			}
 		}
@@ -911,7 +911,7 @@ namespace IP_stream
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciUsePDCH", DbType="NVarChar(5)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciUsePDCH", DbType="NVarChar(50)")]
 		public string ciUsePDCH
 		{
 			get
@@ -1255,7 +1255,7 @@ namespace IP_stream
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imeitype", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imeitype", DbType="NVarChar(500)")]
 		public string imeitype
 		{
 			get
@@ -1505,7 +1505,7 @@ namespace IP_stream
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverUsePDCH", DbType="NVarChar(5)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverUsePDCH", DbType="NVarChar(50)")]
 		public string ciCoverUsePDCH
 		{
 			get

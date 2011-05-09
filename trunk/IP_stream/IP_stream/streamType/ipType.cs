@@ -52,7 +52,7 @@ namespace IP_stream
                                    cpro = p.mmse != null ? "MMSE" : null +
                                        p.rtsp_type != null ? "rtsp" : null +
                                        p.smtp_type != null ? "smtp" : null +
-                                       p.bitrorrent != null ? "BitTorrent" : null +
+                                       p.bittorrent != null ? "BitTorrent" : null +
                                        p.edonkey != null ? "eDonkey" : null +
                                        p.oicqVersion != null ? "oicq" : null,
                                    p.ip_s

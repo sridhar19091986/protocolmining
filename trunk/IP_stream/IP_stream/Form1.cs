@@ -19,6 +19,9 @@ using connStringConfig;
 using streamTypeDefine;
 using Altova.Types;
 using IP_stream.AsynchThread;
+using System.Data.SqlClient;
+
+using Microsoft.Data.ConnectionUI;
 
 namespace IP_stream
 {
@@ -160,7 +163,7 @@ namespace IP_stream
             ciPdchBulk(strFileFullName);
 
 
-            string stattime = InputBox("OSS和Gb的时间匹配", "请选定Gb采集时间", "16/02/2011 09:00:00");
+            string stattime = InputBox("OSS和Gb的时间匹配", "请选定Gb采集时间", "09/03/2011 12:00:00");
 
             ImportCiCoverType(stattime);
 
@@ -177,8 +180,9 @@ namespace IP_stream
                                 ( 
                                     lac  VARCHAR(32) null,
                                     ci  VARCHAR(32) null,
-                                    stat_time  VARCHAR(32) null,
                                     ci_name VARCHAR(32) null,
+                                    stat_time  VARCHAR(32) null,
+                                    
                                     available_pdch VARCHAR(32) null,
                                     use_pdch VARCHAR(32) null,
                                     assignment_pdch_rate VARCHAR(32) null,
@@ -733,6 +737,47 @@ namespace IP_stream
                 InputForm.Dispose();
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataConnectionDialog dcd = new DataConnectionDialog();
+            DataConnectionConfiguration dcs = new DataConnectionConfiguration(null);
+            dcs.LoadConfiguration(dcd);
+
+            if (DataConnectionDialog.Show(dcd) == DialogResult.OK)
+            {
+                SaveConnString(dcd.ConnectionString);
+                // load tables
+                //using (SqlConnection connection = new SqlConnection(dcd.ConnectionString))
+                //{
+                //    connection.Open();
+                //    SqlCommand cmd = new SqlCommand("SELECT * FROM sys.Tables", connection);
+
+                //    using (SqlDataReader reader = cmd.ExecuteReader())
+                //    {
+                //        while (reader.Read())
+                //        {
+
+                //            Console.WriteLine(reader.HasRows);
+                //        }
+                //    }
+
+                //}
+            }
+
+            dcs.SaveConfiguration(dcd);
+        }
+
+        private void SaveConnString(string connstring)
+        {
+            connStringConfig.connStringConfig2 doc = connStringConfig.connStringConfig2.LoadFromFile(streamType.configXmlPath);
+            connStringConfig.configurationType level1 = doc.configuration.First;
+            connStringConfig.LocalDatabaseConnType localX = level1.LocalDatabaseConn.First;
+            connStringConfig.addType local = localX.add.At(0);
+            local.connectionString.Value = connstring;
+            richTextBox1.Text = connstring;
+            doc.SaveToFile(streamType.configXmlPath, true);
         }
 
     }
