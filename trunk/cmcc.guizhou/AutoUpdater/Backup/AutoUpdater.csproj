@@ -1,0 +1,34 @@
+<VisualStudioProject>
+  <CSHARP ProjectType="local" ProjectVersion="7.10.3077" SchemaVersion="2.0" ProjectGuid="3fdc1627-ce32-4f56-9005-0752edcdac44">
+    <Build>
+      <Settings AssemblyName="AutoUpdater" DefaultClientScript="JScript" DefaultHTMLPageLayout="Grid" DefaultTargetSchema="IE50" DelaySign="false" OutputType="WinExe">
+        <Config Name="Debug" AllowUnsafeBlocks="true" DefineConstants="DEBUG;TRACE" DebugSymbols="true" IncrementalBuild="false" NoStdLib="false" Optimize="false" OutputPath="bin\Debug\" WarningLevel="4" />
+        <Config Name="Release" AllowUnsafeBlocks="true" DefineConstants="TRACE" DebugSymbols="false" IncrementalBuild="false" NoStdLib="false" Optimize="true" OutputPath="bin\Release\" WarningLevel="4" />
+      </Settings>
+      <References>
+        <Reference Name="System.Xml" AssemblyName="System.Xml" />
+        <Reference Name="System.Windows.Forms" AssemblyName="System.Windows.Forms" />
+        <Reference Name="System" AssemblyName="System" />
+        <Reference Name="System.Drawing" AssemblyName="System.Drawing" />
+      </References>
+    </Build>
+    <Files>
+      <Include>
+        <File RelPath="AssemblyInfo.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Global.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater\XmlFiles.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater\UpdateFrame.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater\Form1.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater\ProcShow.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater\Properties\Settings.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater\AppUpdater.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater\Program.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater\IniFiles.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater\Properties\Resources.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="AutoUpdater.Properties.Resources.resources" BuildAction="EmbeddedResource" />
+        <File RelPath="AutoUpdater.Form1.resources" BuildAction="EmbeddedResource" />
+        <File RelPath="AutoUpdater.UpdateFrame.resources" BuildAction="EmbeddedResource" />
+      </Include>
+    </Files>
+  </CSHARP>
+</VisualStudioProject>
