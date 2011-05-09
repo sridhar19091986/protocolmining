@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConnectionDialog>
+  <DataSourceSelection>
+    <SelectedSource>MicrosoftSqlServer</SelectedSource>
+    <SelectedProvider>System.Data.SqlClient</SelectedProvider>
+  </DataSourceSelection>
+</ConnectionDialog>

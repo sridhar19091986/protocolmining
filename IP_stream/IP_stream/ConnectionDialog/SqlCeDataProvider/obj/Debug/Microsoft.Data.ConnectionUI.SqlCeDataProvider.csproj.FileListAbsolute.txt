@@ -1,0 +1,14 @@
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\bin\Debug\Microsoft.Data.ConnectionUI.SqlCeDataProvider.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\bin\Debug\Microsoft.Data.ConnectionUI.SqlCeDataProvider.pdb
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\bin\Debug\Microsoft.Data.ConnectionUI.Dialog.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\bin\Debug\Microsoft.Data.ConnectionUI.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\bin\Debug\Microsoft.SqlServerCe.Client.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\bin\Debug\Microsoft.Data.ConnectionUI.Dialog.pdb
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\bin\Debug\Microsoft.Data.ConnectionUI.pdb
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\obj\Debug\ResolveAssemblyReference.cache
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\obj\Debug\Microsoft.Data.ConnectionUI.Resources.resources
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\obj\Debug\Microsoft.Data.ConnectionUI.SqlCeConnectionUIControl.resources
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\obj\Debug\GenerateResource-ResGen.read.1.tlog
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\obj\Debug\GenerateResource-ResGen.write.1.tlog
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\obj\Debug\Microsoft.Data.ConnectionUI.SqlCeDataProvider.dll
+G:\protocolmining\IP_stream\IP_stream\ConnectionDialog\SqlCeDataProvider\obj\Debug\Microsoft.Data.ConnectionUI.SqlCeDataProvider.pdb
