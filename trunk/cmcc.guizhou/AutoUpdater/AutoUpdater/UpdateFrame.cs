@@ -173,7 +173,8 @@
             }
             this.updateUrl = this.updaterXmlFiles.GetNodeValue("//Url");
             AppUpdater updater = new AppUpdater();
-            updater.UpdaterUrl = this.updateUrl + "/UpdateList.xml";
+            updater.UpdaterUrl = this.updateUrl;
+            //+"/UpdateList.xml";
             this.bgWorker.ReportProgress(0, new ProcShow(0, 0, "尝试与服务器进行连接...", ""));
             this.tempUpdatePath = Environment.GetEnvironmentVariable("Temp") + @"\_" + this.updaterXmlFiles.FindNode("//Application").Attributes["applicationId"].Value + @"_update_\";
             if (updater.DownAutoUpdateFile(this.tempUpdatePath))
