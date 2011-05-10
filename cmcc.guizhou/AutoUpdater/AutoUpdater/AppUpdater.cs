@@ -8,6 +8,7 @@
     using System.Runtime.InteropServices;
     using System.Windows.Forms;
     using System.Xml;
+    using System.Diagnostics;
 
     public class AppUpdater : IDisposable
     {
@@ -139,7 +140,9 @@
             {
                 Directory.CreateDirectory(downpath);
             }
-            string fileName = downpath + "/UpdateList.xml";
+            //string fileName = downpath + "/UpdateList.xml";
+
+            string fileName =  "UpdateList.xml";
             //try
             //{
             //if (WebRequest.Create(this.UpdaterUrl).GetResponse().ContentLength > 0L)
@@ -147,7 +150,9 @@
             //try
             //{
             //WebRequest.Create(this.UpdaterUrl).GetResponse();
-            new WebClient().DownloadFile(this.UpdaterUrl, fileName);
+            //new WebClient().DownloadFile(this.UpdaterUrl, fileName);
+
+            DownLoadFile(this.UpdaterUrl, fileName);
             return true;
             //}
             //catch
@@ -179,6 +184,32 @@
             {
                 this._updaterUrl = value;
             }
+        }
+        private void DownLoadFile(string url,string filename)
+        {
+            //try
+            //{
+
+                ProcessStartInfo psi = new ProcessStartInfo("cmd");
+                psi.RedirectStandardOutput = true;
+                psi.RedirectStandardInput = true;
+                psi.UseShellExecute = false;
+                Process p = Process.Start(psi);
+                p.StandardInput.WriteLine(@"chdir /d  D:\Program Files\TortoiseSVN\bin");
+                //更新(下载)服务器上的最新版本       
+                //p.StandardInput.WriteLine("svn  update " + filename);
+                //svn checkout <url_of_big_dir> <target> --depth empty
+                //cd <target>
+                //svn up <file_you_want>
+                p.StandardInput.WriteLine("svn checkout " + url + " ttt");
+                p.StandardInput.WriteLine("cd ttt");
+                p.StandardInput.WriteLine("svn up " + filename);
+                //p.StandardInput.WriteLine(@"exit");
+                //p.WaitForExit();
+                //p.Close();
+
+            //}
+            //catch { }
         }
     }
 }
