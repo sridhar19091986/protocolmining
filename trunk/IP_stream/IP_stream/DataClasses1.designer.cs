@@ -1605,7 +1605,7 @@ namespace IP_stream
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_msimeiClass", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_msimeiClass", DbType="NVarChar(500)")]
 		public string msimeiClass
 		{
 			get

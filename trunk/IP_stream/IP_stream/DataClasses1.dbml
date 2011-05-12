@@ -81,7 +81,7 @@
       <Column Name="imsi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imei" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="msimeiType" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="msimeiClass" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="msimeiClass" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="trafficType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="uriType" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="protocolType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />

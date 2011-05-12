@@ -83,14 +83,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IP_stream.exe" size="190976">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IP_stream.exe" size="191488">
       <assemblyIdentity name="IP_stream" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Tf/c0ujnANcQBgBqEfv27rV+G2w=</dsig:DigestValue>
+        <dsig:DigestValue>aJwdrLgK8oZ05EQM14bpaLLHdOU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
