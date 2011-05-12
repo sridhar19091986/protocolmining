@@ -61,8 +61,19 @@ namespace IP_stream
                         break;
                 }
         }
+        private int minFileNum;
+        private int maxFileNum;
         private void BulkExcute()
         {
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+            {
+                minFileNum = mess.Gb_Paging_PS.Min(e => e.FileNum).Value;
+                maxFileNum = mess.Gb_Paging_PS.Max(e => e.FileNum).Value + 1;
+
+            }
+
+            MessageBox.Show(minFileNum.ToString()+"  -   "+maxFileNum.ToString());
+
             DualTests dt = new DualTests();
             dt.Show(); dt.Focus();
             handleTable h = new handleTable();
@@ -75,23 +86,26 @@ namespace IP_stream
             //case"InsertImeiType":
             imeiTypeClass _imeiTypeClass = new imeiTypeClass(true);
             //Parallel.For(0, 2, i => { MessageBox.Show(i.ToString()); });
-            Parallel.For(0, 2, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
+            Parallel.For(minFileNum, maxFileNum, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
             Thread.Sleep(1); GC.Collect(); Application.DoEvents();
-            Parallel.For(2, 4, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
-            QueryTable("msIMEI");
+            //Parallel.For(2, 4, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
+            //QueryTable("msIMEI");
+            MessageBox.Show("msImei-1");
             //case"InsertCiType":
             ciType _ciType = new ciType(true);
-            Task t1 = new Task(() => { _ciType.InsertCiType(_ciType, 0); }); t1.Start();
-            QueryTable("ciBVCI");
+            Task t1 = new Task(() => { _ciType.InsertCiType(_ciType, minFileNum); }); t1.Start();
+            //QueryTable("ciBVCI");
+            MessageBox.Show("ciBVCI");
             //case"UpdateImeiType":
             imeiTypeClass _imeiTypeClass_false = new imeiTypeClass(false);
             Task t2 = new Task(() => { _imeiTypeClass_false.UpdateImeiType(); }); t2.Start();
-            QueryTable("msIMEI");
+            //QueryTable("msIMEI");
+            MessageBox.Show("msImei-2");
             //case"InsertResultTable":
             mLocatingConvert ml = new mLocatingConvert();
-            Parallel.For(0, 2, i => { ml.SendOrders(ml, i); });
+            Parallel.For(minFileNum, maxFileNum, i => { ml.SendOrders(ml, i); });
             Thread.Sleep(1); GC.Collect(); Application.DoEvents();
-            Parallel.For(0, 4, i => { ml.SendOrders(ml, i); });
+            //Parallel.For(0, 4, i => { ml.SendOrders(ml, i); });
             dt.Close();
         }
         private void QueryTable(string tbName)

@@ -68,10 +68,13 @@ namespace IP_stream
                 }
 
                 //var ci = _ciType.CiTypeCollection[down.fileNum + "-" + down.bvci];
-                var ci = _ciType.CiTypeCollection[down.bvci];
-                down.lacCI = ci.lacCi;
-                down.ciCoverAllocPDCH = ci.ciAllocPDCH;
-                down.ciCoverUsePDCH = ci.ciUsePDCH;
+                if (_ciType.CiTypeCollection.ContainsKey(down.bvci))
+                {
+                    var ci = _ciType.CiTypeCollection[down.bvci];
+                    down.lacCI = ci.lacCi;
+                    down.ciCoverAllocPDCH = ci.ciAllocPDCH;
+                    down.ciCoverUsePDCH = ci.ciUsePDCH;
+                }
 
 
                 if (_imeiTypeClass.MsImeiCollection.ContainsKey(down.fileNum + "-" + down.tlli))
