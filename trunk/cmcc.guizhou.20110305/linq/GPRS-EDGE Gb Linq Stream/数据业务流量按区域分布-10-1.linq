@@ -25,7 +25,7 @@ void Main()
 		  {
 		        mKey=tt.Key ,
 				CiIpByte=ToPercent(tt.Sum(e=>e.MLen)*1.0/mTime),
-				CiPDCH=tt.Select(e=>e.CiCoverUsePDCH).FirstOrDefault(),
+				CiPDCH=tt.Average(e=>(e.CiCoverUsePDCH==null?0:Convert.ToDouble(e.CiCoverUsePDCH))),
 	       	    StreamingMedia=ToPercent(tt.Where (e=>e.TrafficType =="StreamingMedia").Sum (e=>e.MLen )*1.0/(mTime)),
 		        StockCategory=ToPercent(tt.Where (e=>e.TrafficType =="StockCategory").Sum (e=>e.MLen )*1.0/(mTime)),
 			    OtherCategory=ToPercent(tt.Where (e=>e.TrafficType=="OtherCategory").Sum (e=>e.MLen )*1.0/(mTime)),
@@ -57,15 +57,15 @@ void Main()
 		     pp.CiPDCH,
 			 ComputePDCH=0,
 			 NeedPDCH=0,
-		     StreamingMedia=pp.StreamingMedia/qq.mDelay,
-			 StockCategory=pp.StockCategory/qq.mDelay,
-		     OtherCategory=pp.OtherCategory/qq.mDelay,
-		     MMS=pp.MMS/qq.mDelay,
-		     IM=pp.IM/qq.mDelay,
-		     GeneralDownloads=pp.GeneralDownloads/qq.mDelay,
-		     GameCategory=pp.GameCategory/qq.mDelay,
-		     BrowseCategory=pp.BrowseCategory/qq.mDelay,
-		     P2P=pp.P2P/qq.mDelay,
+		     StreamingMedia=pp.StreamingMedia,
+			 StockCategory=pp.StockCategory,
+		     OtherCategory=pp.OtherCategory,
+		     MMS=pp.MMS,
+		     IM=pp.IM,
+		     GeneralDownloads=pp.GeneralDownloads,
+		     GameCategory=pp.GameCategory,
+		     BrowseCategory=pp.BrowseCategory,
+		     P2P=pp.P2P,
 		     qq.mMessage,
 		     qq.mResponeSucc,
 		     qq.mDelay
@@ -81,7 +81,7 @@ void Main()
 //  Define other methods and classes here
 	double ToPercent(double? d)
 	{
-	    if (d==null) return 0.0001;
+	    if (d==null) return 0.000;
 	    double dd=(double)d;
 		return 8*dd/1024;
 		//return dd.ToString("F2");
