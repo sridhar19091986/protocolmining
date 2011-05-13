@@ -23,7 +23,7 @@ void Main()
 		  {
 		        mKey=tt.Key ,
 				CiIpByte=ToPercent(tt.Sum(e=>e.MLen)*1.0/mTime),
-				CiPDCH=tt.Select(e=>e.CiCoverUsePDCH).FirstOrDefault(),
+				CiPDCH=tt.Average(e=>(e.CiCoverUsePDCH==null?0:Convert.ToDouble(e.CiCoverUsePDCH))),
 	       	    StreamingMedia=ToPercent(tt.Where (e=>e.TrafficType =="StreamingMedia").Sum (e=>e.MLen )*1.0/(mTime)),
 		        StockCategory=ToPercent(tt.Where (e=>e.TrafficType =="StockCategory").Sum (e=>e.MLen )*1.0/(mTime)),
 			    OtherCategory=ToPercent(tt.Where (e=>e.TrafficType=="OtherCategory").Sum (e=>e.MLen )*1.0/(mTime)),
@@ -44,7 +44,7 @@ void Main()
 	    mKey=psbyfilenum.Select(e=>e.LAC).FirstOrDefault()+"-"+psbyfilenum.Key ,
  	    mMessage= psbyfilenum.Sum (e=>e.Paging_Type_PS),   
 	    mResponeSucc= (psbyfilenum.Sum (e=>e.Any_Uplink_PDU )+0.0)/psbyfilenum.Sum (e=>e.Paging_Type_PS),
-	    mDelay=psbyfilenum.Average (e =>e.Any_Uplink_PDU_delayFirst)/1000
+	    mDelay=psbyfilenum.Average (e =>e.Any_Uplink_PDU_delayFirst)/100
 	};
 	var d=from pp in b.ToList()
 	      join qq in c on  pp.mKey equals qq.mKey 
@@ -71,17 +71,18 @@ void Main()
 		  select new 
 		  {
 		     PaingTimer=ttt.Key,
-		     CiPDCH=ttt.Sum(e=>e.CiIpByte),//此处修改成PDCH占用总数
+			 //CiIpByte=ttt.Average(e=>e.CiIpByte),
+		     CiPDCH=ttt.Average(e=>e.CiPDCH),//此处修改成PDCH占用总数
              X0_Coefficient=1,
-		     StreamingMedia=ttt.Sum(e=>e.StreamingMedia)/ttt.Key,
-			 StockCategory=ttt.Sum(e=>e.StockCategory)/ttt.Key,
-		     OtherCategory=ttt.Sum(e=>e.OtherCategory)/ttt.Key,
-		     MMS=ttt.Sum(e=>e.MMS)/ttt.Key,
-		     IM=ttt.Sum(e=>e.IM)/ttt.Key,
-		     GeneralDownloads=ttt.Sum(e=>e.GeneralDownloads)/ttt.Key,
-		     GameCategory=ttt.Sum(e=>e.GameCategory)/ttt.Key,
-		     BrowseCategory=ttt.Sum(e=>e.BrowseCategory)/ttt.Key,
-		     P2P=ttt.Sum(e=>e.P2P)/ttt.Key,
+		     StreamingMedia=ttt.Average(e=>e.StreamingMedia),
+			 StockCategory=ttt.Average(e=>e.StockCategory),
+		     OtherCategory=ttt.Average(e=>e.OtherCategory),
+		     MMS=ttt.Average(e=>e.MMS),
+		     IM=ttt.Average(e=>e.IM),
+		     GeneralDownloads=ttt.Average(e=>e.GeneralDownloads),
+		     GameCategory=ttt.Average(e=>e.GameCategory),
+		     BrowseCategory=ttt.Average(e=>e.BrowseCategory),
+		     P2P=ttt.Average(e=>e.P2P),
 		};
 	   ee.OrderBy (e=>e.PaingTimer).Dump ();
 }
@@ -92,7 +93,7 @@ void Main()
 //  Define other methods and classes here
 	double ToPercent(double? d)
 	{
-	    if (d==null) return 0.0001;
+	    if (d==null) return 0.000;
 	    double dd=(double)d;
 		return 8*dd/1024;
 		//return dd.ToString("F2");
@@ -103,6 +104,6 @@ void Main()
 	{
 		if (d==null) return 0;
 		int i =(int)(d * 10);
-		double dd = (double)(i*1.0)/10;
+		double dd = (double)(i*1.0)/100;
 		return dd;
 	}
