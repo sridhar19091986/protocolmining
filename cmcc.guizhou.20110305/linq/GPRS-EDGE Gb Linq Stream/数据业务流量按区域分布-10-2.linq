@@ -2,6 +2,7 @@
   <Connection>
     <ID>4bf09d82-2274-4382-a6e9-bea773c75ba2</ID>
     <Server>localhost</Server>
+    <Persist>true</Persist>
     <Database>mytest</Database>
     <ShowServer>true</ShowServer>
   </Connection>
@@ -73,15 +74,20 @@ void Main()
 			 //CiIpByte=ttt.Average(e=>e.CiIpByte),
 		     PDCH配置数CiPDCH=ttt.Sum(e=>e.CiPDCH),//此处修改成PDCH占用总数
              系数X0_Coefficient=1,
-		     业务速率StreamingMedia=ttt.Sum(e=>e.StreamingMedia),
-			 业务速率StockCategory=ttt.Sum(e=>e.StockCategory),
-		     业务速率OtherCategory=ttt.Sum(e=>e.OtherCategory),
-		     业务速率MMS=ttt.Sum(e=>e.MMS),
-		     业务速率IM=ttt.Sum(e=>e.IM),
-		     业务速率GeneralDownloads=ttt.Sum(e=>e.GeneralDownloads),
-		     业务速率GameCategory=ttt.Sum(e=>e.GameCategory),
-		     业务速率BrowseCategory=ttt.Sum(e=>e.BrowseCategory),
-		     业务速率P2P=ttt.Sum(e=>e.P2P),
+//		     业务速率StreamingMedia=ttt.Sum(e=>e.StreamingMedia),
+//			 业务速率StockCategory=ttt.Sum(e=>e.StockCategory),
+//		     业务速率OtherCategory=ttt.Sum(e=>e.OtherCategory),
+//		     业务速率MMS=ttt.Sum(e=>e.MMS),
+//		     业务速率IM=ttt.Sum(e=>e.IM),
+//		     业务速率GeneralDownloads=ttt.Sum(e=>e.GeneralDownloads),
+//		     业务速率GameCategory=ttt.Sum(e=>e.GameCategory),
+//		     业务速率BrowseCategory=ttt.Sum(e=>e.BrowseCategory),
+//		     业务速率P2P=ttt.Sum(e=>e.P2P),
+			 业务速率StreamingMedia_P2P=ttt.Sum(pp=>pp.StreamingMedia+pp.P2P),
+		     业务速率OtherCategory_StockCategory_MMS_GameCategory=ttt.Sum(pp=>pp.OtherCategory+pp.MMS+pp.StockCategory+pp.GameCategory),
+		     业务速率IM=ttt.Sum(pp=>pp.IM),
+		     业务速率GeneralDownloads=ttt.Sum(pp=>pp.GeneralDownloads),
+		     业务速率BrowseCategory=ttt.Sum(pp=>pp.BrowseCategory),
 		};
 	   ee.OrderBy (e=>e.寻呼时延PaingTimer).Dump ();
 }
