@@ -52,26 +52,26 @@ void Main()
 	      join qq in c on  pp.mKey equals qq.mKey 
 		  select new 
 		  {
-		     Ci=pp.mKey,
-		     pp.CiIpByte,
-		     pp.CiPDCH,
-			 ComputePDCH=0,
-			 NeedPDCH=0,
-		     StreamingMedia=pp.StreamingMedia,
-			 StockCategory=pp.StockCategory,
-		     OtherCategory=pp.OtherCategory,
-		     MMS=pp.MMS,
-		     IM=pp.IM,
-		     GeneralDownloads=pp.GeneralDownloads,
-		     GameCategory=pp.GameCategory,
-		     BrowseCategory=pp.BrowseCategory,
-		     P2P=pp.P2P,
-		     qq.mMessage,
-		     qq.mResponeSucc,
-		     qq.mDelay
+		     小区号Ci=pp.mKey,
+		     小区总速率=pp.CiIpByte,
+		     统计值_使用PDCH=pp.CiPDCH,
+			 模型计算需求数ComputePDCH=0,
+			 模型计算增加或减少数NeedPDCH=0,
+		     业务速率StreamingMedia=pp.StreamingMedia,
+			 业务速率StockCategory=pp.StockCategory,
+		     业务速率OtherCategory=pp.OtherCategory,
+		     业务速率MMS=pp.MMS,
+		     业务速率IM=pp.IM,
+		     业务速率GeneralDownloads=pp.GeneralDownloads,
+		     业务速率GameCategory=pp.GameCategory,
+		     业务速率BrowseCategory=pp.BrowseCategory,
+		     业务速率P2P=pp.P2P,
+		     PS寻呼=qq.mMessage,
+		     PS寻呼成功率=qq.mResponeSucc,
+		     PS寻呼时延=qq.mDelay
 		  };
 	
-	 d.OrderBy(e=>e.mDelay).Dump();
+	 d.OrderBy(e=>e.PS寻呼时延).Dump();
 }
 
 
@@ -81,7 +81,7 @@ void Main()
 //  Define other methods and classes here
 	double ToPercent(double? d)
 	{
-	    if (d==null) return 0.000;
+	    if (d==null) return 0.00001;
 	    double dd=(double)d;
 		return 8*dd/1024;
 		//return dd.ToString("F2");

@@ -2,7 +2,6 @@
   <Connection>
     <ID>4bf09d82-2274-4382-a6e9-bea773c75ba2</ID>
     <Server>localhost</Server>
-    <Persist>true</Persist>
     <Database>mytest</Database>
     <ShowServer>true</ShowServer>
   </Connection>
@@ -36,7 +35,7 @@ void Main()
 		  };		
     var c= from p in Gb_Paging_PS
 	where p.Any_Uplink_PDU !=null
-	where p.PS_Paging_Repeat ==null
+	//where p.PS_Paging_Repeat ==null
 	group p by p.CI into psbyfilenum
 	orderby psbyfilenum.Key 
 	select new 
@@ -70,21 +69,21 @@ void Main()
 	      group p by ToPointOne(p.mDelay) into ttt
 		  select new 
 		  {
-		     PaingTimer=ttt.Key,
+		     寻呼时延PaingTimer=ttt.Key,
 			 //CiIpByte=ttt.Average(e=>e.CiIpByte),
-		     CiPDCH=ttt.Average(e=>e.CiPDCH),//此处修改成PDCH占用总数
-             X0_Coefficient=1,
-		     StreamingMedia=ttt.Average(e=>e.StreamingMedia),
-			 StockCategory=ttt.Average(e=>e.StockCategory),
-		     OtherCategory=ttt.Average(e=>e.OtherCategory),
-		     MMS=ttt.Average(e=>e.MMS),
-		     IM=ttt.Average(e=>e.IM),
-		     GeneralDownloads=ttt.Average(e=>e.GeneralDownloads),
-		     GameCategory=ttt.Average(e=>e.GameCategory),
-		     BrowseCategory=ttt.Average(e=>e.BrowseCategory),
-		     P2P=ttt.Average(e=>e.P2P),
+		     PDCH配置数CiPDCH=ttt.Sum(e=>e.CiPDCH),//此处修改成PDCH占用总数
+             系数X0_Coefficient=1,
+		     业务速率StreamingMedia=ttt.Sum(e=>e.StreamingMedia),
+			 业务速率StockCategory=ttt.Sum(e=>e.StockCategory),
+		     业务速率OtherCategory=ttt.Sum(e=>e.OtherCategory),
+		     业务速率MMS=ttt.Sum(e=>e.MMS),
+		     业务速率IM=ttt.Sum(e=>e.IM),
+		     业务速率GeneralDownloads=ttt.Sum(e=>e.GeneralDownloads),
+		     业务速率GameCategory=ttt.Sum(e=>e.GameCategory),
+		     业务速率BrowseCategory=ttt.Sum(e=>e.BrowseCategory),
+		     业务速率P2P=ttt.Sum(e=>e.P2P),
 		};
-	   ee.OrderBy (e=>e.PaingTimer).Dump ();
+	   ee.OrderBy (e=>e.寻呼时延PaingTimer).Dump ();
 }
 
 //	from c in db.Customers
@@ -93,7 +92,7 @@ void Main()
 //  Define other methods and classes here
 	double ToPercent(double? d)
 	{
-	    if (d==null) return 0.000;
+	    if (d==null) return 0.01;
 	    double dd=(double)d;
 		return 8*dd/1024;
 		//return dd.ToString("F2");
