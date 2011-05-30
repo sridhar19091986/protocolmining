@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IP_stream
+namespace IP_stream.Linq
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;

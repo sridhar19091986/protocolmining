@@ -1,27 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.Linq.Mapping;
-using System.Data.Linq;
-using System.Reflection;
-using System.Collections;
 using System.Xml.Linq;
 using System.Threading;
-using System.Diagnostics;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
-using connStringConfig;
-using streamTypeDefine;
-using Altova.Types;
 using IP_stream.AsynchThread;
-using System.Data.SqlClient;
+using IP_stream.Linq;
 
 using Microsoft.Data.ConnectionUI;
+using System.IO;
 
 namespace IP_stream
 {
@@ -52,7 +40,7 @@ namespace IP_stream
                         break;
                     case "OutPutPDCH":
                         OutPutTable t = new OutPutTable();
-                        dataGridView1.DataSource = t.CiPDCH;
+                        dataGridView1.DataSource = t.PDCH;
                         MessageBox.Show("OK");
                         break;
 
@@ -72,7 +60,7 @@ namespace IP_stream
 
             }
 
-            MessageBox.Show(minFileNum.ToString()+"  -   "+maxFileNum.ToString());
+            MessageBox.Show(minFileNum.ToString() + "  -   " + maxFileNum.ToString());
 
             DualTests dt = new DualTests();
             dt.Show(); dt.Focus();
@@ -755,32 +743,45 @@ namespace IP_stream
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataConnectionDialog dcd = new DataConnectionDialog();
-            DataConnectionConfiguration dcs = new DataConnectionConfiguration(null);
-            dcs.LoadConfiguration(dcd);
-
-            if (DataConnectionDialog.Show(dcd) == DialogResult.OK)
+            try
             {
-                SaveConnString(dcd.ConnectionString);
-                // load tables
-                //using (SqlConnection connection = new SqlConnection(dcd.ConnectionString))
-                //{
-                //    connection.Open();
-                //    SqlCommand cmd = new SqlCommand("SELECT * FROM sys.Tables", connection);
+                DataConnectionDialog dcd = new DataConnectionDialog();
+                DataConnectionConfiguration dcs = new DataConnectionConfiguration(null);
+                dcs.LoadConfiguration(dcd);
 
-                //    using (SqlDataReader reader = cmd.ExecuteReader())
-                //    {
-                //        while (reader.Read())
-                //        {
+                if (DataConnectionDialog.Show(dcd) == DialogResult.OK)
+                {
+                    SaveConnString(dcd.ConnectionString);
+                    // load tables
+                    //using (SqlConnection connection = new SqlConnection(dcd.ConnectionString))
+                    //{
+                    //    connection.Open();
+                    //    SqlCommand cmd = new SqlCommand("SELECT * FROM sys.Tables", connection);
 
-                //            Console.WriteLine(reader.HasRows);
-                //        }
-                //    }
+                    //    using (SqlDataReader reader = cmd.ExecuteReader())
+                    //    {
+                    //        while (reader.Read())
+                    //        {
 
-                //}
+                    //            Console.WriteLine(reader.HasRows);
+                    //        }
+                    //    }
+
+                    //}
+                }
+
+
+
+                dcs.SaveConfiguration(dcd);
             }
-
-            dcs.SaveConfiguration(dcd);
+            catch
+            {
+                string winpath = System.Environment.SystemDirectory;
+                File.Copy("sqlcese35.dll", winpath);
+                File.Copy("sqlceqp35.dll", winpath);
+                File.Copy("sqlceme35.dll", winpath);
+                MessageBox.Show("sqlce导入成功");
+            }
         }
 
         private void SaveConnString(string connstring)
