@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <StreamIdentification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="G:\protocolmining\IP_stream\IP_stream\appConfig\streamTypeDefine.xsd">
 	<!--端口识别-->
 	<!--ip地址根据uri识别的地址池反转-->
@@ -7,15 +7,18 @@
 			<port>14000</port>
 			<port>8040</port>
 			<port>211.99.191.229</port>
+			<port>13001</port>
+			<port>4701</port>
 		</ports>
 		<ports name="GameCategory">
 			<!--？不确定<port>13001</port>-->
 			<port>6666</port>
 			<port>6667</port>
-		</ports>
-		<ports name="StreamingMedia">
+			<port>6668</port>
 			<port>9901</port>
 			<port>211.136.163.36</port>
+		</ports>
+		<ports name="StreamingMedia">
 			<port>211.136.165.57</port>
 			<port>218.204.254.237</port>
 			<port>218.200.160.29</port>
@@ -25,6 +28,7 @@
 			<port>211.139.144.145</port>
 			<port>211.136.221.125</port>
 			<port>211.138.100.244</port>
+			<port>218.201.200.5</port>
 		</ports>
 		<ports name="StockCategory">
 			<port>61.145.124.185</port>
@@ -58,24 +62,34 @@
 			<url>wap.ttpod.</url>
 			<url>wap.haoting.</url>
 			<url>ltmp3.cn</url>
-		</uris>
-		<uris name="BrowseCategory">
-			<url>http</url>
-		</uris>
+		</uris>	
 		<uris name="GeneralDownloads">
-			<url>mail.</url>
+			<url>.mp4</url>
 			<url>.mp3</url>
 			<url>.avi</url>
 			<url>.zip</url>
 			<url>.swf</url>
 			<url>.3gp</url>
+			<url>.exe</url>
+			<url>.sis</url>
+			<url>.sisx</url>
+			<url>.rar</url>
+			<url>.jar</url>
+			<url>.cab</url> 
 		</uris>
 		<uris name="IM">
 			<url>liveja.amigo.</url>
+			<url>http://10.0.0.172:80/transfer.vurl?guid=%</url>
+			<url>119.147.</url>
+			<url>121.14.</url>
+			<url>211.137.</url>
+			<url>211.139.</url>
+			<url>221.130.</url>
 		</uris>
 		<uris name="MMS">
 			<url>mmsservice</url>
 			<url>mmsc.monternet.com</url>
+			<url>mmsc.</url>
 		</uris>
 		<uris name="GameCategory">
 			<url>farm*qq.com</url>
@@ -84,6 +98,15 @@
 		<uris name="StockCategory">
 			<url>hexin</url>
 			<url>cjis.cn</url>
+			<url>61.160.219.55:80</url>
+			<url>:2345</url>
+			<url>:12346</url>
+		</uris>
+		<uris name="BrowseCategory">
+			<!--邮件类？？？-->
+			<url>mail.</url>
+			<url>218.204.255.90</url>
+			<url>http</url>
 		</uris>
 	</HttpWspUriType>
 	<!--response识别-->
@@ -107,10 +130,13 @@
 			<Protocol>MMSE</Protocol>
 		</Protocols>
 		<Protocols name="GeneralDownloads">
+			<Protocol>ftp</Protocol>
+		</Protocols>
+		<Protocols name="BrowseCategory">
+		<!--邮件类？？？-->
 			<Protocol>smtp</Protocol>
 			<Protocol>pop</Protocol>
 			<Protocol>pop3</Protocol>
-			<Protocol>ftp</Protocol>
 		</Protocols>
 		<Protocols name="IM">
 			<Protocol>oicq</Protocol>
