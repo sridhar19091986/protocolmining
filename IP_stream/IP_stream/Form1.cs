@@ -5,11 +5,8 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using IP_stream.AsynchThread;
 using IP_stream.Linq;
-
 using Microsoft.Data.ConnectionUI;
-using System.IO;
 
 namespace IP_stream
 {
@@ -26,75 +23,118 @@ namespace IP_stream
         {
             if (e.Node.Level == 0) return;
 
-            DialogResult dlgResult = MessageBox.Show("Do you want to continue Access Remote Database ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlgResult == DialogResult.Yes)
-                switch (e.Node.Name)
-                {
-                    case "ImportCiData":
-                        ImportCiData();
-                        ImportimeiTypeFile();
-                        break;
-                    case "BulkExcute":
-                        BulkExcute();
-                        MessageBox.Show("OK");
-                        break;
-                    case "OutPutPDCH":
-                        OutPutTable t = new OutPutTable();
-                        dataGridView1.DataSource = t.PDCH;
-                        MessageBox.Show("OK");
-                        break;
+            校验注册号代码Btn_Click();
 
-                    default:
-                        QueryTable(e.Node.Text);
-                        break;
-                }
+            switch (e.Node.Name)
+            {
+                case "ImportCiData":
+                    if (!ls.bRegOK) return;
+                    ImportCiData();
+                    ImportimeiTypeFile();
+                    Thread.Sleep(5); GC.Collect(); GC.Collect();
+                    break;
+                case "BulkExcute":
+                    DialogResult dlgResult = MessageBox.Show("Do you want to continue ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlgResult == DialogResult.Yes)
+                        BulkExcute();
+                    MessageBox.Show("OK");
+                    break;
+                case "OutPutPDCH":
+                    OutPutPDCH();
+                    break;
+
+                default:
+                    QueryTable(e.Node.Text);
+                    break;
+                //}
+            }
         }
         private int minFileNum;
         private int maxFileNum;
+        private void OutPutPDCH()
+        {
+            if (!ls.bRegOK) return;
+            dualTests1.Location = new Point(this.Width / 10, this.Height / 3);
+            dualTests1.Show();
+            dualTests1.Focus();
+            Application.DoEvents();
+            Thread.Sleep(1);
+
+            OutPutTable t = new OutPutTable();
+            t.UsePDCH();
+            PdchModelTable m = new PdchModelTable();
+            dataGridView1.DataSource = PdchModelTable.pdchmodel;
+            MessageBox.Show("OK");
+
+            dualTests1.Hide();
+        }
         private void BulkExcute()
         {
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+            if (!ls.bRegOK) return;
+
+            try
             {
-                minFileNum = mess.Gb_Paging_PS.Min(e => e.FileNum).Value;
-                maxFileNum = mess.Gb_Paging_PS.Max(e => e.FileNum).Value + 1;
+                using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+                {
+                    minFileNum = mess.Gb_Paging_PS.Min(e => e.FileNum).Value;
+                    maxFileNum = mess.Gb_Paging_PS.Max(e => e.FileNum).Value + 1;
+                }
+               // MessageBox.Show(minFileNum.ToString() + "  -   " + maxFileNum.ToString());
+                //DualTests dt = new DualTests();
+                //dt.Show(); dt.Focus();
+                dualTests1.Location = new Point(this.Width / 10, this.Height / 3);
+                dualTests1.Show();
+                dualTests1.Focus();
 
+                handleTable h = new handleTable();
+                toolStripStatusLabel1.Text = h.AlterPrimaryKey();
+
+                //case"InitImeiCiTypeTable":
+                //toolStripStatusLabel1.Text = h.InitImeiCiTypeTable();
+
+                //case"InitMlocationTable":
+                //toolStripStatusLabel1.Text = h.InitMlocationTable();
+
+                //case"InsertImeiType":
+                toolStripStatusLabel2.Text = "imei......";
+                Application.DoEvents();
+                imeiTypeClass _imeiTypeClass = new imeiTypeClass(true);
+                Parallel.For(minFileNum, maxFileNum, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
+                Thread.Sleep(1); GC.Collect(); GC.Collect();
+                dualTests1.Focus();
+
+                //case"InsertCiType":
+                toolStripStatusLabel2.Text = "ci......";
+                Application.DoEvents();
+                ciType _ciType = new ciType(true);
+                Parallel.For(minFileNum, maxFileNum, i => { _ciType.InsertCiType(_ciType, i); });
+                Thread.Sleep(1); GC.Collect(); GC.Collect();
+                dualTests1.Focus();
+
+                //case"UpdateImeiType":
+                toolStripStatusLabel2.Text = "imei update......";
+                Application.DoEvents();
+                imeiTypeClass _imeiTypeClass_false = new imeiTypeClass(false);
+                Task t2 = new Task(() => { _imeiTypeClass_false.UpdateImeiType(); }); t2.Start();
+                Thread.Sleep(1); GC.Collect(); GC.Collect();
+                dualTests1.Focus();
+
+                //case"InsertResultTable":
+                toolStripStatusLabel2.Text = "locating......";
+                Application.DoEvents();
+                mLocatingConvert ml = new mLocatingConvert();
+                Parallel.For(minFileNum, maxFileNum, i => { ml.SendOrders(ml, i); });
+                Thread.Sleep(5); GC.Collect(); GC.Collect();
+                dualTests1.Focus();
+
+                toolStripStatusLabel2.Text = "complete......";
+                dualTests1.Hide();
+                //dualTests1.Dispose();
             }
-
-            MessageBox.Show(minFileNum.ToString() + "  -   " + maxFileNum.ToString());
-
-            DualTests dt = new DualTests();
-            dt.Show(); dt.Focus();
-            handleTable h = new handleTable();
-            //case "AlterPrimaryKey":
-            toolStripStatusLabel1.Text = h.AlterPrimaryKey();
-            //case"InitImeiCiTypeTable":
-            toolStripStatusLabel1.Text = h.InitImeiCiTypeTable();
-            //case"InitMlocationTable":
-            toolStripStatusLabel1.Text = h.InitMlocationTable();
-            //case"InsertImeiType":
-            imeiTypeClass _imeiTypeClass = new imeiTypeClass(true);
-            //Parallel.For(0, 2, i => { MessageBox.Show(i.ToString()); });
-            Parallel.For(minFileNum, maxFileNum, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
-            Thread.Sleep(1); GC.Collect(); Application.DoEvents();
-            //Parallel.For(2, 4, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
-            //QueryTable("msIMEI");
-            MessageBox.Show("msImei-1");
-            //case"InsertCiType":
-            ciType _ciType = new ciType(true);
-            Task t1 = new Task(() => { _ciType.InsertCiType(_ciType, minFileNum); }); t1.Start();
-            //QueryTable("ciBVCI");
-            MessageBox.Show("ciBVCI");
-            //case"UpdateImeiType":
-            imeiTypeClass _imeiTypeClass_false = new imeiTypeClass(false);
-            Task t2 = new Task(() => { _imeiTypeClass_false.UpdateImeiType(); }); t2.Start();
-            //QueryTable("msIMEI");
-            MessageBox.Show("msImei-2");
-            //case"InsertResultTable":
-            mLocatingConvert ml = new mLocatingConvert();
-            Parallel.For(minFileNum, maxFileNum, i => { ml.SendOrders(ml, i); });
-            Thread.Sleep(1); GC.Collect(); Application.DoEvents();
-            //Parallel.For(0, 4, i => { ml.SendOrders(ml, i); });
-            dt.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void QueryTable(string tbName)
         {
@@ -125,29 +165,30 @@ namespace IP_stream
         }
         private void ImportimeiTypeFile()
         {
-            string dropsql = @"
-                            IF  EXISTS (SELECT * FROM sys.objects 
-                            WHERE object_id = OBJECT_ID(N'[dbo].[imeiType]') AND type in (N'U'))
-                            DROP TABLE [dbo].[imeiType]
-                            ";
+//            string dropsql = @"
+//                            IF  EXISTS (SELECT * FROM sys.objects 
+//                            WHERE object_id = OBJECT_ID(N'[dbo].[imeiType]') AND type in (N'U'))
+//                            DROP TABLE [dbo].[imeiType]
+//                            ";
 
-            string createsql = @"
-                                CREATE TABLE [dbo].[imeiType](
-	                                [imeiType_id] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
-	                                [imei] [nvarchar](50) NULL,
-	                                [imeiFactory] [nvarchar](50) NULL,
-	                                [imeiModel] [nvarchar](500) NULL,
-	                                [imeiClass] [nvarchar](500) NULL
-                                ) ON [PRIMARY]
-                                ";
+//            string createsql = @"
+//                                CREATE TABLE [dbo].[imeiType](
+//	                                [imeiType_id] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+//	                                [imei] [nvarchar](50) NULL,
+//	                                [imeiFactory] [nvarchar](50) NULL,
+//	                                [imeiModel] [nvarchar](500) NULL,
+//	                                [imeiClass] [nvarchar](500) NULL
+//                                ) ON [PRIMARY]
+//                                ";
 
+            handleTable.CreateTable(typeof(imeiType));
             string insertsql = @" BULK INSERT imeiType
                                     FROM '" + streamType.imeiTypeFile
                                  + "'  WITH ( FIRSTROW = 2,FIELDTERMINATOR = ',', ROWTERMINATOR = '\n'  )";
 
-            DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
-            mess.ExecuteCommand(dropsql);
-            mess.ExecuteCommand(createsql);
+            using(DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+            //mess.ExecuteCommand(dropsql);
+            //mess.ExecuteCommand(createsql);
             mess.ExecuteCommand(insertsql);
             MessageBox.Show("OK");
 
@@ -165,7 +206,7 @@ namespace IP_stream
             ciPdchBulk(strFileFullName);
 
 
-            string stattime = InputBox("OSS和Gb的时间匹配", "请选定Gb采集时间", "09/03/2011 12:00:00");
+            string stattime = InputBox("OSS和Gb的时间匹配", "请选定Gb采集时间", "11/04/2011 11:00:00");
 
             ImportCiCoverType(stattime);
 
@@ -191,7 +232,12 @@ namespace IP_stream
                                 )";
 
             string insertsql = @" BULK INSERT ciPdchBulk
-                                    FROM '" + csvfile + "'  WITH ( FIRSTROW = 2,FIELDTERMINATOR = ',', ROWTERMINATOR = '\n'  )";
+                                    FROM '" + csvfile + @"'  
+                                    WITH ( 
+                                     FIRSTROW = 2,
+                                     FIELDTERMINATOR = ',',
+                                     ROWTERMINATOR = '\n'  
+                                     )";
             DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
             mess.ExecuteCommand(dropsql);
             mess.ExecuteCommand(createsql);
@@ -252,7 +298,10 @@ namespace IP_stream
             {
                 TreeNode tn = new TreeNode(mess.Connection.DataSource + "_" + mess.Connection.Database);
                 foreach (var t in mess.Mapping.GetTables())
-                    tn.Nodes.Add(t.TableName.Substring(4));
+                    if (t.TableName.IndexOf(".") == -1)
+                        tn.Nodes.Add(t.TableName);
+                    else
+                        tn.Nodes.Add(t.TableName.Substring(4));
                 treeView1.Nodes.Add(tn);
 
                 foreach (TreeNode t in tn.Nodes)
@@ -265,6 +314,7 @@ namespace IP_stream
             }
             treeView1.ExpandAll();
         }
+
         private void refreshTreeViewstreamType()
         {
             XElement dataConfig2 = XElement.Load(streamType.streamTypeXmlPath);
@@ -310,8 +360,9 @@ namespace IP_stream
              *    * 
              * */
 
-
-
+            dualTests1.Hide();
+     
+            注册LicenseCheck();
             refreshTreeViewConn();
             refreshTreeViewGetTables();
             refreshTreeViewstreamType();
@@ -680,7 +731,7 @@ namespace IP_stream
 
         private void exportExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string filename = InputBox("保存成Excel文件?", "请输入Sheet名称", "AAA");
+            string filename = InputBox("保存成Excel文件?", "请输入Sheet名称", "pdch_model");
             ExportExcel.ExportForDataGridview(dataGridView1, filename, true);
         }
         private string InputBox(string Caption, string Hint, string Default)
@@ -774,13 +825,14 @@ namespace IP_stream
 
                 dcs.SaveConfiguration(dcd);
             }
-            catch
+            catch (Exception ex)
             {
-                string winpath = System.Environment.SystemDirectory;
-                File.Copy("sqlcese35.dll", winpath);
-                File.Copy("sqlceqp35.dll", winpath);
-                File.Copy("sqlceme35.dll", winpath);
-                MessageBox.Show("sqlce导入成功");
+                MessageBox.Show(ex.ToString());
+                //    string winpath = Environment.ExpandEnvironmentVariables("%SystemRoot%");
+                //    File.Copy("sqlcese35.dll", winpath + @"\sqlcese35.dll");
+                //    File.Copy("sqlceqp35.dll", winpath + @"\sqlceqp35.dll");
+                //    File.Copy("sqlceme35.dll", winpath + @"\sqlceme35.dll");
+                //    MessageBox.Show("sqlce导入成功");
             }
         }
 
@@ -793,6 +845,83 @@ namespace IP_stream
             local.connectionString.Value = connstring;
             richTextBox1.Text = connstring;
             doc.SaveToFile(streamType.configXmlPath, true);
+        }
+
+        private void shrinkDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //DUMP   TRANSACTION   [数据库名]   WITH     NO_LOG
+            //BACKUP   LOG   [数据库名]   WITH   NO_LOG
+            //DBCC   SHRINKDATABASE([数据库名])
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+            {
+                mess.ExecuteCommand("DUMP   TRANSACTION   [" + mess.Connection.Database + "]   WITH     NO_LOG");
+                mess.ExecuteCommand("BACKUP   LOG   [" + mess.Connection.Database + "]   WITH   NO_LOG");
+                mess.ExecuteCommand("DBCC   SHRINKDATABASE([" + mess.Connection.Database + "])");
+            }
+            MessageBox.Show("OK");
+        }
+
+        private void registerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        LincenseString ls = new LincenseString();
+        LicenseCheck lc = new LicenseCheck();
+        private void 注册LicenseCheck()
+        {
+            string appPath = Application.StartupPath.ToString();
+            string licPath = appPath + "\\machine.lic";
+            LicenseReadLib lr = new LicenseReadLib(ls, lc);
+            if (lr.ReadLicense(licPath))
+            {
+                if (lr.CheckLicenseUse())
+                {
+                    if (lr.CheckLicenseSeries())
+                    {
+                        if (lr.CheckLicenseDate())
+                        {
+                            if (lr.CheckLicenseTimes()) { lr.WriteLicense(licPath); }
+                            else { this.Close(); Application.ExitThread(); Application.Exit(); }
+                        }
+                        else
+                        { this.Close(); Application.ExitThread(); Application.Exit(); }
+                    }
+                    else
+                    { this.Close(); Application.ExitThread(); Application.Exit(); }
+                }
+                else
+                { this.Close(); Application.ExitThread(); Application.Exit(); }
+            }
+            else
+            { this.Close(); Application.ExitThread(); Application.Exit(); }
+        }
+        private void 校验注册号代码Btn_Click()
+        {
+            //检验注册号，把检验结果找一内存保存起来。不要在校验结果代码附近做任何影响程序正常工作的处理，这样不易被跟踪。
+            string regTail3 = lc.GetRegTail3ByMac(ls.regDateFile);
+            if (string.Compare(regTail3, 0, ls.regLicense, 12, 17) == 0)
+                ls.bRegOK = true;
+            else
+                ls.bRegOK = false;
+        }
+        private int 核心功能代码代表Btn_Click()
+        {
+            int result;
+            if (ls.bRegOK)
+            {
+                result = 10 + 10;
+            }
+            else
+            {
+                result = 10 + 10 + 1;  //发现注册码正常的标记为false时,对核心功能代码进行不易发觉的修改，导致结果无法使用，注：不要弹出易被跟踪的消息事件等。
+            }
+            return result;
+        }
+
+        private void autoUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AutoUpdate.FrmUpdate autoupdateform = new AutoUpdate.FrmUpdate();
+            autoupdateform.ShowDialog();
         }
 
     }

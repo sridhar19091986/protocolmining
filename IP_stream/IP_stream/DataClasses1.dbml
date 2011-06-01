@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="23A" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=23A;Integrated Security=True" SettingsObjectName="IP_stream.Properties.Settings" SettingsPropertyName="_23AConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IP_stream" EntityNamespace="IP_stream.Linq" ContextNamespace="IP_stream.Linq" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="dbo.IP_stream" Member="IP_stream">
     <Type Name="IP_stream">
       <Column Name="FileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -123,6 +122,49 @@
       <Column Name="Any_Uplink_PDU_delayFirst" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="TLLI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="OpCiPDCH">
+    <Type Name="OpCiPDCH">
+      <Column Name="LacCi" Type="System.String" CanBeNull="false" />
+      <Column Name="CiKbps" Type="System.Double" CanBeNull="false" />
+      <Column Name="CiPDCH" Type="System.Double" CanBeNull="false" />
+      <Column Name="X0_Coefficient" Type="System.Double" CanBeNull="false" />
+      <Column Name="StreamingMedia" Type="System.Double" CanBeNull="false" />
+      <Column Name="StockCategory" Type="System.Double" CanBeNull="false" />
+      <Column Name="OtherCategory" Type="System.Double" CanBeNull="false" />
+      <Column Name="MMS" Type="System.Double" CanBeNull="false" />
+      <Column Name="IM" Type="System.Double" CanBeNull="false" />
+      <Column Name="GeneralDownloads" Type="System.Double" CanBeNull="false" />
+      <Column Name="GameCategory" Type="System.Double" CanBeNull="false" />
+      <Column Name="BrowseCategory" Type="System.Double" CanBeNull="false" />
+      <Column Name="P2P" Type="System.Double" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="OpPaingTime">
+    <Type Name="OpPaingTime">
+      <Column Member="LacCi" Type="System.String" CanBeNull="false" />
+      <Column Member="mMessage" Type="System.Double" CanBeNull="false" />
+      <Column Member="mResponeSucc" Type="System.Double" CanBeNull="false" />
+      <Column Member="mDelay" Type="System.Double" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="OpPdchModel">
+    <Type Name="OpPdchModel">
+      <Column Member="小区号Ci" Type="System.String" CanBeNull="false" />
+      <Column Member="小区总速率" Type="System.Double" CanBeNull="false" />
+      <Column Member="模型计算需求数ComputePDCH" Type="System.Double" CanBeNull="false" />
+      <Column Member="模型计算增加或减少数NeedPDCH" Type="System.Double" CanBeNull="false" />
+      <Column Member="统计值_使用PDCH" Type="System.Double" CanBeNull="false" />
+      <Column Member="偏移量Offset" Type="System.Double" CanBeNull="false" />
+      <Column Member="业务速率StreamingMedia_P2P" Type="System.Double" CanBeNull="false" />
+      <Column Member="业务速率OtherCategory_StockCategory_MMS_GameCategory" Type="System.Double" CanBeNull="false" />
+      <Column Member="业务速率IM" Type="System.Double" CanBeNull="false" />
+      <Column Member="业务速率GeneralDownloads" Type="System.Double" CanBeNull="false" />
+      <Column Member="业务速率BrowseCategory" Type="System.Double" CanBeNull="false" />
+      <Column Member="PS寻呼次数" Type="System.Double" CanBeNull="false" />
+      <Column Member="PS寻呼成功率" Type="System.Double" CanBeNull="false" />
+      <Column Member="PS寻呼时延" Type="System.Double" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

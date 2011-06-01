@@ -4,9 +4,6 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Microsoft.Data.ConnectionUI
 {

@@ -11,6 +11,7 @@ namespace IP_stream
     {
         public Dictionary<string, string> d;
         private ILookup<string, mUri> _mUriCollection;
+        private DataClasses1DataContext localdb = new DataClasses1DataContext(streamType.LocalConnString);
         public ILookup<string, mUri> mUriCollection
         {
             get
@@ -36,26 +37,27 @@ namespace IP_stream
             #region
             //远程取上下行的URI关联
             #endregion
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+            localdb = new DataClasses1DataContext(streamType.LocalConnString);
+            //using (DataClasses1DataContext localdb = new DataClasses1DataContext(streamType.LocalConnString))
+            //{
+            var m = localdb.IP_stream.Where(e => e.http_uri != null || e.wsp_uri != null).Where(e => e.tcp_d != null);
+            foreach (var ms in m)
             {
-                var m = mess.IP_stream.Where(e => e.http_uri != null || e.wsp_uri != null).Where(e => e.tcp_d != null);
-                foreach (var ms in m)
-                {
-                    mUri a = new mUri();
-                    a.fileNum = ms.FileNum;
-                    a.tlli = ms.tlli;
-                    a.sport = ms.tcp_s;
-                    a.dport = ms.tcp_d;
-                    //a.tcp_seq = ms.tcp_seq;
-                    //a.tcp_ack = ms.tcp_ack;
-                    a.uri = ms.http_uri == null ? "-" : ms.http_uri;
-                    a.uri += ms.wsp_uri == null ? "-" : ms.wsp_uri;
-                    a.uri += ms.http_x_online == null ? "-" : ms.http_x_online;
-                    a.uri += ms.http_host == null ? "-" : ms.http_host;
-                    a.uriStreamType = ConvertUri2trType(a.uri);
-                    yield return a;
-                }
+                mUri a = new mUri();
+                a.fileNum = ms.FileNum;
+                a.tlli = ms.tlli;
+                a.sport = ms.tcp_s;
+                a.dport = ms.tcp_d;
+                //a.tcp_seq = ms.tcp_seq;
+                //a.tcp_ack = ms.tcp_ack;
+                a.uri = ms.http_uri == null ? "-" : ms.http_uri;
+                a.uri += ms.wsp_uri == null ? "-" : ms.wsp_uri;
+                a.uri += ms.http_x_online == null ? "-" : ms.http_x_online;
+                a.uri += ms.http_host == null ? "-" : ms.http_host;
+                a.uriStreamType = ConvertUri2trType(a.uri);
+                yield return a;
             }
+            //}
         }
         public class mUri
         {

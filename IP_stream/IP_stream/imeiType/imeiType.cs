@@ -12,7 +12,7 @@ namespace IP_stream
         #region
         //远程取imsi,imei关系
         #endregion
-        private DataClasses1DataContext remotedb = new DataClasses1DataContext(streamType.LocalConnString);
+        private  DataClasses1DataContext localdb = new DataClasses1DataContext(streamType.LocalConnString);
         private Dictionary<string, msIMEI> _MsImeiCollection;
         public Dictionary<string, msIMEI> MsImeiCollection
         {
@@ -20,8 +20,8 @@ namespace IP_stream
             {
                 if (_MsImeiCollection == null)
                 {
-                    remotedb = new DataClasses1DataContext(streamType.LocalConnString);
-                    _MsImeiCollection = remotedb.msIMEI.ToDictionary(e => e.fileNum + "-" + e.tlli);
+                    localdb = new DataClasses1DataContext(streamType.LocalConnString);
+                    _MsImeiCollection = localdb.msIMEI.ToDictionary(e => e.fileNum + "-" + e.tlli);
                 }
                 return _MsImeiCollection;
             }
@@ -33,9 +33,9 @@ namespace IP_stream
         private ILookup<string, imeiType> imeiL;
         public imeiTypeClass(bool init)
         {
+            localdb.CommandTimeout = 0;
             if (init == true)
-                using (DataClasses1DataContext localdb = new DataClasses1DataContext(streamType.LocalConnString))
-                    imeiL = localdb.imeiType.Where(e => e.imei != null).ToLookup(e => e.imei);
+                imeiL = localdb.imeiType.Where(e => e.imei != null).ToLookup(e => e.imei);
         }
 
         public IEnumerable<msIMEI> AuditMsImeiCollection(int filenum)
@@ -65,10 +65,12 @@ namespace IP_stream
 
         private IEnumerable<msIMEI> GetMsImeiCollection(int filenum)
         {
-            remotedb = new DataClasses1DataContext(streamType.LocalConnString);
-            var stream = from p in remotedb.IP_stream
-                         where p.FileNum == filenum
-                         select new { p.FileNum, p.tlli, p.imsi, p.imei };
+            localdb = new DataClasses1DataContext(streamType.LocalConnString);
+            localdb.CommandTimeout = 0;
+
+            var stream = localdb.IP_stream
+                .Where(p => p.FileNum == filenum)
+                .Select(p => new { p.FileNum, p.tlli, p.imsi, p.imei });
             var tlliL = stream.ToLookup(e => e.FileNum + "-" + e.tlli);
             foreach (var t in tlliL)
             {
@@ -82,8 +84,10 @@ namespace IP_stream
         }
         public IEnumerable<msIMEI> UpdateMsImeiCollection()
         {
-            var stream = from p in remotedb.msIMEI
-                         select p;
+            localdb = new DataClasses1DataContext(streamType.LocalConnString);
+            localdb.CommandTimeout = 0;
+
+            var stream = localdb.msIMEI;
             var imsiL = stream.Where(e => e.imsi != null).ToLookup(e => e.imsi);
             var tlliL = stream.ToLookup(e => e.fileNum + "-" + e.tlli);
             foreach (var t in tlliL)
@@ -111,8 +115,8 @@ namespace IP_stream
 
         public void InsertImeiType(imeiTypeClass _imeiTypeClass, int filenum)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
+            //Stopwatch sw = new Stopwatch();
+            //sw.Start();
             using (SqlConnection con = new SqlConnection(streamType.LocalConnString))
             {
                 con.Open();
@@ -123,6 +127,7 @@ namespace IP_stream
                       SqlBulkCopyOptions.CheckConstraints |
                       SqlBulkCopyOptions.FireTriggers |
                       SqlBulkCopyOptions.KeepNulls, tran);
+                    bc.BulkCopyTimeout = 36000;
                     bc.BatchSize = 1000;
                     bc.DestinationTableName = "msIMEI";
                     bc.WriteToServer(newOrders.AsDataReader());
@@ -130,15 +135,15 @@ namespace IP_stream
                 }
                 con.Close();
             }
-            GC.Collect();
-            sw.Stop();
+            GC.Collect(); GC.Collect();
+            //sw.Stop();
             //MessageBox.Show(filenum.ToString() + "---" + sw.Elapsed.TotalSeconds.ToString() + "---");
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
         }
         public void UpdateImeiType()
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
+            //Stopwatch sw = new Stopwatch();
+            //sw.Start();
             int maxUser = 0;
             using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
                 maxUser = mess.msIMEI.Count();
@@ -154,6 +159,7 @@ namespace IP_stream
                       SqlBulkCopyOptions.CheckConstraints |
                       SqlBulkCopyOptions.FireTriggers |
                       SqlBulkCopyOptions.KeepNulls, tran);
+                    bc.BulkCopyTimeout = 36000;
                     bc.BatchSize = 1000;
                     bc.DestinationTableName = "msIMEI";
                     bc.WriteToServer(newOrders.AsDataReader());
@@ -163,8 +169,8 @@ namespace IP_stream
             }
             using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
                 mess.ExecuteCommand("delete from msIMEI where msIMEI_id<=" + maxUser);
-            GC.Collect();
-            sw.Stop();
+            GC.Collect(); GC.Collect();
+            //sw.Stop();
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
         }
     }

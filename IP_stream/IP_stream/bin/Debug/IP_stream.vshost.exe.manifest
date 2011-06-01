@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly manifestVersion="1.0" xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
   <asmv1:assemblyIdentity version="1.0.0.2" name="IP_stream.exe" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Stocks.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="IP_stream" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -42,11 +43,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="System.Data.SqlServerCe" version="3.5.1.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Altova.dll" size="34816">
       <assemblyIdentity name="Altova" version="1.0.4014.27743" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -71,6 +67,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AutoUpdate.exe" size="151552">
+      <assemblyIdentity name="AutoUpdate" version="1.0.4169.41416" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>2tUTukyHoeI8gIfl0bGMVRjW9tY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="connStringConfig.dll" size="48128">
       <assemblyIdentity name="connStringConfig" version="1.0.4014.27744" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -83,62 +91,50 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IP_stream.exe" size="189440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IP_stream.exe" size="229376">
       <assemblyIdentity name="IP_stream" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>quq3B20Eih597pAMEjibb5ClBmI=</dsig:DigestValue>
+        <dsig:DigestValue>lDZ0RYxAKnDbGwKcZXULAE74qQ4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Data.ConnectionUI.dll" size="4096">
-      <assemblyIdentity name="Microsoft.Data.ConnectionUI" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Data.ConnectionUI.dll" size="12664">
+      <assemblyIdentity name="Microsoft.Data.ConnectionUI" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>j3hMhhOaUDcIsqU9cdYFQgw9leY=</dsig:DigestValue>
+        <dsig:DigestValue>fMYaRjWBfYrjB/IZ9p3IDUwYwmQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Data.ConnectionUI.Dialog.dll" size="401920">
-      <assemblyIdentity name="Microsoft.Data.ConnectionUI.Dialog" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Data.ConnectionUI.Dialog.dll" size="419712">
+      <assemblyIdentity name="Microsoft.Data.ConnectionUI.Dialog" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>5w+PtBBm+qD54Fzy47f9wwulVE0=</dsig:DigestValue>
+        <dsig:DigestValue>JYw2yAm5asdAV2Ti7s4+508KtmQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Data.ConnectionUI.SqlCeDataProvider.dll" size="50176">
-      <assemblyIdentity name="Microsoft.Data.ConnectionUI.SqlCeDataProvider" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SoftwareRegister.exe" size="106496">
+      <assemblyIdentity name="SoftwareRegister" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>kf62j/hZH/l8bEaMHg8/fr+Io/4=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.SqlServerCe.Client.dll" size="394320">
-      <assemblyIdentity name="Microsoft.SqlServerCe.Client" version="3.5.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+PMXMUnPkCcqybKzK2c5wEqSklw=</dsig:DigestValue>
+        <dsig:DigestValue>r9PZ4xT8RkQpzfq1bH0jRk4XtOw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -151,6 +147,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
         <dsig:DigestValue>lcb6gC3ZVlbkhzgjwW/foqrM/Lc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Uninstall.exe" size="5120">
+      <assemblyIdentity name="Uninstall" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>NwDd3VlLethCyBlgQ5hFW100QVM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -179,6 +187,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>p3khn+gNv6ip78Cw29vKvyazCPo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Stocks.ico" size="15086">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Fjri5L7bMd4GBMFreqrrb4JXmyo=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

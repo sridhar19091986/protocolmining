@@ -22,7 +22,7 @@ namespace IP_stream.Linq
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="23A")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="IP_stream")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -43,12 +43,6 @@ namespace IP_stream.Linq
     partial void UpdatemLocatingType(mLocatingType instance);
     partial void DeletemLocatingType(mLocatingType instance);
     #endregion
-		
-		public DataClasses1DataContext() : 
-				base(global::IP_stream.Properties.Settings.Default._23AConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
 		
 		public DataClasses1DataContext(string connection) : 
 				base(connection, mappingSource)
@@ -127,6 +121,30 @@ namespace IP_stream.Linq
 			get
 			{
 				return this.GetTable<Gb_Paging_PS>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OpCiPDCH> OpCiPDCH
+		{
+			get
+			{
+				return this.GetTable<OpCiPDCH>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OpPaingTime> OpPaingTime
+		{
+			get
+			{
+				return this.GetTable<OpPaingTime>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OpPdchModel> OpPdchModel
+		{
+			get
+			{
+				return this.GetTable<OpPdchModel>();
 			}
 		}
 	}
@@ -2267,6 +2285,591 @@ namespace IP_stream.Linq
 				if ((this._TLLI != value))
 				{
 					this._TLLI = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class OpCiPDCH
+	{
+		
+		private string _LacCi;
+		
+		private double _CiKbps;
+		
+		private double _CiPDCH;
+		
+		private double _X0_Coefficient;
+		
+		private double _StreamingMedia;
+		
+		private double _StockCategory;
+		
+		private double _OtherCategory;
+		
+		private double _MMS;
+		
+		private double _IM;
+		
+		private double _GeneralDownloads;
+		
+		private double _GameCategory;
+		
+		private double _BrowseCategory;
+		
+		private double _P2P;
+		
+		public OpCiPDCH()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LacCi", CanBeNull=false)]
+		public string LacCi
+		{
+			get
+			{
+				return this._LacCi;
+			}
+			set
+			{
+				if ((this._LacCi != value))
+				{
+					this._LacCi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CiKbps")]
+		public double CiKbps
+		{
+			get
+			{
+				return this._CiKbps;
+			}
+			set
+			{
+				if ((this._CiKbps != value))
+				{
+					this._CiKbps = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CiPDCH")]
+		public double CiPDCH
+		{
+			get
+			{
+				return this._CiPDCH;
+			}
+			set
+			{
+				if ((this._CiPDCH != value))
+				{
+					this._CiPDCH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_X0_Coefficient")]
+		public double X0_Coefficient
+		{
+			get
+			{
+				return this._X0_Coefficient;
+			}
+			set
+			{
+				if ((this._X0_Coefficient != value))
+				{
+					this._X0_Coefficient = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StreamingMedia")]
+		public double StreamingMedia
+		{
+			get
+			{
+				return this._StreamingMedia;
+			}
+			set
+			{
+				if ((this._StreamingMedia != value))
+				{
+					this._StreamingMedia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StockCategory")]
+		public double StockCategory
+		{
+			get
+			{
+				return this._StockCategory;
+			}
+			set
+			{
+				if ((this._StockCategory != value))
+				{
+					this._StockCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherCategory")]
+		public double OtherCategory
+		{
+			get
+			{
+				return this._OtherCategory;
+			}
+			set
+			{
+				if ((this._OtherCategory != value))
+				{
+					this._OtherCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MMS")]
+		public double MMS
+		{
+			get
+			{
+				return this._MMS;
+			}
+			set
+			{
+				if ((this._MMS != value))
+				{
+					this._MMS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IM")]
+		public double IM
+		{
+			get
+			{
+				return this._IM;
+			}
+			set
+			{
+				if ((this._IM != value))
+				{
+					this._IM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GeneralDownloads")]
+		public double GeneralDownloads
+		{
+			get
+			{
+				return this._GeneralDownloads;
+			}
+			set
+			{
+				if ((this._GeneralDownloads != value))
+				{
+					this._GeneralDownloads = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GameCategory")]
+		public double GameCategory
+		{
+			get
+			{
+				return this._GameCategory;
+			}
+			set
+			{
+				if ((this._GameCategory != value))
+				{
+					this._GameCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrowseCategory")]
+		public double BrowseCategory
+		{
+			get
+			{
+				return this._BrowseCategory;
+			}
+			set
+			{
+				if ((this._BrowseCategory != value))
+				{
+					this._BrowseCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P2P")]
+		public double P2P
+		{
+			get
+			{
+				return this._P2P;
+			}
+			set
+			{
+				if ((this._P2P != value))
+				{
+					this._P2P = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class OpPaingTime
+	{
+		
+		private string _LacCi;
+		
+		private double _mMessage;
+		
+		private double _mResponeSucc;
+		
+		private double _mDelay;
+		
+		public OpPaingTime()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LacCi", CanBeNull=false)]
+		public string LacCi
+		{
+			get
+			{
+				return this._LacCi;
+			}
+			set
+			{
+				if ((this._LacCi != value))
+				{
+					this._LacCi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mMessage")]
+		public double mMessage
+		{
+			get
+			{
+				return this._mMessage;
+			}
+			set
+			{
+				if ((this._mMessage != value))
+				{
+					this._mMessage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mResponeSucc")]
+		public double mResponeSucc
+		{
+			get
+			{
+				return this._mResponeSucc;
+			}
+			set
+			{
+				if ((this._mResponeSucc != value))
+				{
+					this._mResponeSucc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mDelay")]
+		public double mDelay
+		{
+			get
+			{
+				return this._mDelay;
+			}
+			set
+			{
+				if ((this._mDelay != value))
+				{
+					this._mDelay = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class OpPdchModel
+	{
+		
+		private string _小区号Ci;
+		
+		private double _小区总速率;
+		
+		private double _模型计算需求数ComputePDCH;
+		
+		private double _模型计算增加或减少数NeedPDCH;
+		
+		private double _统计值_使用PDCH;
+		
+		private double _偏移量Offset;
+		
+		private double _业务速率StreamingMedia_P2P;
+		
+		private double _业务速率OtherCategory_StockCategory_MMS_GameCategory;
+		
+		private double _业务速率IM;
+		
+		private double _业务速率GeneralDownloads;
+		
+		private double _业务速率BrowseCategory;
+		
+		private double _PS寻呼次数;
+		
+		private double _PS寻呼成功率;
+		
+		private double _PS寻呼时延;
+		
+		public OpPdchModel()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_小区号Ci", CanBeNull=false)]
+		public string 小区号Ci
+		{
+			get
+			{
+				return this._小区号Ci;
+			}
+			set
+			{
+				if ((this._小区号Ci != value))
+				{
+					this._小区号Ci = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_小区总速率")]
+		public double 小区总速率
+		{
+			get
+			{
+				return this._小区总速率;
+			}
+			set
+			{
+				if ((this._小区总速率 != value))
+				{
+					this._小区总速率 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_模型计算需求数ComputePDCH")]
+		public double 模型计算需求数ComputePDCH
+		{
+			get
+			{
+				return this._模型计算需求数ComputePDCH;
+			}
+			set
+			{
+				if ((this._模型计算需求数ComputePDCH != value))
+				{
+					this._模型计算需求数ComputePDCH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_模型计算增加或减少数NeedPDCH")]
+		public double 模型计算增加或减少数NeedPDCH
+		{
+			get
+			{
+				return this._模型计算增加或减少数NeedPDCH;
+			}
+			set
+			{
+				if ((this._模型计算增加或减少数NeedPDCH != value))
+				{
+					this._模型计算增加或减少数NeedPDCH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_统计值_使用PDCH")]
+		public double 统计值_使用PDCH
+		{
+			get
+			{
+				return this._统计值_使用PDCH;
+			}
+			set
+			{
+				if ((this._统计值_使用PDCH != value))
+				{
+					this._统计值_使用PDCH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_偏移量Offset")]
+		public double 偏移量Offset
+		{
+			get
+			{
+				return this._偏移量Offset;
+			}
+			set
+			{
+				if ((this._偏移量Offset != value))
+				{
+					this._偏移量Offset = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率StreamingMedia_P2P")]
+		public double 业务速率StreamingMedia_P2P
+		{
+			get
+			{
+				return this._业务速率StreamingMedia_P2P;
+			}
+			set
+			{
+				if ((this._业务速率StreamingMedia_P2P != value))
+				{
+					this._业务速率StreamingMedia_P2P = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率OtherCategory_StockCategory_MMS_GameCategory")]
+		public double 业务速率OtherCategory_StockCategory_MMS_GameCategory
+		{
+			get
+			{
+				return this._业务速率OtherCategory_StockCategory_MMS_GameCategory;
+			}
+			set
+			{
+				if ((this._业务速率OtherCategory_StockCategory_MMS_GameCategory != value))
+				{
+					this._业务速率OtherCategory_StockCategory_MMS_GameCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率IM")]
+		public double 业务速率IM
+		{
+			get
+			{
+				return this._业务速率IM;
+			}
+			set
+			{
+				if ((this._业务速率IM != value))
+				{
+					this._业务速率IM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率GeneralDownloads")]
+		public double 业务速率GeneralDownloads
+		{
+			get
+			{
+				return this._业务速率GeneralDownloads;
+			}
+			set
+			{
+				if ((this._业务速率GeneralDownloads != value))
+				{
+					this._业务速率GeneralDownloads = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率BrowseCategory")]
+		public double 业务速率BrowseCategory
+		{
+			get
+			{
+				return this._业务速率BrowseCategory;
+			}
+			set
+			{
+				if ((this._业务速率BrowseCategory != value))
+				{
+					this._业务速率BrowseCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS寻呼次数")]
+		public double PS寻呼次数
+		{
+			get
+			{
+				return this._PS寻呼次数;
+			}
+			set
+			{
+				if ((this._PS寻呼次数 != value))
+				{
+					this._PS寻呼次数 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS寻呼成功率")]
+		public double PS寻呼成功率
+		{
+			get
+			{
+				return this._PS寻呼成功率;
+			}
+			set
+			{
+				if ((this._PS寻呼成功率 != value))
+				{
+					this._PS寻呼成功率 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS寻呼时延")]
+		public double PS寻呼时延
+		{
+			get
+			{
+				return this._PS寻呼时延;
+			}
+			set
+			{
+				if ((this._PS寻呼时延 != value))
+				{
+					this._PS寻呼时延 = value;
 				}
 			}
 		}

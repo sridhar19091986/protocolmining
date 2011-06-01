@@ -38,12 +38,16 @@
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("OutPutPDCH");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("OutPutTable", new System.Windows.Forms.TreeNode[] {
             treeNode5});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shrinkDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Command = new System.Windows.Forms.TabPage();
@@ -56,6 +60,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.treeViewConn = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
+            this.dualTests1 = new IP_stream.AsynchThread.DualTests();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStripConn = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -88,6 +93,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hiddenToolStripMenuItem,
             this.showToolStripMenuItem,
+            this.shrinkDatabaseToolStripMenuItem,
+            this.autoUpdateToolStripMenuItem,
             this.exportExcelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -116,10 +123,25 @@
             this.exportExcelToolStripMenuItem.Text = "ExportExcel";
             this.exportExcelToolStripMenuItem.Click += new System.EventHandler(this.exportExcelToolStripMenuItem_Click);
             // 
+            // shrinkDatabaseToolStripMenuItem
+            // 
+            this.shrinkDatabaseToolStripMenuItem.Name = "shrinkDatabaseToolStripMenuItem";
+            this.shrinkDatabaseToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.shrinkDatabaseToolStripMenuItem.Text = "ShrinkDb";
+            this.shrinkDatabaseToolStripMenuItem.Click += new System.EventHandler(this.shrinkDatabaseToolStripMenuItem_Click);
+            // 
+            // autoUpdateToolStripMenuItem
+            // 
+            this.autoUpdateToolStripMenuItem.Name = "autoUpdateToolStripMenuItem";
+            this.autoUpdateToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.autoUpdateToolStripMenuItem.Text = "AutoUpdate";
+            this.autoUpdateToolStripMenuItem.Click += new System.EventHandler(this.autoUpdateToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 386);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(703, 22);
@@ -131,6 +153,12 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(185, 17);
             this.toolStripStatusLabel1.Text = "CopyRight by wei.hp.2011.05.30";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(65, 17);
+            this.toolStripStatusLabel2.Text = "          ";
             // 
             // splitContainer1
             // 
@@ -144,6 +172,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.dualTests1);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Size = new System.Drawing.Size(703, 362);
             this.splitContainer1.SplitterDistance = 237;
@@ -290,6 +319,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dualTests1
+            // 
+            this.dualTests1.Location = new System.Drawing.Point(27, 84);
+            this.dualTests1.Name = "dualTests1";
+            this.dualTests1.Size = new System.Drawing.Size(385, 105);
+            this.dualTests1.TabIndex = 4;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -369,6 +405,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "IP Stream";
@@ -428,6 +465,10 @@
         private System.Windows.Forms.ToolStripMenuItem exportExcelToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripMenuItem autoUpdateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shrinkDatabaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private AsynchThread.DualTests dualTests1;
     }
 }
 
