@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,26 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dualPlainBackgroundPainter1.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>527, 7</value>
-  </data>
-  <data name="dualRoundGlossPainter1.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>723, 7</value>
-  </data>
-  <data name="dualPlainBorderPainter1.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>16, 44</value>
-  </data>
-  <data name="dualPlainProgressPainter2.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>186, 44</value>
-  </data>
-  <data name="dualRoundGlossPainter2.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>355, 7</value>
-  </data>
-  <data name="dualPlainProgressPainter1.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>366, 44</value>
-  </data>
-  <data name="dualGradientGlossPainter1.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>546, 44</value>
-  </data>
 </root>

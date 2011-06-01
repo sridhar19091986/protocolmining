@@ -4,6 +4,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Data.SqlClient;
 using IP_stream.Linq;
+using System.Threading;
 
 namespace IP_stream
 {
@@ -13,7 +14,7 @@ namespace IP_stream
         //远程取总数
         #endregion
 
-        private DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
+        private  DataClasses1DataContext localdb = new DataClasses1DataContext(streamType.LocalConnString);
 
         private ciType _ciType;
         private imeiTypeClass _imeiTypeClass;
@@ -30,6 +31,7 @@ namespace IP_stream
 
         public mLocatingConvert()
         {
+            localdb.CommandTimeout = 0;
             _ciType = new ciType(false);
             _imeiTypeClass = new imeiTypeClass(false);
             _uriType = new uriType();
@@ -37,18 +39,24 @@ namespace IP_stream
             _responseType = new responseType();
             _protocolType = new protocolType();
             _ipType = new ipType();
+            //--删除
+            //alter   table   你的表   drop   constraint   主键名 
         }
 
         public IEnumerable<mLocatingType> mLocatingTypeLength(int filenum)
         {
-            mess = new DataClasses1DataContext(streamType.LocalConnString);
-            foreach (var p in mess.IP_stream.Where(e => e.FileNum == filenum))
+            localdb = new DataClasses1DataContext(streamType.LocalConnString);
+            localdb.CommandTimeout = 0;
+
+            var ipstreamfilnum=localdb.IP_stream.Where(e => e.FileNum == filenum).AsParallel();
+
+            foreach (var p in ipstreamfilnum)
             {
                 mLocatingType down = new mLocatingType();
 
                 down.fileNum = p.FileNum;
                 down.frame = p.PacketNum;
-                down.bvci = p.bvci;
+                down.bvci = p.FileNum + "-" + p.bvci;
                 down.tlli = p.tlli;
                 down.responseType = p.http_type;
                 down.mLen = p.ip_length;
@@ -137,8 +145,8 @@ namespace IP_stream
         }
         public void SendOrders(mLocatingConvert ml, int filenum)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
+            //Stopwatch sw = new Stopwatch();
+            //sw.Start();
             using (SqlConnection con = new SqlConnection(streamType.LocalConnString))
             {
                 con.Open();
@@ -149,18 +157,19 @@ namespace IP_stream
                       SqlBulkCopyOptions.CheckConstraints |
                       SqlBulkCopyOptions.FireTriggers |
                       SqlBulkCopyOptions.KeepNulls, tran);
-                    bc.BatchSize = 1000;
+                    bc.BulkCopyTimeout = 36000;
+                    bc.BatchSize = 10000;
                     bc.DestinationTableName = "mLocatingType";
                     bc.WriteToServer(newOrders.AsDataReader());
                     tran.Commit();
                 }
                 con.Close();
             }
-            GC.Collect();
-            sw.Stop();
-            //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
-            //using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
-            //    filenum = mess.mLocatingType.Count();
+            Thread.Sleep(1); GC.Collect(); GC.Collect();
+            //sw.Stop();
+            //localdbageBox.Show(sw.Elapsed.TotalSeconds.ToString());
+            //using (DataClasses1DataContext localdb = new DataClasses1DataContext(streamType.LocalConnString))
+            //    filenum = localdb.mLocatingType.Count();
             //MessageBox.Show(filenum.ToString() + "---" + sw.Elapsed.TotalSeconds.ToString() + "---");
         }
     }
