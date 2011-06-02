@@ -70,6 +70,7 @@
   </Table>
   <Table Name="dbo.mLocatingType" Member="mLocatingType">
     <Type Name="mLocatingType">
+	  <Column Name="mLocatingType_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="fileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="frame" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="bvci" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -87,7 +88,7 @@
       <Column Name="portType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="responseType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="mLen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MLocatingType_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
+
     </Type>
   </Table>
   <Table Name="dbo.ciCoverType" Member="ciCoverType">
@@ -126,6 +127,7 @@
   </Table>
   <Table Name="" Member="OpCiPDCH">
     <Type Name="OpCiPDCH">
+	 <Column Name="OpCiPDCH_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="LacCi" Type="System.String" CanBeNull="false" />
       <Column Name="CiKbps" Type="System.Double" CanBeNull="false" />
       <Column Name="CiPDCH" Type="System.Double" CanBeNull="false" />
@@ -139,7 +141,6 @@
       <Column Name="GameCategory" Type="System.Double" CanBeNull="false" />
       <Column Name="BrowseCategory" Type="System.Double" CanBeNull="false" />
       <Column Name="P2P" Type="System.Double" CanBeNull="false" />
-      <Column Name="OpCiPDCH_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
     </Type>
   </Table>
   <Table Name="" Member="OpPaingTime">
