@@ -2746,8 +2746,8 @@ namespace IP_stream.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率StreamingMedia_P2P")]
-		public double 业务速率StreamingMedia_P2P
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率StreamingMedia_P2P", Storage="_业务速率StreamingMedia_P2P")]
+		public double 业务速率IM
 		{
 			get
 			{
@@ -2762,8 +2762,8 @@ namespace IP_stream.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率OtherCategory_StockCategory_MMS_GameCategory")]
-		public double 业务速率OtherCategory_StockCategory_MMS_GameCategory
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率OtherCategory_StockCategory_MMS_GameCategory", Storage="_业务速率OtherCategory_StockCategory_MMS_GameCategory")]
+		public double 业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory
 		{
 			get
 			{
@@ -2778,8 +2778,8 @@ namespace IP_stream.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率IM")]
-		public double 业务速率IM
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率IM", Storage="_业务速率IM")]
+		public double 业务速率BrowseCategory_StockCategory
 		{
 			get
 			{
@@ -2794,8 +2794,8 @@ namespace IP_stream.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率GeneralDownloads")]
-		public double 业务速率GeneralDownloads
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率GeneralDownloads", Storage="_业务速率GeneralDownloads")]
+		public double 业务速率MMS
 		{
 			get
 			{
@@ -2810,8 +2810,8 @@ namespace IP_stream.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率BrowseCategory")]
-		public double 业务速率BrowseCategory
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率BrowseCategory", Storage="_业务速率BrowseCategory")]
+		public double 业务速率OtherCategory
 		{
 			get
 			{

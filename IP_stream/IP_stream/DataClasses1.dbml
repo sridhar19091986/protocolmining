@@ -143,28 +143,28 @@
   </Table>
   <Table Name="" Member="OpPaingTime">
     <Type Name="OpPaingTime">
-      <Column Member="LacCi" Type="System.String" CanBeNull="false" />
-      <Column Member="mMessage" Type="System.Double" CanBeNull="false" />
-      <Column Member="mResponeSucc" Type="System.Double" CanBeNull="false" />
-      <Column Member="mDelay" Type="System.Double" CanBeNull="false" />
+      <Column Name="LacCi" Type="System.String" CanBeNull="false" />
+      <Column Name="mMessage" Type="System.Double" CanBeNull="false" />
+      <Column Name="mResponeSucc" Type="System.Double" CanBeNull="false" />
+      <Column Name="mDelay" Type="System.Double" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="" Member="OpPdchModel">
     <Type Name="OpPdchModel">
-      <Column Member="小区号Ci" Type="System.String" CanBeNull="false" />
-      <Column Member="小区总速率" Type="System.Double" CanBeNull="false" />
-      <Column Member="模型计算需求数ComputePDCH" Type="System.Double" CanBeNull="false" />
-      <Column Member="模型计算增加或减少数NeedPDCH" Type="System.Double" CanBeNull="false" />
-      <Column Member="统计值_使用PDCH" Type="System.Double" CanBeNull="false" />
-      <Column Member="偏移量Offset" Type="System.Double" CanBeNull="false" />
-      <Column Member="业务速率StreamingMedia_P2P" Type="System.Double" CanBeNull="false" />
-      <Column Member="业务速率OtherCategory_StockCategory_MMS_GameCategory" Type="System.Double" CanBeNull="false" />
-      <Column Member="业务速率IM" Type="System.Double" CanBeNull="false" />
-      <Column Member="业务速率GeneralDownloads" Type="System.Double" CanBeNull="false" />
-      <Column Member="业务速率BrowseCategory" Type="System.Double" CanBeNull="false" />
-      <Column Member="PS寻呼次数" Type="System.Double" CanBeNull="false" />
-      <Column Member="PS寻呼成功率" Type="System.Double" CanBeNull="false" />
-      <Column Member="PS寻呼时延" Type="System.Double" CanBeNull="false" />
+      <Column Name="小区号Ci" Type="System.String" CanBeNull="false" />
+      <Column Name="小区总速率" Type="System.Double" CanBeNull="false" />
+      <Column Name="模型计算需求数ComputePDCH" Type="System.Double" CanBeNull="false" />
+      <Column Name="模型计算增加或减少数NeedPDCH" Type="System.Double" CanBeNull="false" />
+      <Column Name="统计值_使用PDCH" Type="System.Double" CanBeNull="false" />
+      <Column Name="偏移量Offset" Type="System.Double" CanBeNull="false" />
+      <Column Name="业务速率StreamingMedia_P2P" Member="业务速率IM" Storage="_业务速率StreamingMedia_P2P" Type="System.Double" CanBeNull="false" />
+      <Column Name="业务速率OtherCategory_StockCategory_MMS_GameCategory" Member="业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory" Storage="_业务速率OtherCategory_StockCategory_MMS_GameCategory" Type="System.Double" CanBeNull="false" />
+      <Column Name="业务速率IM" Member="业务速率BrowseCategory_StockCategory" Storage="_业务速率IM" Type="System.Double" CanBeNull="false" />
+      <Column Name="业务速率GeneralDownloads" Member="业务速率MMS" Storage="_业务速率GeneralDownloads" Type="System.Double" CanBeNull="false" />
+      <Column Name="业务速率BrowseCategory" Member="业务速率OtherCategory" Storage="_业务速率BrowseCategory" Type="System.Double" CanBeNull="false" />
+      <Column Name="PS寻呼次数" Type="System.Double" CanBeNull="false" />
+      <Column Name="PS寻呼成功率" Type="System.Double" CanBeNull="false" />
+      <Column Name="PS寻呼时延" Type="System.Double" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

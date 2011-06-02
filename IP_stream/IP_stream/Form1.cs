@@ -21,32 +21,41 @@ namespace IP_stream
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (e.Node.Level == 0) return;
-
-            校验注册号代码Btn_Click();
-
-            switch (e.Node.Name)
+            try
             {
-                case "ImportCiData":
-                    if (!ls.bRegOK) return;
-                    ImportCiData();
-                    ImportimeiTypeFile();
-                    Thread.Sleep(5); GC.Collect(); GC.Collect();
-                    break;
-                case "BulkExcute":
-                    DialogResult dlgResult = MessageBox.Show("Do you want to continue ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dlgResult == DialogResult.Yes)
-                        BulkExcute();
-                    MessageBox.Show("OK");
-                    break;
-                case "OutPutPDCH":
-                    OutPutPDCH();
-                    break;
 
-                default:
-                    QueryTable(e.Node.Text);
-                    break;
-                //}
+                if (e.Node.Level == 0) return;
+
+                校验注册号代码Btn_Click();
+
+                switch (e.Node.Name)
+                {
+                    case "ImportCiData":
+                        if (!ls.bRegOK) return;
+                        ImportCiData();
+                        ImportimeiTypeFile();
+                        Thread.Sleep(5); GC.Collect(); GC.Collect();
+                        break;
+                    case "BulkExcute":
+                        DialogResult dlgResult = MessageBox.Show("Do you want to continue ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dlgResult == DialogResult.Yes)
+                            BulkExcute();
+                        MessageBox.Show("OK");
+                        break;
+                    case "OutPutPDCH":
+                        OutPutPDCH();
+                        break;
+
+                    default:
+                        QueryTable(e.Node.Text);
+                        break;
+                    //}
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
         private int minFileNum;
@@ -61,9 +70,7 @@ namespace IP_stream
             Thread.Sleep(1);
 
             OutPutTable t = new OutPutTable();
-            t.UsePDCH();
             PdchModelTable m = new PdchModelTable();
-            dataGridView1.DataSource = PdchModelTable.pdchmodel;
             MessageBox.Show("OK");
 
             dualTests1.Hide();
@@ -79,7 +86,7 @@ namespace IP_stream
                     minFileNum = mess.Gb_Paging_PS.Min(e => e.FileNum).Value;
                     maxFileNum = mess.Gb_Paging_PS.Max(e => e.FileNum).Value + 1;
                 }
-               // MessageBox.Show(minFileNum.ToString() + "  -   " + maxFileNum.ToString());
+                // MessageBox.Show(minFileNum.ToString() + "  -   " + maxFileNum.ToString());
                 //DualTests dt = new DualTests();
                 //dt.Show(); dt.Focus();
                 dualTests1.Location = new Point(this.Width / 10, this.Height / 3);
@@ -165,31 +172,32 @@ namespace IP_stream
         }
         private void ImportimeiTypeFile()
         {
-//            string dropsql = @"
-//                            IF  EXISTS (SELECT * FROM sys.objects 
-//                            WHERE object_id = OBJECT_ID(N'[dbo].[imeiType]') AND type in (N'U'))
-//                            DROP TABLE [dbo].[imeiType]
-//                            ";
+            //            string dropsql = @"
+            //                            IF  EXISTS (SELECT * FROM sys.objects 
+            //                            WHERE object_id = OBJECT_ID(N'[dbo].[imeiType]') AND type in (N'U'))
+            //                            DROP TABLE [dbo].[imeiType]
+            //                            ";
 
-//            string createsql = @"
-//                                CREATE TABLE [dbo].[imeiType](
-//	                                [imeiType_id] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
-//	                                [imei] [nvarchar](50) NULL,
-//	                                [imeiFactory] [nvarchar](50) NULL,
-//	                                [imeiModel] [nvarchar](500) NULL,
-//	                                [imeiClass] [nvarchar](500) NULL
-//                                ) ON [PRIMARY]
-//                                ";
+            //            string createsql = @"
+            //                                CREATE TABLE [dbo].[imeiType](
+            //	                                [imeiType_id] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+            //	                                [imei] [nvarchar](50) NULL,
+            //	                                [imeiFactory] [nvarchar](50) NULL,
+            //	                                [imeiModel] [nvarchar](500) NULL,
+            //	                                [imeiClass] [nvarchar](500) NULL
+            //                                ) ON [PRIMARY]
+            //                                ";
 
             handleTable.CreateTable(typeof(imeiType));
+
             string insertsql = @" BULK INSERT imeiType
                                     FROM '" + streamType.imeiTypeFile
                                  + "'  WITH ( FIRSTROW = 2,FIELDTERMINATOR = ',', ROWTERMINATOR = '\n'  )";
 
-            using(DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
-            //mess.ExecuteCommand(dropsql);
-            //mess.ExecuteCommand(createsql);
-            mess.ExecuteCommand(insertsql);
+            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+                //mess.ExecuteCommand(dropsql);
+                //mess.ExecuteCommand(createsql);
+                mess.ExecuteCommand(insertsql);
             MessageBox.Show("OK");
 
         }
@@ -201,8 +209,12 @@ namespace IP_stream
             dlgOpenfile.Title = "Open";
             dlgOpenfile.ShowDialog();
             dlgOpenfile.RestoreDirectory = true;
+
             if (!string.IsNullOrEmpty(dlgOpenfile.FileName))
                 strFileFullName = dlgOpenfile.FileName;
+            else
+                return;
+
             ciPdchBulk(strFileFullName);
 
 
@@ -361,7 +373,7 @@ namespace IP_stream
              * */
 
             dualTests1.Hide();
-     
+
             注册LicenseCheck();
             refreshTreeViewConn();
             refreshTreeViewGetTables();
@@ -731,8 +743,15 @@ namespace IP_stream
 
         private void exportExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string filename = InputBox("保存成Excel文件?", "请输入Sheet名称", "pdch_model");
-            ExportExcel.ExportForDataGridview(dataGridView1, filename, true);
+            try
+            {
+                //string filename = InputBox("保存成Excel文件?", "请输入Sheet名称", "pdch_model");
+                ExportExcel.DataGridViewToExcel(dataGridView1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private string InputBox(string Caption, string Hint, string Default)
         {
@@ -849,16 +868,24 @@ namespace IP_stream
 
         private void shrinkDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //DUMP   TRANSACTION   [数据库名]   WITH     NO_LOG
-            //BACKUP   LOG   [数据库名]   WITH   NO_LOG
-            //DBCC   SHRINKDATABASE([数据库名])
-            using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+            try
             {
-                mess.ExecuteCommand("DUMP   TRANSACTION   [" + mess.Connection.Database + "]   WITH     NO_LOG");
-                mess.ExecuteCommand("BACKUP   LOG   [" + mess.Connection.Database + "]   WITH   NO_LOG");
-                mess.ExecuteCommand("DBCC   SHRINKDATABASE([" + mess.Connection.Database + "])");
+
+                //DUMP   TRANSACTION   [数据库名]   WITH     NO_LOG
+                //BACKUP   LOG   [数据库名]   WITH   NO_LOG
+                //DBCC   SHRINKDATABASE([数据库名])
+                using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+                {
+                    mess.ExecuteCommand("DUMP   TRANSACTION   [" + mess.Connection.Database + "]   WITH     NO_LOG");
+                    mess.ExecuteCommand("BACKUP   LOG   [" + mess.Connection.Database + "]   WITH   NO_LOG");
+                    mess.ExecuteCommand("DBCC   SHRINKDATABASE([" + mess.Connection.Database + "])");
+                }
+                MessageBox.Show("OK");
             }
-            MessageBox.Show("OK");
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void registerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -920,8 +947,15 @@ namespace IP_stream
 
         private void autoUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AutoUpdate.FrmUpdate autoupdateform = new AutoUpdate.FrmUpdate();
-            autoupdateform.ShowDialog();
+            try
+            {
+                AutoUpdate.FrmUpdate autoupdateform = new AutoUpdate.FrmUpdate();
+                autoupdateform.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
     }
