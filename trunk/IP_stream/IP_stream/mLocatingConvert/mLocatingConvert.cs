@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Data.SqlClient;
 using IP_stream.Linq;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace IP_stream
 {
@@ -29,6 +30,10 @@ namespace IP_stream
         private string response = null;
         private string protocol = null;
 
+        //private decimal _messageid = 0;
+        //private decimal messageid { get { return _messageid; } set { _messageid = value; } }
+        //private static decimal messageid = 0;
+
         public mLocatingConvert()
         {
             localdb.CommandTimeout = 0;
@@ -43,16 +48,21 @@ namespace IP_stream
             //alter   table   你的表   drop   constraint   主键名 
         }
 
-        public IEnumerable<mLocatingType> mLocatingTypeLength(int filenum)
+
+        public IEnumerable<mLocatingType> mLocatingTypeLength(long filenum)
         {
             localdb = new DataClasses1DataContext(streamType.LocalConnString);
             localdb.CommandTimeout = 0;
 
-            var ipstreamfilnum=localdb.IP_stream.Where(e => e.FileNum == filenum).AsParallel();
+            var ipstreamfilnum=localdb.IP_stream.Where(e => e.FileNum == filenum);
 
             foreach (var p in ipstreamfilnum)
             {
                 mLocatingType down = new mLocatingType();
+
+                //locating 过程中，pk冲突
+                //messageid = messageid + 1;
+                //down.MLocatingType_id = messageid;
 
                 down.fileNum = p.FileNum;
                 down.frame = p.PacketNum;
@@ -154,8 +164,8 @@ namespace IP_stream
                 {
                     var newOrders = ml.mLocatingTypeLength(filenum);
                     SqlBulkCopy bc = new SqlBulkCopy(con,
-                      SqlBulkCopyOptions.CheckConstraints |
-                      SqlBulkCopyOptions.FireTriggers |
+                      //SqlBulkCopyOptions.CheckConstraints |
+                      //SqlBulkCopyOptions.FireTriggers |
                       SqlBulkCopyOptions.KeepNulls, tran);
                     bc.BulkCopyTimeout = 36000;
                     bc.BatchSize = 10000;
@@ -165,7 +175,7 @@ namespace IP_stream
                 }
                 con.Close();
             }
-            Thread.Sleep(1); GC.Collect(); GC.Collect();
+            Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
             //sw.Stop();
             //localdbageBox.Show(sw.Elapsed.TotalSeconds.ToString());
             //using (DataClasses1DataContext localdb = new DataClasses1DataContext(streamType.LocalConnString))

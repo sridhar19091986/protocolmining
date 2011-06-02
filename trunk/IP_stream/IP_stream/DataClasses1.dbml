@@ -40,7 +40,7 @@
   </Table>
   <Table Name="dbo.ciBVCI" Member="ciBVCI">
     <Type Name="ciBVCI">
-      <Column Name="ciBVCI_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ciBVCI_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="fileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="lacCi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="bvci" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -50,7 +50,7 @@
   </Table>
   <Table Name="dbo.imeiType" Member="imeiType">
     <Type Name="imeiType">
-      <Column Name="imeiType_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="imeiType_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="imei" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imeiFactory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imeiModel" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
@@ -59,7 +59,7 @@
   </Table>
   <Table Name="dbo.msIMEI" Member="msIMEI">
     <Type Name="msIMEI">
-      <Column Name="msIMEI_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="msIMEI_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="fileNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="tlli" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="imsi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -87,12 +87,12 @@
       <Column Name="portType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="responseType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="mLen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MLocatingType_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MLocatingType_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
     </Type>
   </Table>
   <Table Name="dbo.ciCoverType" Member="ciCoverType">
     <Type Name="ciCoverType">
-      <Column Name="ciCoverType_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ciCoverType_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="lacCI" Type="System.String" DbType="VarChar(65)" CanBeNull="true" />
       <Column Name="ciName" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
       <Column Name="ciAllocPDCH" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
@@ -139,6 +139,7 @@
       <Column Name="GameCategory" Type="System.Double" CanBeNull="false" />
       <Column Name="BrowseCategory" Type="System.Double" CanBeNull="false" />
       <Column Name="P2P" Type="System.Double" CanBeNull="false" />
+      <Column Name="OpCiPDCH_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
     </Type>
   </Table>
   <Table Name="" Member="OpPaingTime">

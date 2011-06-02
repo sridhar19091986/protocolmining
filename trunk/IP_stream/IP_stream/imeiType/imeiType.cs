@@ -4,6 +4,8 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using IP_stream.Linq;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace IP_stream
 {
@@ -31,9 +33,15 @@ namespace IP_stream
             }
         }
         private ILookup<string, imeiType> imeiL;
+
+        //private decimal _msimeiid = 0;
+        //private decimal msimeiid { get { return _msimeiid; } set { _msimeiid = value; } }
+
         public imeiTypeClass(bool init)
         {
+            localdb = new DataClasses1DataContext(streamType.LocalConnString);
             localdb.CommandTimeout = 0;
+
             if (init == true)
                 imeiL = localdb.imeiType.Where(e => e.imei != null).ToLookup(e => e.imei);
         }
@@ -75,6 +83,10 @@ namespace IP_stream
             foreach (var t in tlliL)
             {
                 msIMEI a = new msIMEI();
+
+                //msimeiid = msimeiid + 1;
+                //a.msIMEI_id = msimeiid;
+
                 a.fileNum = t.Select(e => e.FileNum).FirstOrDefault();
                 a.tlli = t.Select(e => e.tlli).FirstOrDefault();
                 a.imsi = t.Where(e => e.imsi != null).Select(e => e.imsi).FirstOrDefault();
@@ -93,6 +105,10 @@ namespace IP_stream
             foreach (var t in tlliL)
             {
                 msIMEI a = new msIMEI();
+
+                //msimeiid = msimeiid + 1;
+                //a.msIMEI_id = msimeiid;
+
                 a.fileNum = t.Select(e => e.fileNum).FirstOrDefault();
                 a.tlli = t.Select(e => e.tlli).FirstOrDefault();
                 a.imsi = t.Where(e => e.imsi != null).Select(e => e.imsi).FirstOrDefault();
@@ -124,8 +140,8 @@ namespace IP_stream
                 {
                     var newOrders = _imeiTypeClass.AuditMsImeiCollection(filenum);
                     SqlBulkCopy bc = new SqlBulkCopy(con,
-                      SqlBulkCopyOptions.CheckConstraints |
-                      SqlBulkCopyOptions.FireTriggers |
+                      //SqlBulkCopyOptions.CheckConstraints |
+                      //SqlBulkCopyOptions.FireTriggers |
                       SqlBulkCopyOptions.KeepNulls, tran);
                     bc.BulkCopyTimeout = 36000;
                     bc.BatchSize = 1000;
@@ -135,7 +151,7 @@ namespace IP_stream
                 }
                 con.Close();
             }
-            GC.Collect(); GC.Collect();
+            Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
             //sw.Stop();
             //MessageBox.Show(filenum.ToString() + "---" + sw.Elapsed.TotalSeconds.ToString() + "---");
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
@@ -156,8 +172,8 @@ namespace IP_stream
                     imeiTypeClass _imeiTypeClass = new imeiTypeClass(false);
                     var newOrders = _imeiTypeClass.UpdateMsImeiCollection();
                     SqlBulkCopy bc = new SqlBulkCopy(con,
-                      SqlBulkCopyOptions.CheckConstraints |
-                      SqlBulkCopyOptions.FireTriggers |
+                      //SqlBulkCopyOptions.CheckConstraints |
+                      //SqlBulkCopyOptions.FireTriggers |
                       SqlBulkCopyOptions.KeepNulls, tran);
                     bc.BulkCopyTimeout = 36000;
                     bc.BatchSize = 1000;
@@ -169,7 +185,7 @@ namespace IP_stream
             }
             using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
                 mess.ExecuteCommand("delete from msIMEI where msIMEI_id<=" + maxUser);
-            GC.Collect(); GC.Collect();
+            Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
             //sw.Stop();
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
         }

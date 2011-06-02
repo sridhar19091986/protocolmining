@@ -4,6 +4,8 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using IP_stream.Linq;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace IP_stream
 {
@@ -14,6 +16,8 @@ namespace IP_stream
         #endregion
         private DataClasses1DataContext localdb = new DataClasses1DataContext(streamType.LocalConnString);
         private Dictionary<string, ciBVCI> _CiTypeCollection;
+        //private decimal _cibvciid = 0;
+        //private decimal cibvciid { get { return _cibvciid; } set { _cibvciid = value; } }
         public Dictionary<string, ciBVCI> CiTypeCollection
         {
             get
@@ -31,9 +35,12 @@ namespace IP_stream
             }
         }
         private ILookup<string, ciCoverType> ciAllocPDCH;
+        //ci运行过程中，连接关闭。
         public ciType(bool init)
         {
+            localdb = new DataClasses1DataContext(streamType.LocalConnString);
             localdb.CommandTimeout = 0;
+
             if (init == true)
                 ciAllocPDCH = localdb.ciCoverType.Where(e => e.lacCI.IndexOf("-") != -1).ToLookup(e => e.lacCI);
         }
@@ -49,6 +56,10 @@ namespace IP_stream
             foreach (var ci in n)
             {
                 ciBVCI a = new ciBVCI();
+
+                //cibvciid = cibvciid + 1;
+                //a.ciBVCI_id = cibvciid;
+
                 a.fileNum = ci.Select(e => e.FileNum).FirstOrDefault();
                 a.bvci = ci.Select(e => e.bvci).FirstOrDefault();
                 a.lacCi = ci.Key;
@@ -75,8 +86,8 @@ namespace IP_stream
                 {
                     var newOrders = _ciType.GetCiTypeCollection(filenum);
                     SqlBulkCopy bc = new SqlBulkCopy(con,
-                      SqlBulkCopyOptions.CheckConstraints |
-                      SqlBulkCopyOptions.FireTriggers |
+                      //SqlBulkCopyOptions.CheckConstraints |
+                      //SqlBulkCopyOptions.FireTriggers |
                       SqlBulkCopyOptions.KeepNulls, tran);
                     bc.BulkCopyTimeout = 36000;
                     bc.BatchSize = 1000;
@@ -86,7 +97,7 @@ namespace IP_stream
                 }
                 con.Close();
             }
-            GC.Collect(); GC.Collect();
+            Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
             //sw.Stop();
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
         }

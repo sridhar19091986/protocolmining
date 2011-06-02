@@ -30,18 +30,6 @@ namespace IP_stream.Linq
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertciBVCI(ciBVCI instance);
-    partial void UpdateciBVCI(ciBVCI instance);
-    partial void DeleteciBVCI(ciBVCI instance);
-    partial void InsertimeiType(imeiType instance);
-    partial void UpdateimeiType(imeiType instance);
-    partial void DeleteimeiType(imeiType instance);
-    partial void InsertmsIMEI(msIMEI instance);
-    partial void UpdatemsIMEI(msIMEI instance);
-    partial void DeletemsIMEI(msIMEI instance);
-    partial void InsertmLocatingType(mLocatingType instance);
-    partial void UpdatemLocatingType(mLocatingType instance);
-    partial void DeletemLocatingType(mLocatingType instance);
     #endregion
 		
 		public DataClasses1DataContext(string connection) : 
@@ -789,10 +777,8 @@ namespace IP_stream.Linq
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ciBVCI")]
-	public partial class ciBVCI : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class ciBVCI
 	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private decimal _ciBVCI_id;
 		
@@ -806,30 +792,11 @@ namespace IP_stream.Linq
 		
 		private string _ciUsePDCH;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnciBVCI_idChanging(decimal value);
-    partial void OnciBVCI_idChanged();
-    partial void OnfileNumChanging(System.Nullable<int> value);
-    partial void OnfileNumChanged();
-    partial void OnlacCiChanging(string value);
-    partial void OnlacCiChanged();
-    partial void OnbvciChanging(string value);
-    partial void OnbvciChanged();
-    partial void OnciAllocPDCHChanging(string value);
-    partial void OnciAllocPDCHChanged();
-    partial void OnciUsePDCHChanging(string value);
-    partial void OnciUsePDCHChanged();
-    #endregion
-		
 		public ciBVCI()
 		{
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciBVCI_id", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciBVCI_id", DbType="Decimal(18,0) NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
 		public decimal ciBVCI_id
 		{
 			get
@@ -840,11 +807,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._ciBVCI_id != value))
 				{
-					this.OnciBVCI_idChanging(value);
-					this.SendPropertyChanging();
 					this._ciBVCI_id = value;
-					this.SendPropertyChanged("ciBVCI_id");
-					this.OnciBVCI_idChanged();
 				}
 			}
 		}
@@ -860,11 +823,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._fileNum != value))
 				{
-					this.OnfileNumChanging(value);
-					this.SendPropertyChanging();
 					this._fileNum = value;
-					this.SendPropertyChanged("fileNum");
-					this.OnfileNumChanged();
 				}
 			}
 		}
@@ -880,11 +839,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._lacCi != value))
 				{
-					this.OnlacCiChanging(value);
-					this.SendPropertyChanging();
 					this._lacCi = value;
-					this.SendPropertyChanged("lacCi");
-					this.OnlacCiChanged();
 				}
 			}
 		}
@@ -900,11 +855,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._bvci != value))
 				{
-					this.OnbvciChanging(value);
-					this.SendPropertyChanging();
 					this._bvci = value;
-					this.SendPropertyChanged("bvci");
-					this.OnbvciChanged();
 				}
 			}
 		}
@@ -920,11 +871,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._ciAllocPDCH != value))
 				{
-					this.OnciAllocPDCHChanging(value);
-					this.SendPropertyChanging();
 					this._ciAllocPDCH = value;
-					this.SendPropertyChanged("ciAllocPDCH");
-					this.OnciAllocPDCHChanged();
 				}
 			}
 		}
@@ -940,41 +887,15 @@ namespace IP_stream.Linq
 			{
 				if ((this._ciUsePDCH != value))
 				{
-					this.OnciUsePDCHChanging(value);
-					this.SendPropertyChanging();
 					this._ciUsePDCH = value;
-					this.SendPropertyChanged("ciUsePDCH");
-					this.OnciUsePDCHChanged();
 				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.imeiType")]
-	public partial class imeiType : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class imeiType
 	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private decimal _imeiType_id;
 		
@@ -986,28 +907,11 @@ namespace IP_stream.Linq
 		
 		private string _imeiClass;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnimeiType_idChanging(decimal value);
-    partial void OnimeiType_idChanged();
-    partial void OnimeiChanging(string value);
-    partial void OnimeiChanged();
-    partial void OnimeiFactoryChanging(string value);
-    partial void OnimeiFactoryChanged();
-    partial void OnimeiModelChanging(string value);
-    partial void OnimeiModelChanged();
-    partial void OnimeiClassChanging(string value);
-    partial void OnimeiClassChanged();
-    #endregion
-		
 		public imeiType()
 		{
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imeiType_id", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imeiType_id", DbType="Decimal(18,0) NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
 		public decimal imeiType_id
 		{
 			get
@@ -1018,11 +922,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._imeiType_id != value))
 				{
-					this.OnimeiType_idChanging(value);
-					this.SendPropertyChanging();
 					this._imeiType_id = value;
-					this.SendPropertyChanged("imeiType_id");
-					this.OnimeiType_idChanged();
 				}
 			}
 		}
@@ -1038,11 +938,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._imei != value))
 				{
-					this.OnimeiChanging(value);
-					this.SendPropertyChanging();
 					this._imei = value;
-					this.SendPropertyChanged("imei");
-					this.OnimeiChanged();
 				}
 			}
 		}
@@ -1058,11 +954,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._imeiFactory != value))
 				{
-					this.OnimeiFactoryChanging(value);
-					this.SendPropertyChanging();
 					this._imeiFactory = value;
-					this.SendPropertyChanged("imeiFactory");
-					this.OnimeiFactoryChanged();
 				}
 			}
 		}
@@ -1078,11 +970,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._imeiModel != value))
 				{
-					this.OnimeiModelChanging(value);
-					this.SendPropertyChanging();
 					this._imeiModel = value;
-					this.SendPropertyChanged("imeiModel");
-					this.OnimeiModelChanged();
 				}
 			}
 		}
@@ -1098,41 +986,15 @@ namespace IP_stream.Linq
 			{
 				if ((this._imeiClass != value))
 				{
-					this.OnimeiClassChanging(value);
-					this.SendPropertyChanging();
 					this._imeiClass = value;
-					this.SendPropertyChanged("imeiClass");
-					this.OnimeiClassChanged();
 				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.msIMEI")]
-	public partial class msIMEI : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class msIMEI
 	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private decimal _msIMEI_id;
 		
@@ -1148,32 +1010,11 @@ namespace IP_stream.Linq
 		
 		private string _imeiclass;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnmsIMEI_idChanging(decimal value);
-    partial void OnmsIMEI_idChanged();
-    partial void OnfileNumChanging(System.Nullable<int> value);
-    partial void OnfileNumChanged();
-    partial void OntlliChanging(string value);
-    partial void OntlliChanged();
-    partial void OnimsiChanging(string value);
-    partial void OnimsiChanged();
-    partial void OnimeiChanging(string value);
-    partial void OnimeiChanged();
-    partial void OnimeitypeChanging(string value);
-    partial void OnimeitypeChanged();
-    partial void OnimeiclassChanging(string value);
-    partial void OnimeiclassChanged();
-    #endregion
-		
 		public msIMEI()
 		{
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_msIMEI_id", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_msIMEI_id", DbType="Decimal(18,0) NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
 		public decimal msIMEI_id
 		{
 			get
@@ -1184,11 +1025,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._msIMEI_id != value))
 				{
-					this.OnmsIMEI_idChanging(value);
-					this.SendPropertyChanging();
 					this._msIMEI_id = value;
-					this.SendPropertyChanged("msIMEI_id");
-					this.OnmsIMEI_idChanged();
 				}
 			}
 		}
@@ -1204,11 +1041,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._fileNum != value))
 				{
-					this.OnfileNumChanging(value);
-					this.SendPropertyChanging();
 					this._fileNum = value;
-					this.SendPropertyChanged("fileNum");
-					this.OnfileNumChanged();
 				}
 			}
 		}
@@ -1224,11 +1057,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._tlli != value))
 				{
-					this.OntlliChanging(value);
-					this.SendPropertyChanging();
 					this._tlli = value;
-					this.SendPropertyChanged("tlli");
-					this.OntlliChanged();
 				}
 			}
 		}
@@ -1244,11 +1073,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._imsi != value))
 				{
-					this.OnimsiChanging(value);
-					this.SendPropertyChanging();
 					this._imsi = value;
-					this.SendPropertyChanged("imsi");
-					this.OnimsiChanged();
 				}
 			}
 		}
@@ -1264,11 +1089,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._imei != value))
 				{
-					this.OnimeiChanging(value);
-					this.SendPropertyChanging();
 					this._imei = value;
-					this.SendPropertyChanged("imei");
-					this.OnimeiChanged();
 				}
 			}
 		}
@@ -1284,11 +1105,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._imeitype != value))
 				{
-					this.OnimeitypeChanging(value);
-					this.SendPropertyChanging();
 					this._imeitype = value;
-					this.SendPropertyChanged("imeitype");
-					this.OnimeitypeChanged();
 				}
 			}
 		}
@@ -1304,41 +1121,15 @@ namespace IP_stream.Linq
 			{
 				if ((this._imeiclass != value))
 				{
-					this.OnimeiclassChanging(value);
-					this.SendPropertyChanging();
 					this._imeiclass = value;
-					this.SendPropertyChanged("imeiclass");
-					this.OnimeiclassChanged();
 				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.mLocatingType")]
-	public partial class mLocatingType : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class mLocatingType
 	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Nullable<int> _fileNum;
 		
@@ -1376,51 +1167,8 @@ namespace IP_stream.Linq
 		
 		private decimal _MLocatingType_id;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnfileNumChanging(System.Nullable<int> value);
-    partial void OnfileNumChanged();
-    partial void OnframeChanging(System.Nullable<int> value);
-    partial void OnframeChanged();
-    partial void OnbvciChanging(string value);
-    partial void OnbvciChanged();
-    partial void OnlacCIChanging(string value);
-    partial void OnlacCIChanged();
-    partial void OnciCoverAllocPDCHChanging(string value);
-    partial void OnciCoverAllocPDCHChanged();
-    partial void OnciCoverUsePDCHChanging(string value);
-    partial void OnciCoverUsePDCHChanged();
-    partial void OntlliChanging(string value);
-    partial void OntlliChanged();
-    partial void OnimsiChanging(string value);
-    partial void OnimsiChanged();
-    partial void OnimeiChanging(string value);
-    partial void OnimeiChanged();
-    partial void OnmsimeiTypeChanging(string value);
-    partial void OnmsimeiTypeChanged();
-    partial void OnmsimeiClassChanging(string value);
-    partial void OnmsimeiClassChanged();
-    partial void OntrafficTypeChanging(string value);
-    partial void OntrafficTypeChanged();
-    partial void OnuriTypeChanging(string value);
-    partial void OnuriTypeChanged();
-    partial void OnprotocolTypeChanging(string value);
-    partial void OnprotocolTypeChanged();
-    partial void OnportTypeChanging(string value);
-    partial void OnportTypeChanged();
-    partial void OnresponseTypeChanging(string value);
-    partial void OnresponseTypeChanged();
-    partial void OnmLenChanging(System.Nullable<int> value);
-    partial void OnmLenChanged();
-    partial void OnMLocatingType_idChanging(decimal value);
-    partial void OnMLocatingType_idChanged();
-    #endregion
-		
 		public mLocatingType()
 		{
-			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fileNum", DbType="Int")]
@@ -1434,11 +1182,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._fileNum != value))
 				{
-					this.OnfileNumChanging(value);
-					this.SendPropertyChanging();
 					this._fileNum = value;
-					this.SendPropertyChanged("fileNum");
-					this.OnfileNumChanged();
 				}
 			}
 		}
@@ -1454,11 +1198,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._frame != value))
 				{
-					this.OnframeChanging(value);
-					this.SendPropertyChanging();
 					this._frame = value;
-					this.SendPropertyChanged("frame");
-					this.OnframeChanged();
 				}
 			}
 		}
@@ -1474,11 +1214,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._bvci != value))
 				{
-					this.OnbvciChanging(value);
-					this.SendPropertyChanging();
 					this._bvci = value;
-					this.SendPropertyChanged("bvci");
-					this.OnbvciChanged();
 				}
 			}
 		}
@@ -1494,11 +1230,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._lacCI != value))
 				{
-					this.OnlacCIChanging(value);
-					this.SendPropertyChanging();
 					this._lacCI = value;
-					this.SendPropertyChanged("lacCI");
-					this.OnlacCIChanged();
 				}
 			}
 		}
@@ -1514,11 +1246,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._ciCoverAllocPDCH != value))
 				{
-					this.OnciCoverAllocPDCHChanging(value);
-					this.SendPropertyChanging();
 					this._ciCoverAllocPDCH = value;
-					this.SendPropertyChanged("ciCoverAllocPDCH");
-					this.OnciCoverAllocPDCHChanged();
 				}
 			}
 		}
@@ -1534,11 +1262,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._ciCoverUsePDCH != value))
 				{
-					this.OnciCoverUsePDCHChanging(value);
-					this.SendPropertyChanging();
 					this._ciCoverUsePDCH = value;
-					this.SendPropertyChanged("ciCoverUsePDCH");
-					this.OnciCoverUsePDCHChanged();
 				}
 			}
 		}
@@ -1554,11 +1278,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._tlli != value))
 				{
-					this.OntlliChanging(value);
-					this.SendPropertyChanging();
 					this._tlli = value;
-					this.SendPropertyChanged("tlli");
-					this.OntlliChanged();
 				}
 			}
 		}
@@ -1574,11 +1294,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._imsi != value))
 				{
-					this.OnimsiChanging(value);
-					this.SendPropertyChanging();
 					this._imsi = value;
-					this.SendPropertyChanged("imsi");
-					this.OnimsiChanged();
 				}
 			}
 		}
@@ -1594,11 +1310,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._imei != value))
 				{
-					this.OnimeiChanging(value);
-					this.SendPropertyChanging();
 					this._imei = value;
-					this.SendPropertyChanged("imei");
-					this.OnimeiChanged();
 				}
 			}
 		}
@@ -1614,11 +1326,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._msimeiType != value))
 				{
-					this.OnmsimeiTypeChanging(value);
-					this.SendPropertyChanging();
 					this._msimeiType = value;
-					this.SendPropertyChanged("msimeiType");
-					this.OnmsimeiTypeChanged();
 				}
 			}
 		}
@@ -1634,11 +1342,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._msimeiClass != value))
 				{
-					this.OnmsimeiClassChanging(value);
-					this.SendPropertyChanging();
 					this._msimeiClass = value;
-					this.SendPropertyChanged("msimeiClass");
-					this.OnmsimeiClassChanged();
 				}
 			}
 		}
@@ -1654,11 +1358,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._trafficType != value))
 				{
-					this.OntrafficTypeChanging(value);
-					this.SendPropertyChanging();
 					this._trafficType = value;
-					this.SendPropertyChanged("trafficType");
-					this.OntrafficTypeChanged();
 				}
 			}
 		}
@@ -1674,11 +1374,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._uriType != value))
 				{
-					this.OnuriTypeChanging(value);
-					this.SendPropertyChanging();
 					this._uriType = value;
-					this.SendPropertyChanged("uriType");
-					this.OnuriTypeChanged();
 				}
 			}
 		}
@@ -1694,11 +1390,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._protocolType != value))
 				{
-					this.OnprotocolTypeChanging(value);
-					this.SendPropertyChanging();
 					this._protocolType = value;
-					this.SendPropertyChanged("protocolType");
-					this.OnprotocolTypeChanged();
 				}
 			}
 		}
@@ -1714,11 +1406,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._portType != value))
 				{
-					this.OnportTypeChanging(value);
-					this.SendPropertyChanging();
 					this._portType = value;
-					this.SendPropertyChanged("portType");
-					this.OnportTypeChanged();
 				}
 			}
 		}
@@ -1734,11 +1422,7 @@ namespace IP_stream.Linq
 			{
 				if ((this._responseType != value))
 				{
-					this.OnresponseTypeChanging(value);
-					this.SendPropertyChanging();
 					this._responseType = value;
-					this.SendPropertyChanged("responseType");
-					this.OnresponseTypeChanged();
 				}
 			}
 		}
@@ -1754,16 +1438,12 @@ namespace IP_stream.Linq
 			{
 				if ((this._mLen != value))
 				{
-					this.OnmLenChanging(value);
-					this.SendPropertyChanging();
 					this._mLen = value;
-					this.SendPropertyChanged("mLen");
-					this.OnmLenChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MLocatingType_id", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MLocatingType_id", DbType="Decimal(18,0) NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
 		public decimal MLocatingType_id
 		{
 			get
@@ -1774,32 +1454,8 @@ namespace IP_stream.Linq
 			{
 				if ((this._MLocatingType_id != value))
 				{
-					this.OnMLocatingType_idChanging(value);
-					this.SendPropertyChanging();
 					this._MLocatingType_id = value;
-					this.SendPropertyChanged("MLocatingType_id");
-					this.OnMLocatingType_idChanged();
 				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1822,7 +1478,7 @@ namespace IP_stream.Linq
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverType_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciCoverType_id", DbType="Int NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
 		public int ciCoverType_id
 		{
 			get
@@ -2320,6 +1976,8 @@ namespace IP_stream.Linq
 		
 		private double _P2P;
 		
+		private decimal _OpCiPDCH_id;
+		
 		public OpCiPDCH()
 		{
 		}
@@ -2528,6 +2186,22 @@ namespace IP_stream.Linq
 				if ((this._P2P != value))
 				{
 					this._P2P = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OpCiPDCH_id", DbType="Decimal(18,0) NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
+		public decimal OpCiPDCH_id
+		{
+			get
+			{
+				return this._OpCiPDCH_id;
+			}
+			set
+			{
+				if ((this._OpCiPDCH_id != value))
+				{
+					this._OpCiPDCH_id = value;
 				}
 			}
 		}

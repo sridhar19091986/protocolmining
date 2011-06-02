@@ -21,14 +21,26 @@ namespace IP_stream
             localdb.CommandTimeout = 0;//sql连接超时的问题
             //Stopwatch sw = new Stopwatch();
             //sw.Start();
-            string sqlstr = @"if exists(select 1 from sysobjects where parent_obj=object_id('tb') and xtype='PK')
-                                  begin
-                                    alter table IP_stream alter column FileNum int not null
-                                    alter table IP_stream alter column PacketNum int not null
-                                    alter table IP_stream add constraint sid_pk primary key(FileNum,PacketNum)
-                                  end";
+            //pk的问题
+            string sqlstr = @"select count(*) from sysobjects where parent_obj=object_id('IP_stream') and xtype='PK'";
+            int ti = int.Parse(localdb.ExecuteQuery<int>(sqlstr).ToDataTable().Rows[0][0].ToString());
+            //MessageBox.Show(ti.ToString());
 
-            localdb.ExecuteCommand(sqlstr);
+            if (ti < 1)
+            {
+                string sqlstr1 = @"alter table IP_stream alter column FileNum int not null";
+                localdb.ExecuteCommand(sqlstr1);
+                Application.DoEvents();
+
+                string sqlstr2 = @"alter table IP_stream alter column PacketNum int not null";
+                localdb.ExecuteCommand(sqlstr2);
+                Application.DoEvents();
+
+                string sqlstr3 = @"alter table IP_stream add constraint sid_pk primary key(FileNum,PacketNum)";
+                localdb.ExecuteCommand(sqlstr3);
+                Application.DoEvents();
+            }
+
             CreateTable(typeof(msIMEI));
             CreateTable(typeof(ciBVCI));
             CreateTable(typeof(mLocatingType));
