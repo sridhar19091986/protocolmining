@@ -93,7 +93,7 @@
   <Table Name="dbo.ciCoverType" Member="ciCoverType">
     <Type Name="ciCoverType">
       <Column Name="ciCoverType_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="lacCI" Type="System.String" DbType="VarChar(65)" CanBeNull="true" />
+      <Column Name="lacCI" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="ciName" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
       <Column Name="ciAllocPDCH" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
       <Column Name="ciUsePDCH" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
@@ -158,11 +158,11 @@
       <Column Name="模型计算增加或减少数NeedPDCH" Type="System.Double" CanBeNull="false" />
       <Column Name="统计值_使用PDCH" Type="System.Double" CanBeNull="false" />
       <Column Name="偏移量Offset" Type="System.Double" CanBeNull="false" />
-      <Column Name="业务速率StreamingMedia_P2P" Member="业务速率IM" Storage="_业务速率StreamingMedia_P2P" Type="System.Double" CanBeNull="false" />
-      <Column Name="业务速率OtherCategory_StockCategory_MMS_GameCategory" Member="业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory" Storage="_业务速率OtherCategory_StockCategory_MMS_GameCategory" Type="System.Double" CanBeNull="false" />
-      <Column Name="业务速率IM" Member="业务速率BrowseCategory_StockCategory" Storage="_业务速率IM" Type="System.Double" CanBeNull="false" />
-      <Column Name="业务速率GeneralDownloads" Member="业务速率MMS" Storage="_业务速率GeneralDownloads" Type="System.Double" CanBeNull="false" />
-      <Column Name="业务速率BrowseCategory" Member="业务速率OtherCategory" Storage="_业务速率BrowseCategory" Type="System.Double" CanBeNull="false" />
+      <Column Name="业务速率IM" Type="System.Double" CanBeNull="false" />
+      <Column Name="业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory"  Type="System.Double" CanBeNull="false" />
+      <Column Name="业务速率BrowseCategory_StockCategory"  Type="System.Double" CanBeNull="false" />
+      <Column Name="业务速率MMS"  Type="System.Double"  CanBeNull="false" />
+      <Column Name="业务速率OtherCategory"  Type="System.Double" CanBeNull="false" />
       <Column Name="PS寻呼次数" Type="System.Double" CanBeNull="false" />
       <Column Name="PS寻呼成功率" Type="System.Double" CanBeNull="false" />
       <Column Name="PS寻呼时延" Type="System.Double" CanBeNull="false" />
