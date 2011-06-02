@@ -1131,6 +1131,8 @@ namespace IP_stream.Linq
 	public partial class mLocatingType
 	{
 		
+		private decimal _mLocatingType_id;
+		
 		private System.Nullable<int> _fileNum;
 		
 		private System.Nullable<int> _frame;
@@ -1165,10 +1167,24 @@ namespace IP_stream.Linq
 		
 		private System.Nullable<int> _mLen;
 		
-		private decimal _MLocatingType_id;
-		
 		public mLocatingType()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mLocatingType_id", DbType="Decimal(18,0) NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
+		public decimal mLocatingType_id
+		{
+			get
+			{
+				return this._mLocatingType_id;
+			}
+			set
+			{
+				if ((this._mLocatingType_id != value))
+				{
+					this._mLocatingType_id = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fileNum", DbType="Int")]
@@ -1442,22 +1458,6 @@ namespace IP_stream.Linq
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MLocatingType_id", DbType="Decimal(18,0) NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
-		public decimal MLocatingType_id
-		{
-			get
-			{
-				return this._MLocatingType_id;
-			}
-			set
-			{
-				if ((this._MLocatingType_id != value))
-				{
-					this._MLocatingType_id = value;
-				}
-			}
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ciCoverType")]
@@ -1494,7 +1494,7 @@ namespace IP_stream.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lacCI", DbType="VarChar(65)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lacCI", DbType="VarChar(100)")]
 		public string lacCI
 		{
 			get
@@ -1950,6 +1950,8 @@ namespace IP_stream.Linq
 	public partial class OpCiPDCH
 	{
 		
+		private decimal _OpCiPDCH_id;
+		
 		private string _LacCi;
 		
 		private double _CiKbps;
@@ -1976,10 +1978,24 @@ namespace IP_stream.Linq
 		
 		private double _P2P;
 		
-		private decimal _OpCiPDCH_id;
-		
 		public OpCiPDCH()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OpCiPDCH_id", DbType="Decimal(18,0) NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
+		public decimal OpCiPDCH_id
+		{
+			get
+			{
+				return this._OpCiPDCH_id;
+			}
+			set
+			{
+				if ((this._OpCiPDCH_id != value))
+				{
+					this._OpCiPDCH_id = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LacCi", CanBeNull=false)]
@@ -2189,22 +2205,6 @@ namespace IP_stream.Linq
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OpCiPDCH_id", DbType="Decimal(18,0) NOT NULL IDENTITY", UpdateCheck=UpdateCheck.Never)]
-		public decimal OpCiPDCH_id
-		{
-			get
-			{
-				return this._OpCiPDCH_id;
-			}
-			set
-			{
-				if ((this._OpCiPDCH_id != value))
-				{
-					this._OpCiPDCH_id = value;
-				}
-			}
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
@@ -2304,15 +2304,15 @@ namespace IP_stream.Linq
 		
 		private double _偏移量Offset;
 		
-		private double _业务速率StreamingMedia_P2P;
-		
-		private double _业务速率OtherCategory_StockCategory_MMS_GameCategory;
-		
 		private double _业务速率IM;
 		
-		private double _业务速率GeneralDownloads;
+		private double _业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory;
 		
-		private double _业务速率BrowseCategory;
+		private double _业务速率BrowseCategory_StockCategory;
+		
+		private double _业务速率MMS;
+		
+		private double _业务速率OtherCategory;
 		
 		private double _PS寻呼次数;
 		
@@ -2420,40 +2420,8 @@ namespace IP_stream.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率StreamingMedia_P2P", Storage="_业务速率StreamingMedia_P2P")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率IM")]
 		public double 业务速率IM
-		{
-			get
-			{
-				return this._业务速率StreamingMedia_P2P;
-			}
-			set
-			{
-				if ((this._业务速率StreamingMedia_P2P != value))
-				{
-					this._业务速率StreamingMedia_P2P = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率OtherCategory_StockCategory_MMS_GameCategory", Storage="_业务速率OtherCategory_StockCategory_MMS_GameCategory")]
-		public double 业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory
-		{
-			get
-			{
-				return this._业务速率OtherCategory_StockCategory_MMS_GameCategory;
-			}
-			set
-			{
-				if ((this._业务速率OtherCategory_StockCategory_MMS_GameCategory != value))
-				{
-					this._业务速率OtherCategory_StockCategory_MMS_GameCategory = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率IM", Storage="_业务速率IM")]
-		public double 业务速率BrowseCategory_StockCategory
 		{
 			get
 			{
@@ -2468,34 +2436,66 @@ namespace IP_stream.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率GeneralDownloads", Storage="_业务速率GeneralDownloads")]
-		public double 业务速率MMS
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory")]
+		public double 业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory
 		{
 			get
 			{
-				return this._业务速率GeneralDownloads;
+				return this._业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory;
 			}
 			set
 			{
-				if ((this._业务速率GeneralDownloads != value))
+				if ((this._业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory != value))
 				{
-					this._业务速率GeneralDownloads = value;
+					this._业务速率GeneralDownloads_StreamingMedia_P2P_GameCategory = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="业务速率BrowseCategory", Storage="_业务速率BrowseCategory")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率BrowseCategory_StockCategory")]
+		public double 业务速率BrowseCategory_StockCategory
+		{
+			get
+			{
+				return this._业务速率BrowseCategory_StockCategory;
+			}
+			set
+			{
+				if ((this._业务速率BrowseCategory_StockCategory != value))
+				{
+					this._业务速率BrowseCategory_StockCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率MMS")]
+		public double 业务速率MMS
+		{
+			get
+			{
+				return this._业务速率MMS;
+			}
+			set
+			{
+				if ((this._业务速率MMS != value))
+				{
+					this._业务速率MMS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_业务速率OtherCategory")]
 		public double 业务速率OtherCategory
 		{
 			get
 			{
-				return this._业务速率BrowseCategory;
+				return this._业务速率OtherCategory;
 			}
 			set
 			{
-				if ((this._业务速率BrowseCategory != value))
+				if ((this._业务速率OtherCategory != value))
 				{
-					this._业务速率BrowseCategory = value;
+					this._业务速率OtherCategory = value;
 				}
 			}
 		}

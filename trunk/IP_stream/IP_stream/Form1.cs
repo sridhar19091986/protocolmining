@@ -48,6 +48,7 @@ namespace IP_stream
                         break;
                     case "OutPutPDCH":
                         OutPutPDCH();
+                         Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
                         break;
 
                     default:
@@ -138,9 +139,14 @@ namespace IP_stream
                 Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
                 dualTests1.Focus();
 
-                toolStripStatusLabel2.Text = "complete......";
                 dualTests1.Hide();
                 //dualTests1.Dispose();
+                using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
+                {
+                    string a=mess.mLocatingType.Max(e => e.mLocatingType_id).ToString();
+                    string b = mess.IP_stream.Sum(e => e.IPstream).Value.ToString();
+                    toolStripStatusLabel2.Text = "complete......"+ a + "/" + b;
+                }      
             }
             catch (Exception ex)
             {

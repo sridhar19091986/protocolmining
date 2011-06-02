@@ -49,7 +49,7 @@ namespace IP_stream
         }
 
 
-        public IEnumerable<mLocatingType> mLocatingTypeLength(long filenum)
+        public IEnumerable<mLocatingType> mLocatingTypeLength(int filenum)
         {
             localdb = new DataClasses1DataContext(streamType.LocalConnString);
             localdb.CommandTimeout = 0;
