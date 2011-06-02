@@ -12,7 +12,7 @@ namespace IP_stream
 
     public class OutPutTable
     {
-        DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
+        private DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString);
         private double mTime { get; set; }
         private int minFileNum { get; set; }
         private int maxFileNum { get; set; }
@@ -21,6 +21,8 @@ namespace IP_stream
             mess.CommandTimeout = 0;
             Init();
             handleTable.CreateTable(typeof(OpCiPDCH));
+            Thread.Sleep(1); GC.Collect(); GC.Collect();
+            Parallel.For(minFileNum, maxFileNum, i => { SendOrders(i); });
         }
         private void Init()
         {
@@ -31,11 +33,6 @@ namespace IP_stream
             minFileNum = readpg.Min(e => e.Value);
             maxFileNum = readpg.Max(e => e.Value)+1;
         }
-        public void UsePDCH()
-        {
-            Parallel.For(minFileNum, maxFileNum, i => { SendOrders(i); });
-        }
-
         private IEnumerable<OpCiPDCH> OutCiUsePDCH(int? filenum)
         {
             mess = new DataClasses1DataContext(streamType.LocalConnString);
