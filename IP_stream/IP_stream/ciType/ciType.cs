@@ -97,7 +97,7 @@ namespace IP_stream
                 }
                 con.Close();
             }
-            Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
+            //Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
             //sw.Stop();
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
         }

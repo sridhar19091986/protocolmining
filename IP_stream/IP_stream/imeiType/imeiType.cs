@@ -151,7 +151,7 @@ namespace IP_stream
                 }
                 con.Close();
             }
-            Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
+            //Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
             //sw.Stop();
             //MessageBox.Show(filenum.ToString() + "---" + sw.Elapsed.TotalSeconds.ToString() + "---");
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
@@ -185,7 +185,7 @@ namespace IP_stream
             }
             using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
                 mess.ExecuteCommand("delete from msIMEI where msIMEI_id<=" + maxUser);
-            Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
+            //Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
             //sw.Stop();
             //MessageBox.Show(sw.Elapsed.TotalSeconds.ToString());
         }
