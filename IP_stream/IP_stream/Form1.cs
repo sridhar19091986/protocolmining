@@ -18,23 +18,27 @@ namespace IP_stream
             timer1.Interval = 1000;
             timer1.Enabled = false;
         }
-
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+        //树的问题，双击。
+        private void treeView1_DoubleClick(object sender, EventArgs e)
         {
             try
             {
 
-                if (e.Node.Level == 0) return;
+                if (treeView1.SelectedNode.Level == 0) return;
 
                 校验注册号代码Btn_Click();
 
-                switch (e.Node.Name)
+                switch (treeView1.SelectedNode.Name)
                 {
                     case "ImportCiData":
                         if (!ls.bRegOK) return;
                         ImportCiData();
                         ImportimeiTypeFile();
-                        Thread.Sleep(5); GC.Collect(); GC.Collect();
+                          Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
                         break;
                     case "BulkExcute":
                         DialogResult dlgResult = MessageBox.Show("Do you want to continue ?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -47,7 +51,7 @@ namespace IP_stream
                         break;
 
                     default:
-                        QueryTable(e.Node.Text);
+                        QueryTable(treeView1.SelectedNode.Text);
                         break;
                     //}
                 }
@@ -69,8 +73,8 @@ namespace IP_stream
             Application.DoEvents();
             Thread.Sleep(1);
 
-            OutPutTable t = new OutPutTable();
-            PdchModelTable m = new PdchModelTable();
+            OutPdchModel t = new OutPdchModel();
+            OutModelTable m = new OutModelTable();
             MessageBox.Show("OK");
 
             dualTests1.Hide();
@@ -107,7 +111,7 @@ namespace IP_stream
                 Application.DoEvents();
                 imeiTypeClass _imeiTypeClass = new imeiTypeClass(true);
                 Parallel.For(minFileNum, maxFileNum, i => { _imeiTypeClass.InsertImeiType(_imeiTypeClass, i); });
-                Thread.Sleep(1); GC.Collect(); GC.Collect();
+                Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
                 dualTests1.Focus();
 
                 //case"InsertCiType":
@@ -115,7 +119,7 @@ namespace IP_stream
                 Application.DoEvents();
                 ciType _ciType = new ciType(true);
                 Parallel.For(minFileNum, maxFileNum, i => { _ciType.InsertCiType(_ciType, i); });
-                Thread.Sleep(1); GC.Collect(); GC.Collect();
+                Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
                 dualTests1.Focus();
 
                 //case"UpdateImeiType":
@@ -123,7 +127,7 @@ namespace IP_stream
                 Application.DoEvents();
                 imeiTypeClass _imeiTypeClass_false = new imeiTypeClass(false);
                 Task t2 = new Task(() => { _imeiTypeClass_false.UpdateImeiType(); }); t2.Start();
-                Thread.Sleep(1); GC.Collect(); GC.Collect();
+                Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
                 dualTests1.Focus();
 
                 //case"InsertResultTable":
@@ -131,7 +135,7 @@ namespace IP_stream
                 Application.DoEvents();
                 mLocatingConvert ml = new mLocatingConvert();
                 Parallel.For(minFileNum, maxFileNum, i => { ml.SendOrders(ml, i); });
-                Thread.Sleep(5); GC.Collect(); GC.Collect();
+                Thread.Sleep(1); GC.Collect(); GC.Collect(); Application.DoEvents();
                 dualTests1.Focus();
 
                 toolStripStatusLabel2.Text = "complete......";
@@ -957,6 +961,8 @@ namespace IP_stream
                 MessageBox.Show(ex.ToString());
             }
         }
+
+
 
     }
 }

@@ -42,9 +42,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hiddenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shrinkDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -116,13 +116,6 @@
             this.showToolStripMenuItem.Text = "Show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
-            // exportExcelToolStripMenuItem
-            // 
-            this.exportExcelToolStripMenuItem.Name = "exportExcelToolStripMenuItem";
-            this.exportExcelToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
-            this.exportExcelToolStripMenuItem.Text = "ExportExcel";
-            this.exportExcelToolStripMenuItem.Click += new System.EventHandler(this.exportExcelToolStripMenuItem_Click);
-            // 
             // shrinkDatabaseToolStripMenuItem
             // 
             this.shrinkDatabaseToolStripMenuItem.Name = "shrinkDatabaseToolStripMenuItem";
@@ -136,6 +129,13 @@
             this.autoUpdateToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.autoUpdateToolStripMenuItem.Text = "AutoUpdate";
             this.autoUpdateToolStripMenuItem.Click += new System.EventHandler(this.autoUpdateToolStripMenuItem_Click);
+            // 
+            // exportExcelToolStripMenuItem
+            // 
+            this.exportExcelToolStripMenuItem.Name = "exportExcelToolStripMenuItem";
+            this.exportExcelToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.exportExcelToolStripMenuItem.Text = "ExportExcel";
+            this.exportExcelToolStripMenuItem.Click += new System.EventHandler(this.exportExcelToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -152,7 +152,7 @@
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(185, 17);
-            this.toolStripStatusLabel1.Text = "CopyRight by wei.hp.2011.05.30";
+            this.toolStripStatusLabel1.Text = "CopyRight by wei.hp.2011.06.02";
             // 
             // toolStripStatusLabel2
             // 
@@ -226,6 +226,7 @@
             this.treeView1.Size = new System.Drawing.Size(223, 331);
             this.treeView1.TabIndex = 9;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
             // Analysis
             // 
