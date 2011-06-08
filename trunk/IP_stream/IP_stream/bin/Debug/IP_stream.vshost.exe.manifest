@@ -68,13 +68,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AutoUpdate.exe" size="151552">
-      <assemblyIdentity name="AutoUpdate" version="1.0.4171.32" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="AutoUpdate" version="1.0.4171.82" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>BtVbsYbWbGY6Wk9MaVzMXKJmbqY=</dsig:DigestValue>
+        <dsig:DigestValue>n+6+9/vqw4k/IWDCOMUcL64OUXw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>6IAfHmfX6zD7kpqNX3lcrcrkCF8=</dsig:DigestValue>
+        <dsig:DigestValue>tf5lUKQ1pSC9mAFYkvhejVtZHIw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -134,7 +134,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>1zaLl343WN2oruPD6cDYsK8IBkQ=</dsig:DigestValue>
+        <dsig:DigestValue>VhpUmcw3Eg7MRjh3u44hMGIsBgU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -158,7 +158,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+H7MCa0fQMqitrD2QluRYRLLjdQ=</dsig:DigestValue>
+        <dsig:DigestValue>Z3djRg2GDNeRnXkWCJGJ4y1Ip9c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
