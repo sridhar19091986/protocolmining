@@ -143,6 +143,7 @@ namespace IP_stream
                 //dualTests1.Dispose();
                 using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
                 {
+                    mess.CommandTimeout = 0;
                     string a=mess.mLocatingType.Max(e => e.mLocatingType_id).ToString();
                     string b = mess.IP_stream.Sum(e => e.IPstream).Value.ToString();
                     toolStripStatusLabel2.Text = "complete......"+ a + "/" + b;
