@@ -68,13 +68,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AutoUpdate.exe" size="151552">
-      <assemblyIdentity name="AutoUpdate" version="1.0.4171.82" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="AutoUpdate" version="1.0.4185.20181" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>n+6+9/vqw4k/IWDCOMUcL64OUXw=</dsig:DigestValue>
+        <dsig:DigestValue>IFSlmjCJY1YD3kAsdPqkm7yE1r0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>tf5lUKQ1pSC9mAFYkvhejVtZHIw=</dsig:DigestValue>
+        <dsig:DigestValue>oeCXu11iOdZ4kC4b4+iKoEwEdec=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -134,7 +134,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VhpUmcw3Eg7MRjh3u44hMGIsBgU=</dsig:DigestValue>
+        <dsig:DigestValue>ejnnzTX3ICbBcbPYbmSD+HDUPAU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -151,14 +151,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Uninstall.exe" size="5120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Uninstall.exe" size="5632">
       <assemblyIdentity name="Uninstall" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Z3djRg2GDNeRnXkWCJGJ4y1Ip9c=</dsig:DigestValue>
+        <dsig:DigestValue>yfvAG8JfoqBar8hKyjsQxLucZVo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
