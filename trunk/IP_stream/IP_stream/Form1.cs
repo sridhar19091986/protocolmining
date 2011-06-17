@@ -88,8 +88,8 @@ namespace IP_stream
             {
                 using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
                 {
-                    minFileNum = mess.Gb_Paging_PS.Min(e => e.FileNum).Value;
-                    maxFileNum = mess.Gb_Paging_PS.Max(e => e.FileNum).Value + 1;
+                    minFileNum = mess.IP_stream.Min(e => e.FileNum).Value;
+                    maxFileNum = mess.IP_stream.Max(e => e.FileNum).Value + 1;
                 }
                 // MessageBox.Show(minFileNum.ToString() + "  -   " + maxFileNum.ToString());
                 //DualTests dt = new DualTests();
@@ -206,12 +206,29 @@ namespace IP_stream
                                  + "'  WITH ( FIRSTROW = 2,FIELDTERMINATOR = ',', ROWTERMINATOR = '\n'  )";
 
             using (DataClasses1DataContext mess = new DataClasses1DataContext(streamType.LocalConnString))
-                //mess.ExecuteCommand(dropsql);
-                //mess.ExecuteCommand(createsql);
-                mess.ExecuteCommand(insertsql);
+            {
+
+                try
+                {
+                    //mess.ExecuteCommand(dropsql);
+                    //mess.ExecuteCommand(createsql);
+                    mess.ExecuteCommand(insertsql);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    string remotefilename = InputBox("与远程计算机的路径相匹配", "请选定imeiType.csv文件", @"F:\黑点项目\ips_setup\imeiType.csv");
+                    string new_insertsql = @" BULK INSERT imeiType
+                                    FROM '" + remotefilename
+                                + "'  WITH ( FIRSTROW = 2,FIELDTERMINATOR = ',', ROWTERMINATOR = '\n'  )";
+                    mess.ExecuteCommand(new_insertsql);
+                }
+
+            }
             MessageBox.Show("OK");
 
         }
+
         private void ImportCiData()
         {
             OpenFileDialog dlgOpenfile = new OpenFileDialog();
@@ -226,7 +243,16 @@ namespace IP_stream
             else
                 return;
 
-            ciPdchBulk(strFileFullName);
+            try
+            {
+                ciPdchBulk(strFileFullName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                string remotefilename = InputBox("与远程计算机的路径相匹配", "请选定pdch_bulk.csv文件", @"F:\黑点项目\ips_setup\pdch_bulk.csv");
+                ciPdchBulk(remotefilename);
+            }
 
 
             string stattime = InputBox("OSS和Gb的时间匹配", "请选定Gb采集时间", "11/04/2011 11:00:00");
