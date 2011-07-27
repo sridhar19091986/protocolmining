@@ -61,7 +61,8 @@
     </Reference>
     <Reference Include="MWArray, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e1d84a0da19db86f, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MATLAB\RbfPredication\distrib\MWArray.dll</HintPath>
+      <HintPath>.\MWArray.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PdchNew">
       <HintPath>.\PdchNew.dll</HintPath>
