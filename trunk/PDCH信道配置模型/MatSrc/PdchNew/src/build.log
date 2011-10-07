@@ -1,0 +1,32 @@
+Compiler version: 4.7 (R2007b) 
+mcc -W 'dotnet:PdchNew,PdchNewclass,0.0,private' -d 'G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src' -T 'link:lib' -v 'class{PdchNewclass:G:\protocolmining\PDCH信道配置模型\MatSrc\newton.m,G:\protocolmining\PDCH信道配置模型\MatSrc\pdchsim.m}'  
+Processing d:\Program Files\MATLAB\R2007b\toolbox\matlab\mcc.enc 
+Processing include files... 
+2 item(s) added. 
+Processing directories installed with MCR... 
+The file G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src\mccExcludedFiles.log contains a list of functions excluded from the CTF archive. 
+1 item(s) added. 
+Generating MATLAB path for the compiled application... 
+Created 35 path items. 
+Begin validation of MEX files: Wed Sep 28 11:20:48 2011 
+Validating 'd:\Program Files\MATLAB\R2007b\toolbox\compiler\deploy\deploywhich.mexw32'. 
+No conflicting M-file found. 
+Validating 'd:\Program Files\MATLAB\R2007b\toolbox\compiler\deploy\readline.mexw32'. 
+No conflicting M-file found. 
+End validation of MEX files: Wed Sep 28 11:20:48 2011 
+Deleting 2 temporary MEX authorization files. 
+Removing: 'C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\mathworks_tmp_31549_660.auth'. 
+Removing: 'C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\mathworks_tmp_16905_660.auth'. 
+Parsing file "G:\protocolmining\PDCH信道配置模型\MatSrc\newton.m" 
+	(Referenced from: "Compiler Command Line"). 
+Parsing file "G:\protocolmining\PDCH信道配置模型\MatSrc\pdchsim.m" 
+	(Referenced from: "Compiler Command Line"). 
+Parsing file "d:\Program Files\MATLAB\R2007b\toolbox\compiler\deploy\deployprint.m" 
+	(Referenced from: "Compiler Command Line"). 
+Parsing file "d:\Program Files\MATLAB\R2007b\toolbox\compiler\deploy\printdlg.m" 
+	(Referenced from: "Compiler Command Line"). 
+Generating file "G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src\PdchNewclass.cs". 
+Generating file "G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src\readme.txt". 
+Generating file "G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src\PdchNew_mcc_component_data.cs". 
+Executing command: C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\csc.exe /nologo /optimize /doc:"G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src\PdchNew.xml" /t:library /r:"d:\Program Files\MATLAB\R2007b\toolbox\dotnetbuilder\bin\win32\v2.0\MWArray.dll" /linkres:"G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src\PdchNew.ctf" /out:"G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src\PdchNew.dll" "G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src\PdchNewclass.cs" "G:\protocolmining\PDCH信道配置模型\MatSrc\PdchNew\src\PdchNew_mcc_component_data.cs" 
+Warning: Duplicate directory name: G:\protocolmining\PDCH信道配置模型\MatSrc. 
