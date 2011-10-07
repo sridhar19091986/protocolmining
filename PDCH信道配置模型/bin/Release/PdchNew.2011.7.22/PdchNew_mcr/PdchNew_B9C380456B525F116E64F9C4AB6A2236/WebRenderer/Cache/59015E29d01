@@ -1,0 +1,1663 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE> - Advanced Source Code . Com - Face Recognition System</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+
+
+<LINK href="style-new.css" type=text/css rel=STYLESHEET>
+<LINK href="style-include.css" type=text/css rel=STYLESHEET>
+<LINK href="block-layout.css" type=text/css rel=STYLESHEET>
+
+
+<!-- set the content meta information -->
+<META content="Luigi Rosa" name=author>
+<META content="Advanced Source Code: Matlab source code for face recognition" name=description>
+<META content="Biometric, biometrics, Matlab, source, code, face recognition, face matching, pca, principal component analysis, facial recognition, facial matching, eigenfaces, eigenvalues, eigenvectors, Karhunen-Loeve algorithm" name=keywords>
+</HEAD>
+<BODY><!-- BEGIN Header -->
+<TABLE cellSpacing=0 cellPadding=0 width=750 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD class=crumbtrail colSpan=3 height=18><A name=top></A>Matlab is a 
+	registered trademark of The Mathworks, Inc. </TD></TR>
+  <TR>
+    <TD class=headerleft vAlign=top width="40%" 
+    background="images/stretch-background.gif">
+    <h3><br></h3>    
+	<h1>&nbsp;Advanced Source Code . Com</h1>
+	</TD>
+    <TD class=headerright vAlign=top align=right width="1%" 
+    background="images/stretch-background.gif">
+	<img border="0" src="images/biometrics.gif" width="139" height="74"></TD>
+    <TD class=headerright vAlign=top align=right width="4%" 
+    background="images/stretch-background.gif">
+	&nbsp;</TD></TR>
+  <TR>
+    <TD class=searchfield vAlign=top colspan="3">
+      &nbsp;</TD>
+    </TR>
+  <TR>
+    <TD class=topmenuline align=middle colSpan=3>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR><!-- BEGIN Topmenu items -->
+          <TD class=topmenuitem><A class=topmenu 
+            href="index.asp">HOME</A> 
+          </TD>
+          <TD class=topmenuitem><A class=topmenu 
+            href="source.asp">SOURCE CODE</A> 
+          </TD>
+          <TD class=topmenuitem>
+			<A class=topmenu 
+            href="info.asp">SOFTWARE 
+			INFO</A></TD>
+          <TD class=topmenuitem><A class=topmenu 
+            href="support.asp">SUPPORT</A> 
+          </TD>
+          <TD class=topmenuitem><A class=topmenu 
+            href="contact.asp">CONTACT US</A> 
+          </TD><!-- END Topmenu items --></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- testing from shakeel --><!-- testing from shakeel again -->
+<TABLE cellSpacing=0 cellPadding=0 width=750 align=center bgColor=#ffffff 
+border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="1%"><!-- START Left menu -->
+      <DIV class=today>&nbsp;</DIV>
+      <DIV class=smallarticle></DIV>
+      <DIV>
+      <DIV class=menubox>
+      
+      <DIV class=menuhead>Biometric source code</DIV>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="fingerprint.asp">
+                Fingerprint Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="face.asp">
+                Face Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <tr>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="speech.asp">
+                Speech Recognition</a></DIV></TD>
+        </tr>
+        </TBODY></TABLE>
+        
+        
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="speaker.asp">
+                Speaker Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+    
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="iris.asp">Iris 
+                Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+    
+     <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="facialexpression.asp">Facial Expression
+                Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="palmprint.asp">Palmprint
+                Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="writerrecognition.asp">Writer
+                Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+          <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="signatureverification.asp">Signature
+                Recognition</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+
+          <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="earrecognition.asp">Ear
+                Recognition</a></DIV></TD></TR></TBODY></TABLE>
+
+
+         
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="gaitrecognition.asp">Gait
+                Recognition</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="genderrecognition.asp">Gender
+                Recognition</a></DIV></TD></TR></TBODY></TABLE>
+
+
+       
+        
+        
+            
+                
+                
+                
+                
+                
+        <DIV class=menuhead>Neural networks</DIV>
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="dctannface.asp">Face Identification Based on DCT and Neural Networks</a></DIV></TD></TR></TBODY></TABLE>
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="waveletannface.asp">Face Recognition Based on Wavelet and Neural Networks</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="neuralnetspeaker.asp">Text-Independent Speaker Recognition Based on ANN</a></DIV></TD></TR></TBODY></TABLE>
+                
+        
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="netassembler.asp">Assembler-based Neural Network Simulator</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="imagecompression.asp">Image Compression With Neural Networks</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+          <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="irisann.asp">Iris Recognition Based on Neural Networks</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+                
+          <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="neuralsignature.asp">Neural Networks Based Signature Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+          <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="leafrecognition.asp">Leaf Recognition System</a></DIV></TD></TR></TBODY></TABLE> 
+                
+                
+                
+          <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="characterrecognition.asp">OCR Optical Character Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+                
+           <DIV class=menuhead>Genetic algorithms</DIV>
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="gairis.asp">Iris Recognition Based on Genetic Algorithms</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="gagender.asp">GA Facial Gender Recognition</a></DIV></TD></TR></TBODY></TABLE>       
+      
+    
+
+        
+                
+        
+        
+
+
+        
+ 
+        <DIV class=menuhead>Pattern recognition</DIV>
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="facefbt.asp">Face Recognition Based on Polar Frequency Features</a></DIV></TD></TR></TBODY></TABLE>
+        
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="fisherfaces.asp">FisherFaces for Face Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="dtwspeech.asp">Speech Recognition Based on Dynamic Time-Warping</a></DIV></TD></TR></TBODY></TABLE>    
+                
+
+             
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="gaborfeatures.asp">Face Recognition Based on Local Features</a></DIV></TD></TR></TBODY></TABLE>
+                
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="facefft.asp">Face Recognition in Fourier Space</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="webcamface.asp">WebCam Face Identification</a></DIV></TD></TR></TBODY></TABLE>
+        
+
+
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="irisphase.asp">Phase-Based Iris Identification</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="irismovingaverage.asp">Moving Average Filter Iris Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="rastaplpspeaker.asp">RASTA-PLP Speaker Identification</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="overlappingdct.asp">Overlapping DCT Face Matching</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="aovminutiae.asp">AOV Fingerprint Minutiae Matching System</a></DIV></TD></TR></TBODY></TABLE>
+    
+        
+        
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="statisticalmoments.asp">Statistical Moments Face Identification</a></DIV></TD></TR></TBODY></TABLE>
+
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="imageregistration.asp">RST-Invariant Image Registration</a></DIV></TD></TR></TBODY></TABLE>
+                
+         
+
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="waveletiris.asp">Iris Identification Based on 2D Wavelet</a></DIV></TD></TR></TBODY></TABLE>
+
+
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="patternmatching.asp">2D Pattern Matching</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="dctiris.asp">DCT-Based Iris Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="hybridiris.asp">Hybrid Iris Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+                
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="lbpiris.asp">LBP Iris Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="eyesexpression.asp">Eye Detection Based Facial Expression Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="nlpcaface.asp">NLPCA Face Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+         <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="hdrface.asp">HDR Face Identification</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="simpleface.asp">Low-Computational Face Recognition</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+         
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="filetyperecognition.asp">File Type Recognition</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+
+        
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="faceid.asp">One-To-One Face Matching</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+         
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="svdface.asp">SVD-Based Face Recognition</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="facemacefilters.asp">MACE Face Verification</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="melanomarec.asp">Melanoma Recognition System</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="adaexpression.asp">AdaBoost Facial Expression Recognition</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+       
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="corrfiltavis.asp">Correlation Filters AFIS</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+       
+        
+       
+ 
+            
+                
+                
+        
+
+      <DIV class=menuhead>Stock market prediction</DIV>
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="stockpredictionpricepatterns.asp">Price Patterns</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="neuralnetworkforecasting.asp">Neural Network Forecasting</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="genetictradingsystem.asp">Genetic Trading System</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+          <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="lpctrader.asp">LPC Trading System</a></DIV></TD></TR></TBODY></TABLE>
+       
+        
+        
+                
+        <!--
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="neuralnetworkforecasting.asp">Neural Network-based Stock Market Forecasting</a></DIV></TD></TR></TBODY></TABLE>
+        -->     
+        
+        
+        
+
+        
+        
+
+        
+      <DIV class=menuhead>Advanced signal processing</DIV>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="gaborfiltering.asp">Recursive Gabor Filtering</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="dctwater.asp">DCT-based Watermarking</a></DIV></TD></TR></TBODY></TABLE>
+                
+
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="waveletwater.asp">Wavelet-based Watermarking</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="ffw.asp">FFW Fastest Filtering in the West</a></DIV></TD></TR></TBODY></TABLE>
+                
+        
+        <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="dctmoments.asp">Fast DCT Via Moments</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+           <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="efficientdctccode.asp">Efficient 8x8 DCT C Source Code</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="audiowatermarking.asp">Digital Audio Watermarking</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="jpegcompression.asp">JPEG Image Compression</a></DIV></TD></TR></TBODY></TABLE>
+                
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="hiddenbits.asp">High-Capacity Wavelet Watermarking</a></DIV></TD></TR></TBODY></TABLE>
+                
+
+           <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="hsvwatermarking.asp">Visual Cryptography HSV Watermarking</a></DIV></TD></TR></TBODY></TABLE>
+                
+
+        
+
+          <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="lsbsteganography.asp">LSB Image Steganography</a></DIV></TD></TR></TBODY></TABLE>        
+        
+
+
+                
+                
+                 <DIV class=menuhead>Utilities</DIV>
+                 
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="googleranking.asp">
+                Google Ranking</a></DIV></TD></TR></TBODY></TABLE>
+
+ 
+     
+    <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="matlabphpmysql.asp">
+                Matlab to MySQL Interface</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="whoismatlab.asp">
+                Domain Name Checker</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="urlfetcher.asp">
+                Url Fetcher</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+                
+       <DIV class=menuhead>White papers</DIV>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="multilevelcdma.asp">Multilevel CDMA Watermarking</a></DIV></TD></TR></TBODY></TABLE>
+
+
+
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="adaboostoverfitting.asp">
+                AdaBoost Overfitting</a></DIV></TD></TR></TBODY></TABLE>
+
+
+          
+         
+         
+
+       <DIV class=menuhead>Internal resources</DIV>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="/public/forum/">Biometrics Forum</a></DIV></TD></TR></TBODY></TABLE>
+
+
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="languages.asp">Language Tools</a></DIV></TD></TR></TBODY></TABLE>
+
+                
+                
+          
+         
+        
+ 
+ <DIV class=menuhead>External resources</DIV>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="http://www.neuralnetworks.it" target=_blank>Neural Networks .It</a></DIV></TD></TR></TBODY></TABLE>
+
+     
+    
+     <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="http://www.geneticalgorithms.it" target=_blank>Genetic Algorithms .It</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+      
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="http://www.facerecognition.it" target=_blank>Face Recognition .It</a></DIV></TD></TR></TBODY></TABLE>
+                
+                
+                
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="http://www.irisrecognition.it" target=_blank>Iris Recognition .It</a></DIV></TD></TR></TBODY></TABLE>
+         
+          
+
+
+ 
+ 
+ <DIV class=menuhead>Nonlinear optics</DIV>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="spacecharge.asp">Photorefractive Crystals</a></DIV></TD></TR></TBODY></TABLE>
+    
+
+
+
+    
+        
+      <DIV class=menuhead>Projects</DIV>
+      
+                
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="facedetection.asp">Face Detection</a></DIV></TD></TR></TBODY></TABLE>
+
+
+       <DIV class=menuhead>Free download</DIV>
+      
+                
+       <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV class=menuitem><IMG height=5 alt="" 
+            src="images/small_arrow.gif" width=5 align=top vspace=2 
+            border=0><BR></DIV></TD>
+          <TD vAlign=top align=left width="100%">
+            <DIV class=menuitem>
+                <a href="matlabtutorial.asp">Matlab Tutorial</a></DIV></TD></TR></TBODY></TABLE>
+
+
+                            
+                
+                
+                
+                <DIV class=menuhead>Biometrics</DIV></DIV></DIV>
+      <DIV class=sponsorbox>
+      <DIV></DIV>
+      <DIV align=center>
+      <DIV class=leftmenuaditem><A 
+      href="source.asp" target=""><IMG height=53 
+      alt="Source code for fingerprint recognition, face recognition and much more" src="images/fingerprint.jpg" width=122 border=0></A> 
+      </DIV></DIV></DIV><IMG height=8 alt="" src="images/1x1.gif" 
+      width=132 border=0><BR>
+
+        
+       
+      <!-- END Left menu --><IMG height=8 alt="" 
+      src="images/1x1.gif" width=132 border=0><BR></TD>
+    <TD width=10><IMG height=1 alt="" src="images/1x1.gif" width=10 
+      border=0></TD>
+    <TD vAlign=top>
+      <DIV class=subtopmenu>
+		<a href="info.asp">Software Info</a>&nbsp;&nbsp;&nbsp; 
+		<a href="about.asp">About us</a>&nbsp; &nbsp;&nbsp;&nbsp; 
+      </DIV>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width="70%"><!-- START Main content -->
+            <DIV id=mainContent>
+            <DIV class=maincolumn>
+            <DIV class=orangebox>
+            <DIV class=blockwithheading>
+            <DIV class=headingblock><A class=heading>» Face Recognition System 
+				2.1 - Matlab source code</A></DIV><script type="text/javascript"><!--
+google_ad_client = "pub-7553915927602936";
+//468x60, creato 23/01/08 Arancione per AdvancedSourceCode.Com
+google_ad_slot = "2333044516"; 
+google_ad_width = 468;
+google_ad_height = 60;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js ">
+</script>
+
+            <DIV class=blockcontents>
+            <DIV class=summary>
+            <DIV>
+				<A class=listheadline href="face.asp">Eigenfaces for 
+				Recognition</A></DIV>
+			<a href="http://www.mathworks.com" target=_blank>
+			<IMG alt="Go To Matlab Official Website" 
+            class=teaser_image_right  height=47 
+             src="images/matlab.png" 
+            width=50 border=0></a> 
+            <DIV class=summarytext>
+				<p>
+			<a href="faceprotected2.zip" title="Download now Matlab code" target=_blank><b>.: Click here to download :.</b></a><br><br>
+            Research on automatic face recognition in images has rapidly developed into 
+			several inter-related lines, and this research has both lead to and 
+			been driven by a disparate and expanding set of commercial 
+			applications. The large number of research activities is evident in 
+			the growing number of scientific communications published on 
+			subjects related to face processing and recognition.<br>
+			<br>
+			Index Terms: face, recognition, eigenfaces, eigenvalues, 
+			eigenvectors, Karhunen-Loeve algorithm.<br><br><table border="0" width="100%" id="table1">
+					<tr>
+						<td width="20%" colspan="2">
+						<img border="0" src="images/male1-5.jpg" width="225" height="162"></td>
+						<td colspan="2"><DIV class=summarytext>&nbsp;<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<p>Figure 1. Facial image</DIV></td>
+					</tr>
+					<tr>
+						<td colspan="4">
+						<p align="center"><DIV class=summarytext>
+						<br><br>A simple and effective source code for Face 
+						Recognition. All tests were performed on AT&amp;T database.<br><br></DIV></td>
+					</tr>
+					<tr>
+						<td width="12%">
+						<p align="center"><a href="faceprotected2.zip" target=_blank>
+						<img border="0" src="images/newlogo.gif" width="60" height="40"></a></td>
+						<td colspan="3"><DIV class=summarytext>
+						<a href="faceprotected2.zip" target=_blank>Demo code (protected 
+						P-files) available for performance evaluation.</a> Matlab 
+						Image Processing Toolbox is required.<br><br></DIV></td>
+					</tr>
+					<tr>
+						<td width="12%">
+						<p align="center"><DIV class=summarytext><b>Release</b></DIV></td>
+						<td colspan="2">
+						<DIV class=summarytext><b>Date</b></DIV></td>
+						<td width="41%">
+						<DIV class=summarytext><b>Major features</b></DIV></td>
+					</tr>
+					<tr>
+						<td width="12%">
+						<DIV class=summarytext>2.1</DIV></td>
+						<td colspan="2">
+						<font color="#000040"><DIV class=summarytext>
+							<p align="left">2006.01.21</DIV></font></td>
+						<td width="41%">
+						<DIV class=summarytext>
+						<ul>
+							<li>Improved documentation</li>
+							<li>Minor bug fixed</li>
+					    </ul>
+						</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td width="12%">
+						<DIV class=summarytext>2.0</DIV></td>
+						<td colspan="2">
+						<font color="#000040"><DIV class=summarytext>
+							<p align="left">2005.05.21</DIV></font></td>
+						<td width="41%">
+						<DIV class=summarytext>
+						<ul>
+							<li>Better recognition rate ( 20 % improved )</li>
+							<li>Improved distance measure</li>
+							<li>Karhunen-Loeve algorithm</li>
+							<li>Enhanced GUI</li>
+							<li><a href="faceprotected2.zip" target=_blank>Demo code (protected P-files) available for 
+							performance evaluation</a> </li>
+						</ul>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="12%">
+						<DIV class=summarytext>1.0</DIV></td>
+						<td colspan="2">
+						<font color="#000040"><DIV class=summarytext>
+							<p align="left">2005.05.15</DIV></font></td>
+						<td width="41%">
+						<DIV class=summarytext>
+						<ul>
+							<li>Face recognition based on EigenFaces</li>
+							<li>User-friendly GUI</li>
+							<li>Easy c/c++ implementation</li>
+						</ul>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4"><DIV class=summarytext>
+						<br><br>We recommend to check the secure connection to PayPal, in 
+						order to avoid any fraud. <br>
+						This donation has to be considered an encouragement to 
+						improve the code itself.<br><br></DIV></td>
+					</tr>
+					<tr>
+						<td width="12%">
+						
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target=_blank>
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="luigi.rosa@tiscali.it">
+<input type="hidden" name="item_name" value="Face recognition System PCA - AdvancedSourceCode.Com">
+<input type="hidden" name="amount" value="15.00">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="currency_code" value="EUR">
+<input type="hidden" name="tax" value="0">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="bn" value="PP-DonationsBF">
+<input type="image" src="images/x-click-butcc-donate.gif" border="0" name="submit" alt="Make your donation with PayPal">
+</form>						
+						
+						</td>
+						<td colspan="3"><DIV class=summarytext>
+						Face Recognition System - Release 2.1 - Click here for 
+						your donation. In order to obtain the source code you 
+						have to pay a little sum of money: 15 EUROS (less than 
+						21 U.S. Dollars).</DIV></td>
+					</tr>
+					<tr>
+						<td colspan="4"><DIV class=summarytext>
+						<br>Once you have done this, please email us 
+						<a href="mailto:luigi.rosa@tiscali.it?subject=----- Face Recognition System 2.1  -----">luigi.rosa@tiscali.it</a>
+						<br>
+						As soon as possible (in a few days) you will receive our 
+						new release of Face Recognition System. <br>
+						<br>
+						Alternatively, you can bestow using our banking 
+						coordinates:<table border="0" width="100%" id="table2">
+						    <tr>
+						        <td><DIV class=summarytext>Name :</DIV></td>
+								<td><DIV class=summarytext>Luigi Rosa</DIV></td> 
+						    </tr>
+						    <tr>
+						        <td><DIV class=summarytext>Address :</DIV></td>
+								<td><DIV class=summarytext>Via Pozzo Strada 5 10139 Torino Italy</DIV></td> 
+						    </tr>
+						    <tr>
+						        <td><DIV class=summarytext>Bank name:</DIV></td>
+								<td><DIV class=summarytext>Poste Italiane</DIV></td> 
+						    </tr>
+						    <tr>
+						        <td><DIV class=summarytext>Bank address:</DIV></td>
+								<td><DIV class=summarytext>Viale Europa 190 00144 Roma Italy</DIV></td> 
+						    </tr>
+							<tr>
+								<td><DIV class=summarytext>IBAN (International Bank Account Number) :</DIV></td>
+								<td><DIV class=summarytext>IT-50-V-07601-03600-000058177916</DIV></td>
+							</tr>
+							<tr>
+								<td><DIV class=summarytext>BIC (Bank Identifier Code) :</DIV></td>
+								<td><DIV class=summarytext>BPPIITRRXXX</DIV></td>
+							</tr>
+						</table>
+						</DIV>
+						</td>
+					</tr>
+				</table>
+				<p>
+            
+            The authors have no relationship or partnership 
+				with The Mathworks. All the code provided is written in Matlab 
+				language (M-files and/or M-functions), with no dll or other 
+				protected parts of code (P-files or executables). The code was 
+				developed with Matlab 14 SP1. Matlab Image Processing Toolbox is required. 
+				The code provided has to be considered &quot;as is&quot; and it is without any kind of warranty. The 
+				authors deny any kind of warranty concerning the code as well 
+				as any kind of responsibility for problems and damages which may 
+				be caused by the use of the code itself including all parts of 
+				the source code.
+            
+            <br><br></DIV>
+            </DIV></DIV></DIV></DIV>
+            </DIV></DIV></TD>
+          <TD vAlign=top width="1%"><IMG height=1 alt="" 
+            src="images/1x1.gif" width=10 border=0></TD>
+          <TD vAlign=top width="1%"><!-- START Right menu -->
+            <TABLE class=userbox cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD class=menuhead>&nbsp;</TD></TR>
+              </TBODY></TABLE>
+            <DIV class=rightcolumn>
+            
+            
+            <DIV class=redbox>
+<DIV class=blockwithheading>
+<DIV class=headingblock><span class="heading">New - Correlation Filters AFIS</span></DIV>
+<DIV class=blockcontents>
+<DIV class=summary>
+<DIV class=summarytext><IMG height=5 alt="" 
+src="images/small_arrow.gif" width=5 border=0>&nbsp;<a href="corrfiltavis.asp"><b>Automated Fingerprint Identification System</b></a> 
+The theory of advanced correlation filters has evolved from the literature of optical pattern recognition in the last two
+decades; they have proved effective classifiers in a number of applications, among them biometric recognition and
+automatic target recognition.
+<BR>&nbsp;</DIV></DIV></DIV></DIV></DIV>
+
+
+
+<DIV class=orange255_187_0>
+<DIV class=blockwithheading>
+<DIV class=headingblock><span class="heading">New - White Papers</span></DIV>
+<DIV class=blockcontents>
+<DIV class=summary>
+<DIV class=summarytext><IMG height=5 alt="" 
+src="images/small_arrow.gif" width=5 border=0>&nbsp;<a href="adaboostoverfitting.asp"><b>A Fast Scheme for Feature Subset Selection to Avoid Overfitting in AdaBoost</b></a> 
+AdaBoost is a well known, effective technique for increasing the accuracy of learning algorithms. However, it has the potential to
+overfit the training set because its objective is to minimize error on the training set.
+<BR>&nbsp;</DIV></DIV></DIV></DIV></DIV>
+
+
+
+<DIV class=orangebox>
+<DIV class=blockwithheading>
+<DIV class=headingblock><span class="heading">New - Software References</span></DIV>
+<DIV class=blockcontents>
+<DIV class=summary>
+<DIV class=summarytext><IMG height=5 alt="" 
+src="images/small_arrow.gif" width=5 border=0>&nbsp;<a href="references.asp"><b>Papers and lectures</b></a> 
+A list of papers that included Advanced Source Code .Com in the references section. If you have written a paper where our software is cited in the references list please email us and your work will be published at our web site.
+<BR>&nbsp;</DIV></DIV></DIV></DIV></DIV>
+
+
+
+<DIV class=purplebox>
+<DIV class=blockwithheading>
+<DIV class=headingblock><span class="heading">New - White Papers</span></DIV>
+<DIV class=blockcontents>
+<DIV class=summary>
+<DIV class=summarytext><IMG height=5 alt="" 
+src="images/small_arrow.gif" width=5 border=0>&nbsp;<a href="multilevelcdma.asp"><b>High Capacity Wavelet Watermarking Using CDMA Multilevel Codes</b></a> 
+This paper proposes a technique based on CDMA
+and multilevel coding in order to achieve a high capacity
+watermarking scheme. The bits of watermark are grouped
+together and for each sequence a different modulation coefficient
+is used.
+<BR>&nbsp;</DIV></DIV></DIV></DIV></DIV>
+
+
+
+
+<DIV class=turquoisebox>
+<DIV class=blockwithheading>
+<DIV class=headingblock><span class="heading">New - Advanced LPC Trading System</span></DIV>
+<DIV class=blockcontents>
+<DIV class=summary>
+<DIV class=summarytext><IMG height=5 alt="" 
+src="images/small_arrow.gif" width=5 border=0>&nbsp;<a href="lpctrader.asp"><b>Linear Predictive Coding for Stock Market Forecasting</b></a> 
+Linear predictive coding (LPC) is a tool used mostly in audio signal processing and speech processing for representing 
+the spectral envelope of a digital signal of speech in compressed form, using the information of a linear predictive model.<BR>&nbsp;</DIV></DIV></DIV></DIV></DIV>
+
+
+
+<DIV class=bluebox>
+<DIV class=blockwithheading>
+<DIV class=headingblock><span class="heading">New - WebCam Face Identification</span></DIV>
+<DIV class=blockcontents>
+<DIV class=summary>
+<DIV class=summarytext><IMG height=5 alt="" 
+src="images/small_arrow.gif" width=5 border=0>&nbsp;<a href="webcamface.asp"><b>Face Recognition Based on Fractional Gaussian Derivatives</b></a> 
+Local photometric descriptors computed for interest regions have proven to be very successful in applications such as wide baseline matching, object 
+recognition, texture recognition, image retrieval, robot localization, video data mining, building panoramas, and recognition of object categories. 
+<BR>&nbsp;</DIV></DIV></DIV></DIV></DIV>
+
+
+
+<DIV class=greenbox>
+<DIV class=blockwithheading>
+<DIV class=headingblock><span class="heading">New - Speaker Recognition System</span></DIV>
+<DIV class=blockcontents>
+<DIV class=summary>
+<DIV class=summarytext><IMG height=5 alt="" 
+src="images/small_arrow.gif" width=5 border=0>&nbsp;<a href="speaker.asp"><b>Source 
+code for speaker recognition</b></a><B></B> <BR>Speaker recognition is the process of automatically recognizing who 
+is speaking on the basis of individual information included in speech 
+waves. <BR>&nbsp;</DIV></DIV></DIV></DIV></DIV>
+
+
+
+<DIV class=yellowbox>
+<DIV class=blockwithheading>
+<DIV class=headingblock><span class="heading">New - Speech Recognition System</span></DIV>
+<DIV class=blockcontents>
+<DIV class=summary>
+<DIV class=summarytext><IMG height=5 alt="" 
+src="images/small_arrow.gif" width=5 border=0>&nbsp;<a href="speech.asp"><b>Source 
+code for isolated words recognition</b></a><B></B> <BR>Speech recognition technology is used 
+more and more for telephone applications like travel booking and 
+information, financial account information, customer service 
+call routing, and directory assistance. Using constrained 
+grammar recognition, such applications can achieve remarkably 
+high accuracy.<BR>&nbsp;</DIV></DIV></DIV></DIV></DIV>
+            
+            </DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width=750 align=center bgColor=#ffffff 
+border=0>
+  <TBODY>
+  <!-- START Bottom banner links -->
+  <TR>
+    <TD>
+    
+    
+      <div align="center">
+  <center>
+  <TABLE cellSpacing=0 cellPadding=2 width="100%" border=0 style="border-collapse: collapse" bordercolor="#111111">
+        <TBODY>
+                <div align=center>
+                <br>
+                <form method=GET action="http://www.google.com/search" name=f><input type=text value="" name=as_q size=25>
+                <input type=hidden name=hl value="en"><input type=hidden name=ie value="ISO-8859-1">
+                <input type=submit style="BACKGROUND: #FFCC00; COLOR: #000000; FONT-FAMILY: Verdana; FONT-SIZE: 10pt" name=btnG value="Search in Advanced Source Code . Com">
+                <input type=hidden name="as_sitesearch" value="advancedsourcecode.com"> 
+                </form>
+                </div>
+                <br><br>      
+                
+                      
+        <TR>
+          <TD align=middle><A href="http://www.mathworks.com" 
+            target=_blank>
+			<IMG height=40 alt="The MathWorks, Inc." 
+            src="images/matlab.png" width=51 border=0></A> </TD>
+          <TD align=middle><A href="http://www.google.com" 
+            target=_blank>
+          <IMG alt="Google" 
+            src="images/google.gif" border=0 width="75" height="32"></A> </TD>
+          <TD align=middle><A href="http://www.neuralnetworks.it" 
+            target=_blank>
+          <IMG  alt="NeuralNetworks.It" 
+            src="images/world.gif"  border=0 width="39" height="42"></A> </TD>
+          <TD align=middle><A href="http://www.octave.org/" 
+            target=_blank>
+          <IMG  alt="Octave" 
+            src="images/octave.png" border=0 width="43" height="31"></A> </TD>
+          <TD align=middle><A href="http://www.scilab.org" 
+            target=_blank>
+          <IMG alt="Scilab" 
+            src="images/scilab.gif"  border=0 width="34" height="34"></A> </TD>
+          <TD align=middle><A href="http://www.r-project.org/" 
+            target=_blank>
+          <IMG alt="The R Project for Statistical Computing" 
+            src="images/Rlogo.jpg"border=0 width="52" height="44"></A> 
+          </TD>
+          <TD align=middle><A href="http://www.python.org/" 
+            target=_blank>
+          <IMG alt="Python" 
+            src="images/python.gif"border=0 width="100" height="36"></A>
+          </TD>
+          <TD align=middle><A href="matlabcode.asp">
+                   <IMG alt="Other available resources" 
+            src="images/matlabsourcecode.jpg"border=0 width="31" height="44"></A> 
+          </TD>
+          <TD align=middle><A href="http://www.englishdictionarydownload.com" target=_blank>
+                   <IMG alt="English Dictionary Download .Com" 
+            src="images/english_flag.gif"border=0 width="50" height="34"></A> 
+          </TD>
+         </TR>
+         
+         
+         <!-- qui ci va codice contatore dentro td tr aligh right -->
+         
+
+        </TBODY>
+</TABLE></center>
+</div>
+
+
+      
+      </TD>
+  </TR><!-- END Bottom banner links -->
+
+  <TR>
+    <TD>
+      <DIV class=dividerbottom>&nbsp;</DIV></TD></TR>
+  <TR>
+    <TD align=right>
+      <DIV class=bottomline><span class="smallbold">
+		<a href="info.asp">Software Info</a>&nbsp;&nbsp;&nbsp; 
+		<A 
+      href="about.asp">About us</A>&nbsp;&nbsp;&nbsp; 
+		</span></DIV><BR></TD></TR></TBODY></TABLE>
+</table>
+<!--
+<p>
+&nbsp;&nbsp;</p>
+--></BODY></HTML>

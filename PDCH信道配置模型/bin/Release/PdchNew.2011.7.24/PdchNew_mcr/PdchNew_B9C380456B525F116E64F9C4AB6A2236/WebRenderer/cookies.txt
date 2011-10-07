@@ -1,0 +1,17 @@
+# HTTP Cookie File
+# http://www.netscape.com/newsref/std/cookie_spec.html
+# This is a generated file!  Do not edit.
+# To delete cookies, use the Cookie Manager.
+
+.utenti.multimania.it	TRUE	/	FALSE	1309528050	__utmb	179463264.1.10.1309526251
+.utenti.multimania.it	TRUE	/	FALSE	1325294250	__utmz	179463264.1309526251.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+.utenti.multimania.it	TRUE	/	FALSE	1372598250	__utma	179463264.1883169478.1309526251.1309526251.1309526251.1
+www.paypal.com	FALSE	/	FALSE	2255606240	Apache	10.191.114.141.1309526291173717
+.doubleclick.net	TRUE	/	FALSE	1371651524	id	2288a95528010081||t=1308579576|et=730|cs=002213fd481fad360beda75fa0
+.hm.baidu.com	TRUE	/	FALSE	2147385563	HMACCOUNT	167BB015CB593883
+www.matlabsky.com	FALSE	/	FALSE	1324320913	cnzz_eid	94041291-1308575709-
+www.matlabsky.com	FALSE	/	FALSE	1324320913	ltime	1308596113421
+www.matlabsky.com	FALSE	/	FALSE	1324320913	rtime	0
+www.matlabsky.com	FALSE	/	FALSE	1311171347	matlabsky_2132_lastvisit	1308575782
+www.matlabsky.com	FALSE	/	FALSE	1311172688	matlabsky_2132_visitedfid	31
+.matlabsky.com	TRUE	/	FALSE	1340132113	Hm_lvt_c2bacae764bb4ae7e6240d635ac54ce4	1308596113609

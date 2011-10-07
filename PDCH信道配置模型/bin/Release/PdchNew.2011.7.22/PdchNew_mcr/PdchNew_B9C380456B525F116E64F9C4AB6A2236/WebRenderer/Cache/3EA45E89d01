@@ -1,0 +1,1321 @@
+
+body
+{
+	margin: 0px;
+	padding: 0px;
+    background-color: #ccc;
+}
+
+
+/*FONT FAMILY*/
+
+body, div, span, p, .p, ul, li, td ,th, select, input, textarea, credit
+{
+	font-family: Verdana, Arial, Helvetica, Swiss, Futura, sans-serif;
+}
+
+h1, h2, h3, .listheadlinebox, .menuhead, .partnerheadlinebox, .shortarticleboxhead
+{
+	font-family: Verdana, Arial, Helvetica, Swiss, Futura, sans-serif;
+}
+
+.listheadline, .published, .shortarticlehead
+{
+    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, Swiss, Futura, sans-serif;
+} 
+ 
+  
+/*CRUMBTRAIL*/
+
+.crumbtrail
+{
+    border-left: solid 1px #fff;
+    border-right: solid 1px #fff;
+    padding-left: 6px;
+    font-size: xx-small;
+    voice-family: "\"}\"";   /*Hide from IE5+*/
+    voice-family: inherit; 
+    font-size: x-small;
+} 
+html>body .crumbtrail
+{
+    font-size: x-small;
+}      
+ 
+
+/*HEADER MENU*/
+
+.headerright  
+{
+    border-right: solid 1px #fff;
+}
+    
+.headerleft  
+{
+    border-left: solid 1px #fff;
+}
+
+
+.topmenuitemselected a:hover 
+{
+    color: #000;
+}
+
+a.topmenu
+{
+	color: #fff;
+}
+
+a:hover.topmenu
+{
+	color: #000;
+}
+
+.topmenuline
+{	border-top: solid 1px #fff;
+    border-right: solid 1px #fff;
+ }
+
+.lefttopmenuitem
+{	border-right: solid 1px #fff; }
+
+.righttopmenuitem
+{	border-left: solid 1px #fff; }
+
+.topmenuitem, .topmenuitemselected
+{	border-left: solid 1px #fff; }
+
+
+/*TOP MENU*/
+
+.topmenuitem, .topmenuitemselected, .lefttopmenuitem
+{
+	font-weight: bold;
+	text-align: center;
+	padding: 4px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+
+/*SUBTOP MENU*/
+
+.subtopmenu
+{
+    text-align: right;
+    padding: 4px 0px 6px 0px;
+    font-size: xx-small;
+    voice-family: "\"}\"";    /*Hide from IE5+*/  
+    voice-family: inherit;
+    font-size: x-small; 
+    font-weight: bold;
+}
+html>body .subtopmenu
+{
+    font-size: x-small; 
+    font-weight: bold;
+}
+
+
+/*TEXT COLORS*/
+p, .p, li, a.path, .userbox .menuhead a, .description, .menulink, .linkselect, .linknormal, .menuitem a
+{
+	color: #000000;
+}
+
+    
+/*HEADINGS*/
+
+/* listheadline used for article summaries (and also product titles) */
+div.listheadline
+{
+	display: inline;
+}
+
+div.listheadlinebox, div.listheadlinebox a
+{
+	color: #ffffff;   
+}
+
+.listheadlinebox a.headline, .listheadlinebox .headline
+{
+    padding: 2px 8px;
+}
+
+.listheadlinebox .headline
+{
+    font-weight: bold;
+    padding: 2px 8px;
+}
+
+div.listheadlinebox a:hover
+{
+	color: #ffffff;
+}
+
+.shortarticleboxhead
+{
+    padding: 0px 2px;
+    margin-left: 6px;
+}
+
+
+/*ARTICLE SUMMARY STYLES*/
+.published
+{
+    color: #666666;
+    font-style: italic;
+}
+
+.smallpath, .smallpath a
+{
+	color: #000000;
+}
+
+/*
+  SHORT ARTICLES
+  (used in ezarticle/user/templates/oneworld/article_summary_short.tpl)
+*/
+ul.short_article_list {
+    list-style: url(/images/dot.gif) circle;
+    margin-left: 10px;
+    padding-left: 12px;
+    padding-bottom: 4px;
+}
+
+ul.short_article_list li {
+    margin: 4px 0px;
+}
+
+.shortarticlehead
+{
+    font-size: 100%;
+    font-weight: bold;
+    padding-left: 0px;
+    padding-bottom: 4px;
+}
+
+.shortarticleboxhead
+{
+    font-weight: bold;
+}
+    
+
+/*LINK STYLES*/
+
+a:hover, .subtopline a:hover, .containerbox a, .smallpath, .smallpath a, a.toppath:hover, .boxheader a, .listheadline, a.listheadline, .rightcolumn .listheadline, .partneredit a:hover, .read-more, div.bottomline a
+{
+	text-decoration: underline;
+}
+
+.userbox .menuhead a, .bottomline a:hover, .path, .path a, .toppath, .toppath a, a.sectioncolor, a.topmenu, a.headlinebox, a.topmenu:hover, .subtopline a, .bottomline a, .heading, .containerbox a:hover, div.listheadlinebox a, div.listheadlinebox a:hover, .linkbold, .boxtext,  .menuitem a ,.menuitem a:hover, .path a:hover, a.smallpath:hover, a:hover, a.listheadline:hover, .shortarticleboxhead, .rightcolumn .listheadline:hover, .partneredit a, .read-more a:hover
+{
+
+	text-decoration: none;
+}
+
+
+/*ARTICLE SUMMARY*/
+
+div.summary, .jobsummary
+{
+    margin: 6px;
+    padding-bottom: 6px;
+}
+
+
+/*left hand items*/
+
+.sponsorbox, .today
+{
+    border: 1px solid #CCC;
+    padding: 4px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 1px;
+} 
+
+.today
+{
+    font-weight: bold;
+}   
+
+
+/*RIGHT HAND COLUMN*/
+ 
+ 
+/*box container*/ 
+
+.containerbox
+{
+    padding: 2px;
+}
+
+.containerbox a, .containerbox  
+{
+	color: #333333;
+}
+
+/*text in boxes*/
+.black, a .black, .black a, .boxheader .black a, .boxheader, .boxheader a, .shortarticlehead, .shortarticlehead a
+{
+	color: #000000;
+}
+
+.userbox
+{
+    padding-bottom: 4px;
+    border-left: 1px solid #ccc;
+    width: 99%;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit; 
+    width: 99%; 
+    }
+    
+.userbox a:hover
+{  color: #999; }
+ 
+ 
+
+.divider
+{
+    border-bottom: 1px dotted #999; 
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;  
+    padding-top: 4px;
+    padding-bottom: 4px;  
+} 
+html>body .divider
+{
+    border-bottom: 1px dotted #999; 
+    padding-top: 4px;
+    padding-bottom: 4px;  
+}
+
+.dividerbottom
+{
+    border-bottom: 1px dotted #999;  
+    height: 2px;
+} 
+
+.boxheader
+{
+	font-weight: 800;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;  
+    font-weight: bold;
+	margin-bottom: 3px;
+	padding-bottom: 2px;
+}
+html>body .boxheader
+{
+    font-weight: bold;
+	margin-bottom: 3px;
+	padding-bottom: 2px;   
+}
+
+/*Left Menus*/
+ 
+.menubox a:hover
+{  color: #999; } 
+
+
+.menuhead
+{
+	color: #666666;
+    border-top: 1px solid #ccc;
+    font-weight: bold;
+    padding: 3px;
+}
+
+.menubox .menuhead
+{
+   background-color: #ebebeb;
+} 
+
+.userbox .menuhead
+{
+    padding: 4px;
+    font-size: xx-small;
+    voice-family: "\"}\""; /* hide rest from IE 5.x */
+	voice-family:inherit;
+	font-size: x-small;
+} 
+html>body .userbox .menuhead
+{	
+    font-size: x-small;
+}
+    
+.menuselected
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #999999;
+	padding-bottom: 2px;
+}
+
+.menuitem
+{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 4px;
+    padding-left: 4px;
+    border-top: 1px dotted #dbdbdb;
+    font-weight: bold;
+	text-decoration: none;
+}
+
+.menubox
+{
+    margin-top: 1px;
+    margin-left: 1px;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;  
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;   
+}
+html.body .menubox
+{
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;      
+}  
+
+.leftmenuaditem { 
+    align: center;
+    margin: 4px 0px;
+}
+
+
+/*EVENTS CALENDAR*/
+.bgweekend
+{
+	background-color: #a0a0a0;
+}
+
+.bgselect
+{
+	font-weight: bold;
+}
+
+
+/*GLOBAL DESIGN DETAIL*/
+hr
+{
+	color: #000000;
+	height: 1px;
+}
+
+.bglight
+{
+	background-color: #f8f8f8;
+    border-bottom: 1px solid #ffffff;
+    padding: 4px;
+    padding-bottom: 10px;
+}
+
+.bgdark
+{
+	background-color: #ebebeb;
+    border-bottom: 1px solid #ffffff;
+    padding: 4px;
+    padding-bottom: 10px;
+}
+
+.tdmini
+{
+	font-size: 1px;
+} 
+
+.sectioncolorbg
+{
+    padding: 4px;
+}
+
+.arrow
+{
+    font-weight: bold;
+    color: #666666;
+}    
+
+
+
+/*HEADER SEARCH AREA*/
+
+.searchfield, .searchfieldend
+{
+	background-color: #cccccc;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    padding-right: 10px;
+    /* Aggiunto, prima non era presente, prelevato da searchfieldend */
+    border-right: 1px solid #fff;
+
+}
+
+.searchfieldend
+{
+    border-right: 1px solid #fff;
+}
+
+.searchcells
+{
+	text-align: left;
+}
+
+.searchtext
+{
+	color: #000000;
+}
+
+.networkbox
+{
+	padding-left: 4px;
+}
+
+/*FORM STYLES*/
+
+form
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.boxtext 
+{
+	color: #666666;
+}
+
+/* background colours with dividers for forms*/
+
+.formlevel1
+{
+    background-color: #ebebeb;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #ffffff;
+}
+
+.formlevel2
+{
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #ffffff;
+}
+
+
+
+/*INPUT STYLES*/
+
+.box, .midbox, .halfbox, .searchbox
+{
+	border: 1px solid #000;
+}
+
+
+
+/* Used for author bio div block on channels, generated by the <authorbio> custom tag */
+div.authorbio  
+{ 
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 6px;
+  float: left;
+  width: 140px;
+}
+
+/*to highlight partner only tasks*/
+.partner
+{
+    background-color: #ffffff;
+    padding: 2px;
+    margin-bottom: 12px;
+    padding-left: 4px;
+    font-size: x-small;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;
+    font-size: small;
+}
+
+.partneredit
+{
+    background-color: #ffffff;
+    padding: 2px;
+    margin-bottom: 10px;
+    padding-left: 4px;
+    font-size: xx-small;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;
+    font-size: x-small; 
+    font-weight: bold;
+}
+
+.partnerboxhead
+{
+    border-bottom: 1px solid #999;
+    color: #fff;
+    font-weight: bold;
+    font-size: small;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;
+    font-size: small;  
+    margin-top: 4px;
+}
+.partnerboxhead .headline
+{
+    padding: 1px 4px;
+}
+
+
+/*for partner profile page*/
+div.profile
+{
+    margin-bottom: 16px;
+}
+
+
+
+
+/*font sizes */
+
+
+/*HEADINGS*/
+
+h1 
+{
+	color: #000000;
+	margin-top: 0px;
+	font-size: medium;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;   
+    font-size: large; 
+    margin-bottom: 1%;
+}
+html>body h1
+{
+    font-size: large; 
+    margin-bottom: 1%;
+}
+
+.factbox, .heading
+{
+	font-size: small;
+    font-weight: normal;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;   
+    font-size: medium;  
+}
+html>body .factbox, html.body .heading 
+{
+    font-size: medium; 
+    margin-bottom: 1%;
+}
+
+div .listheadlinebox .headline, div .listheadlinebox a.headline 
+{
+	font-weight: bold;
+    font-size: 80%;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;   
+    font-size: 85%;  
+}
+html>body div .listheadlinebox .headline, html>body div .listheadlinebox a.headline
+{
+    font-size: 85%; 
+}
+
+h2
+{
+    font-size: 130%;
+    font-weight: normal;
+    color: #000000;
+    margin-bottom: 1%;
+}
+
+h3
+{
+	color: #000;
+    font-size: 110%;
+    margin-top: 2px;
+	margin-bottom: 2px;
+    font-weight: bold;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;   
+    font-size:    110%;  
+}
+html>body h3
+{
+    font-size: 110%; 
+}
+
+h4
+{
+	color: #666;
+    font-size: 110%;
+    margin-top: 2px;
+	margin-bottom: 2px;
+    font-weight: bold;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;   
+    font-size:    110%;  
+}
+html>body h4
+{
+    font-size: 110%; 
+}
+
+h5
+{
+	color: #666;
+    font-size: 100%;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;   
+    font-size:    100%;  
+	margin-bottom: 1%;
+}
+html>body h5
+{
+    font-size: 100%; 
+}
+
+h6
+{
+	color: #666;
+    font-size: 100%;
+    voice-family: "\"}\"";    /*Hide from IE5+*/
+    voice-family: inherit;   
+    font-size:    100%;  
+	margin-bottom: 1%;
+}
+html>body h6
+{
+    font-size: 100%; 
+}
+
+.listheadline, a.listheadline
+{
+    color: #333333;
+    font-size: 130%;
+    voice-family: "\"}\"";    /*Hide from IE5.x*/
+    voice-family: inherit;   
+    font-size:    130%; 
+    font-weight: 500;
+	margin-top: 10px;
+	margin-bottom: 4px;
+}
+
+.articlesubheading, .related
+{
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 6px;
+    color: #333333;
+}
+
+.read-more
+{
+	font-weight: bold;
+    text-align: right;
+    font-size: xx-small;
+    voice-family: "\"}\""; /* hide rest from IE 5.x */
+	voice-family:inherit;
+	font-size: x-small;
+}
+
+/*BODY TEXT & FURNITURE*/
+
+body
+{
+    font-size: 80%;
+    voice-family: "\"}\"";  /* hide rest from IE 5.x */
+    voice-family: inherit;  
+    font-size: 0.9em;
+}
+html>body
+{ 
+    font-size: 0.9em;
+}  
+     
+.dropdowntext
+{
+    font-size: 75%;
+    voice-family: "\"}\"";   /* hide rest from IE 5.x */
+    voice-family: inherit;  
+    font-size: 85%;
+}
+html>body .dropdowntext
+{
+    font-size: 85%;
+}
+
+ li, .menuhead,  .menubullet, .description, .linkselect, .linkbold, .linknormal, .stdbutton, .okbutton, .lefttopmenuitem,  .mainsearchbox, .topoptionbox,  .subtopline, .bottomline, .check, td, th, .menulink, .byline, h3
+{
+	font-size: x-small;
+    voice-family: "\"}\""; /* hide rest from IE 5.x */
+	voice-family:inherit;
+	font-size: small;
+}
+
+
+.sponsorbox, a.path,  .menu, .menuselected, .menuarrow, .menuitem, .menubutton, .menutext, .subhead, .smallbyline, .pictext, .credit, .smallpath, .small, .smallarticle, .smallbold, .small a, .xsmall, .smallbutton, .containerbox, .containerbox div, .related, .boxheader,  .published, .shortarticleboxhead, .today
+{
+
+	font-size: xx-small;
+    voice-family: "\"}\""; /* hide rest from IE 5.x */
+	voice-family:inherit;
+	font-size: x-small;
+}
+
+.path, .boxtext, .topmenuitem, .topmenuitemselected, .searchoptionbox, .searchtext
+{
+    font-size: 80%;
+    voice-family: "\"}\"";   /* hide rest from IE 5.x */
+    voice-family: inherit;  
+    font-size: 90%;
+}
+html>body .path, html>body .boxtext, html>body .topmenuitem, html>body .topmenuitemselected, html>body .searchoptionbox, html>body .searchtext
+{
+    font-size: 90%;
+}
+
+
+div.path
+{
+	padding: 2px;
+	padding-left: 4px;
+}
+
+.straightline
+{	
+    border-bottom: 1px solid #999; 
+}
+
+.spacer
+{
+	padding-bottom: 2px;
+}
+
+.boxtext 
+{
+	font-weight: bold;
+	margin-bottom: 1px;
+}
+
+.smallbold, .linkbold 
+{
+	font-weight: bold;
+}
+
+.smallarticle
+{
+	margin-top: 4px;
+	margin-left: 4px;
+}
+
+.list
+{
+	margin-top: 5px;
+	margin-bottom: 10px;
+	padding: 4px;
+}
+
+th, th .p
+{
+	font-weight: bold;
+	text-align: left;
+	color: #666666;
+}
+
+th.right
+{
+	text-align: right;
+}
+
+
+
+.bgcurrent .boxtext, .bgcurrent .path, .bgcurrent .small
+{
+	color: #ffffff;
+}
+
+.bgselect
+{
+	font-weight: bold;
+}
+
+.linkselect
+{
+	color: #000000;
+	font-weight: bold;
+}
+
+.linknormal
+{
+	color: #000000;
+}
+
+.subtopline
+{
+	padding-bottom: 8px;
+}
+
+/*BUTTONS*/
+
+.stdbutton
+{
+	font-weight: normal;
+}
+ 
+.okbutton 
+{
+	font-weight: bold;
+}
+
+.menubutton
+{
+	font-weight: bold;
+}
+
+
+
+/*INPUT*/
+.box
+{
+	width: 340px;
+}
+
+.midbox
+{
+	width: 220px;
+}
+
+.halfbox
+{
+	width: 170px;
+}
+
+
+/*HEADER SEARCH AREA*/
+
+.mainsearchbox
+{
+	width: 180px;
+}
+
+.searchcells
+{
+	padding-top: 2px;
+    padding-bottom: 2px;
+	padding-left: 6px;
+}
+
+.searchbox
+{
+	width: 120px;
+}
+
+
+/*BOTTOM LINKS AREA*/
+
+.bottomline
+{
+	padding: 4px;
+	padding-bottom: 8px;
+}
+
+
+/*GLOBAL DESIGN DETAIL*/
+
+.leftpadding
+{
+	padding-left: 3px;
+}
+
+.compulsary
+{
+	padding-right: 2px;
+	color: #a00000;
+	font-weight: bold;
+}
+
+.error
+{
+	margin-top: 2px;
+	font-weight: bold;
+    color: #a00000;
+}
+
+ul
+{
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.description
+{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.factbox
+{
+	padding: 8px;
+	background-color: #ebebeb;
+	border-left: solid 1px;
+	font-weight: bold;
+	color: #666666;
+	line-height: 150%;
+}
+
+#mainContent {
+    margin-top: 8px;
+    }
+    
+#mainContent .summarytext {
+	font-size: 80%; 
+    voice-family: "\"}\"";   /* hide rest from IE 5.x */
+    voice-family: inherit;
+    font-size: 85%;   
+    }  
+html>body #mainContent .summarytext {
+    font-size: 85%;   
+}    
+
+#mainContent .summarytext ul li, #mainContent .summarytext ol li {
+    font-size: 100%; 
+    voice-family: "\"}\"";   /* hide rest from IE 5.x */
+    voice-family: inherit;
+    font-size: 100%;     
+    }
+html>body #mainContent .summarytext {
+    font-size: 85%;   
+} 
+
+#mainContent .summarytext ul li, #mainContent .summarytext ol li {
+    font-size: 100%; 
+    voice-family: "\"}\"";   /* hide rest from IE 5.x */
+    voice-family: inherit;
+    font-size: 100%;     
+}   
+
+
+.jobsummary .boxtext
+{
+    font-size: xx-small; 
+    voice-family: "\"}\"";   /* hide rest from IE 5.x */
+    voice-family: inherit;
+    font-size: x-small;
+}
+html>body .jobsummary .boxtext
+{
+    font-size: x-small;
+}
+
+
+/*Styles for OneWorld Guides pages*/
+
+.guidebox
+{
+    padding: 0px;
+    background-color: #A5E1A5;
+}
+
+
+.guideshead, .guideshead a
+{
+    font-size: x-large;
+    font-family: Georgia, Times, Serif;
+    background-color: #A5E1A5;
+    color: #000;
+    font-weight: normal;
+    voice-family: "\"}\"";   
+    voice-family: inherit;
+    font-size: xx-large;
+    text-decoration: none;
+}
+html>body .guideshead {
+    font-size: xx-large;
+}
+
+.guideshead:hover a
+{
+    text-decoration: underline;
+}
+.guide
+{
+    font-size: x-large;
+    font-family: Georgia, Times, Serif;
+    background-color: #A5E1A5;
+    color: #FFF;
+    font-weight: normal; 
+    margin-bottom: 6px; 
+    voice-family: "\"}\"";   
+    voice-family: inherit;
+    font-size: xx-large;
+}
+html>body .guide {
+    font-size: xx-large;
+}
+
+.guideintro, .guideintro a
+{
+    padding: 4px;
+    background-color: #D6F5D6;
+    font-size: 100%;
+    color: #000;
+    font-family: Verdana, Georgia, Times, Serif;
+    font-weight: bold;
+    line-height: 140%;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.guideintro a
+{
+    text-decoration: underline;
+}
+
+.guideintro:hover a
+{
+    text-decoration: none;
+}
+
+
+.guidelink, .guidelink a
+{  
+    font-size: x-small;
+    font-family: Verdana, Georgia, Times, Serif;
+    font-weight: bold;
+    color: #000;
+    margin-right: 4px;
+    margin-left: 4px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    voice-family: "\"}\"";   
+    voice-family: inherit;
+    font-size: small;
+}
+html>body .guidelink, .guidelink a {
+    font-size: small;
+}
+
+.guidelink:hover a
+{  
+    text-decoration: underline;
+}
+
+
+/* Search results category highlight*/
+
+.search_insertion
+{
+    border: 1px dotted #33CC33;
+    margin: 10px;
+    padding: 4px;
+    background-color: #CCFFCC;
+}
+
+.search_insertion .summarytext
+{
+    margin-left: 16px;
+}   
+
+.category_result
+{
+    font-size: small;
+    voice-family: "\"}\"";   
+    voice-family: inherit;
+    font-size: 110%;
+    font-weight: bold;
+}
+html>body .category_result {
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.categoryres_arrow
+{
+    color: #990000;
+    font-weight: bold
+}
+
+
+
+
+
+/*new style for RSS feed examples*/
+
+.example
+{
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 4px;
+    font-family: Courier, Times, Sans Serif;
+    background-color: #fff;
+}
+
+
+.partnerlogo
+{
+   background-color: #fff;
+   padding: 4px;
+   margin: 2px;
+}
+
+
+/*new style to create top margin on all article list and search results items, starting with partner serach results page*/
+.listitem
+{
+    margin-top: 16px;   
+}
+
+.top
+{
+    text-align: right;
+    margin: 6px 0px 0px 0px;
+}
+
+.top, .top a
+{
+    font-weight: bold;
+    font-size: xx-small;
+    text-decoration: none;
+    voice-family: "\"}\"";   
+    voice-family: inherit;
+    font-size: x-small;
+}
+html>body .top, html>body .top a
+{
+    font-size: x-small;
+}
+
+.top a:hover
+{
+    text-decoration: underline;
+}
+
+.banners
+{
+    margin: 4px 0px 4px 6px;
+    font-size: xx-small;
+    voice-family: "\"}\"";   
+    voice-family: inherit;
+    font-size: x-small;
+}
+html>body .banners
+{
+    font-size: x-small;
+}
+
+/*DONT THINK THESE ARE USED*/
+
+/*a.articlelink
+{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+th .p
+{
+	font-weight: bold;
+	text-align: left;
+	color: #666666;
+}
+
+th.right
+{
+	text-align: right;
+}
+
+a.byline
+{
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.bgcurrent .boxtext, 
+.bgcurrent .path, 
+.bgcurrent .small
+
+{
+	color: #ffffff;
+}
+
+.grey, .grey a
+{
+	color: #666666;
+}
+
+.menulink
+{
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+}
+
+.menutext 
+{
+	margin-bottom: 4px;
+}
+
+.listspacer
+{
+	padding-top: 4px;
+}
+
+
+a.categorylink:hover
+{
+	text-decoration: underline;
+}
+
+a.categorylink, a.articlelink
+{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.categorylink
+{
+	padding: 1px;
+	padding-left: 0px;
+	padding-right: 2px;
+}
+
+a.categorylink
+{
+    color: #404040;
+    background-color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.articlelink:hover
+{
+	text-decoration: underline;
+}
+
+/*div.byline
+{
+	padding-top: 4px; 
+	padding-bottom: 8px; 
+}
+
+div.smallbyline
+{
+	padding-top: 0px; 
+	padding-bottom: 4px; 
+}
+
+a.byline
+{
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.byline:hover
+{
+	text-decoration: underline;
+}
+
+*/

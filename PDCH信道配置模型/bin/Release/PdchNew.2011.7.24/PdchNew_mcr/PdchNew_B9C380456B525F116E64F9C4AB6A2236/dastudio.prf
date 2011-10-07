@@ -1,0 +1,38 @@
+#
+#DAStudio Preference File
+#
+
+
+[DAStudio DDG]
+DDGFontSize=8
+
+[DAStudio Model Explorer]
+MEGeometry=233 84 908 634
+MESearchOptions_DeepSearch=1
+MESearchOptions_EvaluateProperties=0
+MESearchOptions_MatchCase=0
+MESearchOptions_MatchWholeString=0
+MESearchOptions_RefineAnd=0
+MESearchOptions_RegularExpression=1
+MESearchOptions_SearchLinks=0
+MESearchOptions_SearchMasks=0
+MESplitterPositions=503 0 136 759 251 503 
+METreeClassNames=DAStudio.WorkspaceNode,Simulink.BlockDiagram,Simulink.ConfigSet,Simulink.ModelAdvisor,Simulink.Root,Simulink.code,
+METreeClassRecord_DAStudio.WorkspaceNode::PropertyList=Name,
+METreeClassRecord_Simulink.BlockDiagram::ObjectTypes=DAStudio.WorkspaceNode,Simulink.Clock,Simulink.code,Simulink.ConfigSet,Simulink.DiscretePulseGenerator,Simulink.Gain,Simulink.Integrator,Simulink.ModelAdvisor,Simulink.Mux,Simulink.Scope,Simulink.SFunction:S-function: limintm,Simulink.Sin,Simulink.StateSpace,Simulink.Sum,Simulink.ToWorkspace,Simulink.TransferFcn,
+METreeClassRecord_Simulink.BlockDiagram::PropertyList=Name,BlockType,MaskType,OutMin,OutMax,OutDataTypeStr,SampleTime,Port,IconDisplay,PortWidth,SignalType,SamplingMode,FrameStatus,LatchInput,
+METreeClassRecord_Simulink.ConfigSet::ObjectTypes=Simulink.DataIOCC,Simulink.DebuggingCC,Simulink.HardwareCC,Simulink.ModelReferenceCC,Simulink.OptimizationCC,Simulink.RTWCC,Simulink.SolverCC,
+METreeClassRecord_Simulink.ConfigSet::PropertyList=Name,StopTime,SaveOutput,ProdHWDeviceType,InlineParams,SolverType,SaveTime,SaveState,
+METreeClassRecord_Simulink.ModelAdvisor::PropertyList=Name,
+METreeClassRecord_Simulink.Root::ObjectTypes=DAStudio.WorkspaceNode,Simulink.BlockDiagram,
+METreeClassRecord_Simulink.Root::PropertyList=Name,ModelVersion,LastSaved,LibraryLinkDisplay,ModelBrowserVisibility,Dirty,Description,
+METreeClassRecord_Simulink.code::PropertyList=Name,
+MEViewOptions_MarkUnrelatedProperties=0
+MEViewOptions_ShowCustomizePropsPane=0
+MEViewOptions_ShowDynamicDialogs=1
+MEViewOptions_ShowPropertyDetails=1
+MEViewOptions_StackListnTree=0
+
+[General]
+MatlabRelease=2007b
+
