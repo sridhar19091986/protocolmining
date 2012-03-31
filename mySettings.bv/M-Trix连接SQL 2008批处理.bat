@@ -1,1 +1,1 @@
-reg add "HKEY_USERS\S-1-5-21-1409082233-764733703-1177238915-500\Software\CBV\M-TRiX\M-TRiX" /v m_strDbConnPrefix /t  REG_SZ /d  "Provider=SQLNCLI10;Data Source=.\SQLEXPRESS;Integrated Security=SSPI;"  /f
+reg add "HKEY_USERS\S-1-5-21-1409082233-764733703-1177238915-500\Software\CBV\M-TRiX\M-TRiX" /v m_strDbConnPrefix /t  REG_SZ /d  "Provider=SQLNCLI10.1;Data Source=localhost;Integrated Security=SSPI;Persist Security Info=False;"  /f
